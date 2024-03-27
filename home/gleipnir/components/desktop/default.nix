@@ -6,6 +6,13 @@
     rofi
     transmission_4-gtk
     youtube-music
+    playerctl
+    noto-fonts-cjk
+    asusctl
+    redshift
     anki
+    onedriver
+    udiskie
+    keepassxc
   ];
 }
