@@ -6,7 +6,7 @@
   fonts.fontconfig.enable = true;
 
   home = {
-    username = lib.mkDefault "fer";
+    username = lib.mkDefault "gleipnir";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = "23.11";
     sessionVariables = {
@@ -34,7 +34,7 @@
       settings = {
         shell = "fish";
         single_window_padding_width = 10;
-        background_opacity = "0.9";
+        background_opacity = "0.8";
       };
       font = {
         name = "JetBrainsMono NFM";

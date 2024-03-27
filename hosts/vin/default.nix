@@ -1,14 +1,14 @@
 { pkgs, inputs, outputs, ... }:
 let
   image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/afriguez/dotfiles/624d9ab011fcfbcd41a0af4451cc160531b87abe/Downloads/Wallpaper/n_interlude_64.png";
-    sha256 = "11xdxxlayk1byxvwp7l1280c715y5c7gzsd0i8d6kchykdsymkzf";
+    url = "https://github.com/Adrephos/dotfiles/blob/main/Pictures/Wallpaper/Dracula/995185.png";
+    sha256 = lib.fakeSha256;
   };
 in
 {
   imports = [
     ./hardware-configuration.nix
-    ./common/users/fer
+    ./common/users/gleipnir
     ./common/generic
 
     inputs.home-manager.nixosModules.home-manager
@@ -18,7 +18,7 @@ in
 
   networking = {
     #firewall.enable = false;
-    hostName = "marija";
+    hostName = "vin";
     networkmanager.enable = true;
   };
 
@@ -33,21 +33,13 @@ in
           theme = "chili";
         };
       };
-    };
-    postgresql = {
-      enable = true;
-      authentication = pkgs.lib.mkOverride 10 ''
-        #type database DBuser auth-method
-        local all      all    trust
-        host  all all 127.0.0.1/32 trust
-        host  all all ::1/128      trust
-      '';
+      desktoManager.cinnamon.enable = true;
+      windowManager.dwm.enable = true;
     };
   };
 
   programs = {
     steam.enable = true;
-    hyprland.enable = true;
     noisetorch.enable = true;
   };
 
@@ -63,11 +55,27 @@ in
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    prismlauncher
-    discord
+    go
+
     cmake
-    nodejs
+    unzip
+
+    # Haskell env
+    stack
+    cabal-install
+    haskell-language-server
+
+    # Erlang
+    gleam
     elixir
+
+    # de juguete
+    nodejs
+    python
+
+    # La vida
+    discord
+    prismlauncher
     (sddm-chili-theme.override {
       themeConfig = {
         background = image;

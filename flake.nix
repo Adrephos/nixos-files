@@ -15,15 +15,15 @@
     {
       inherit lib;
       nixosConfigurations = {
-        marija = lib.nixosSystem {
+        vin = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/marija minegrub-theme.nixosModules.default ];
+          modules = [ ./hosts/vin minegrub-theme.nixosModules.default ];
         };
       };
 
       homeConfigurations = {
-        "fer@marija" = lib.homeManagerConfiguration {
-          modules = [ ./home/fer/marija.nix ];
+        "gleipnir@vin" = lib.homeManagerConfiguration {
+          modules = [ ./home/gleipnir/vin.nix ];
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };

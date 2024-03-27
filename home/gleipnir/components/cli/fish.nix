@@ -17,8 +17,6 @@ in
       ls = "ls -l --color=auto";
       nnn = "nnn -d -e -H -r";
       cat = "bat --theme Dracula";
-      cdw = "cd $HOME/workspace && nnn";
-      cdf = "cd $(find ~/ -type d | fzf)";
     };
     interactiveShellInit = ''
             set -U fish_greeting
@@ -28,7 +26,7 @@ in
             set kitty_count (pgrep -c -f "kitty")
 
             if test $kitty_count -eq 1
-              neofetch --kitty ~/Downloads/pandemonica.png --size 375px
+              neofetch --kitty ~/Pictures/onefetch/diamond.jpg --size 375px
             end
 
             function cd
@@ -36,7 +34,7 @@ in
       	git rev-parse 2>/dev/null
 
       	if test $status -eq 0
-      	  onefetch -d dependencies authors contributors license -i /home/${config.home.username}/Downloads/Wallpaper/n_interlude_64.png --image-protocol kitty
+      	  onefetch -d dependencies authors contributors license -i ~/Pictures/onefetch/diamond.jpg --image-protocol kitty
       	end
             end
     '';

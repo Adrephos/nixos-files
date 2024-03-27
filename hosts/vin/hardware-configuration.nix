@@ -5,35 +5,27 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [(modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/e201b847-64e4-4bef-89c3-9b912734ef16";
+      device = "/dev/disk/by-uuid/a1d79ced-845a-45b5-91fb-526a69ad4737";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/08A7-18F8";
+      device = "/dev/disk/by-uuid/FA80-86B7";
       fsType = "vfat";
     };
 
-  fileSystems."/home/fer/external" =
-    {
-      device = "/dev/disk/by-uuid/034cbfea-a2e6-4d03-ac93-48a1cf4bc545";
-      fsType = "ext4";
-    };
-
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/70212e1f-5d3b-471d-957d-ac350459ce04"; }];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

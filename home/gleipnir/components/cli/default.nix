@@ -5,6 +5,7 @@
   ];
 
   home.packages = with pkgs; [
+    tree
     neovim
     p7zip
     htop
@@ -17,8 +18,6 @@
     fzf
     onefetch
     wget
-    nb
-    krita
     mpv
     feh
     (nnn.override { withNerdIcons = true; })

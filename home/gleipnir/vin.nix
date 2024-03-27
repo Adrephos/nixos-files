@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./components/desktop/hyprland
+    ./components/desktop
 
     ./components/generic
   ];
