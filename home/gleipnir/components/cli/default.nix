@@ -20,6 +20,7 @@
     wget
     mpv
     feh
+    zellij
     (nnn.override { withNerdIcons = true; })
   ];
 }
