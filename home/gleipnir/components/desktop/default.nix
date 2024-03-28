@@ -8,7 +8,6 @@
     youtube-music
     playerctl
     noto-fonts-cjk
-    asusctl
     redshift
     anki
     onedriver
