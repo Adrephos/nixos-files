@@ -14,5 +14,10 @@
     onedriver
     udiskie
     keepassxc
+    xclip
+    xxd
+    psmisc
+    gnumake
+    flameshot
   ];
 }
