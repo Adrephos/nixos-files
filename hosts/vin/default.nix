@@ -149,6 +149,9 @@ in
     pavucontrol
     pulseaudio
     prismlauncher
+
+    pkgs.haskellPackages.greenclip
+
     (sddm-chili-theme.override {
       themeConfig = {
         background = image;
@@ -156,5 +159,7 @@ in
     })
   ];
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
   system.stateVersion = "23.11";
 }
