@@ -15,6 +15,7 @@ in
     enable = true;
     shellAliases = {
       ls = "ls -l --color=auto";
+      ll = "ls -la --color=auto";
       nnn = "nnn -d -e -H -r";
       cat = "bat --theme Dracula";
     };
@@ -31,11 +32,11 @@ in
 
             function cd
               builtin cd $argv
-      	git rev-parse 2>/dev/null
+              git rev-parse 2>/dev/null
 
-      	if test $status -eq 0
-      	  onefetch -d dependencies authors contributors license -i ~/Pictures/onefetch/diamond.jpg --image-protocol kitty
-      	end
+              if test $status -eq 0
+                onefetch -d dependencies authors contributors license -i /home/gleipnir/Pictures/onefetch/diamond.jpg --image-protocol kitty
+              end
             end
     '';
   };
