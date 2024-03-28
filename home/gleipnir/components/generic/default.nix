@@ -28,7 +28,7 @@
       settings = {
         shell = "fish";
         single_window_padding_width = 10;
-        background_opacity = "0.8";
+        background_opacity = "0.9";
       };
       font = {
         name = "JetBrainsMono NFM";
