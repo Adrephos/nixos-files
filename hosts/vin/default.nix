@@ -24,6 +24,8 @@ in
 
   boot.loader.grub.minegrub-theme.enable = true;
 
+  powerManagement.enable = true;
+
   services = {
     blueman.enable = true;
     xserver = {
@@ -162,6 +164,7 @@ in
     # de juguete
     nodejs
     python3
+    python311Packages.pip
 
     # La vida
     discord
@@ -180,5 +183,6 @@ in
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+
   system.stateVersion = "23.11";
 }
