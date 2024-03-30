@@ -18,6 +18,7 @@ in
       ll = "ls -la --color=auto";
       nnn = "nnn -d -e -H -r";
       cat = "bat --theme Dracula";
+      venv = "source venv/bin/activate.fish";
     };
     interactiveShellInit = ''
             set -U fish_greeting
