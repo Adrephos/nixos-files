@@ -5,6 +5,10 @@
 
   fonts.fontconfig.enable = true;
 
+  qt.enable = true;
+  qt.platformTheme = "qtct";
+  qt.style.name = "kvantum";
+
   home = {
     username = lib.mkDefault "gleipnir";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
@@ -15,7 +19,16 @@
     };
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
+      (catppuccin-kvantum.override {
+        accent = "Mauve";
+        variant = "Mocha";
+      })
     ];
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.theme = "Catppuccin-Mocha-Mauve";
   };
 
   programs = {

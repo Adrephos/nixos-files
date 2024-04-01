@@ -24,10 +24,7 @@ in
 
   boot.loader.grub.minegrub-theme.enable = true;
 
-  powerManagement.enable = true;
-
   services = {
-    blueman.enable = true;
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
@@ -103,8 +100,8 @@ in
     pulseaudio.enable = false;
 
     bluetooth = {
-      enable = true; # enables support for Bluetooth
-      powerOnBoot = true; # powers up the default Bluetooth controller on boot
+      enable = false; # enables support for Bluetooth
+      powerOnBoot = false; # powers up the default Bluetooth controller on boot
     };
 
     pulseaudio.extraConfig = "load-module module-combine-sink";
