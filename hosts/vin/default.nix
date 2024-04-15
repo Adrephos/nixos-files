@@ -93,11 +93,14 @@ in
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      setLdLibraryPath = true;
 
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
     };
     pulseaudio.enable = false;
+
+    opentabletdriver.enable = true;
 
     bluetooth = {
       enable = false; # enables support for Bluetooth
@@ -110,7 +113,7 @@ in
     nvidia = {
       modesetting.enable = true;
 
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
 
       open = false;
@@ -136,8 +139,6 @@ in
       hardware.nvidia = {};
     };
   };
-
-
 
   virtualisation.docker.enable = true;
 
