@@ -19,6 +19,7 @@ in
       nnn = "nnn -d -e -H -r";
       cat = "bat --theme Dracula";
       venv = "source venv/bin/activate.fish";
+      ssh = "env TERM=xterm-256color ssh";
     };
     interactiveShellInit = ''
             set -U fish_greeting
