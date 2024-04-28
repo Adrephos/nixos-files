@@ -5,7 +5,9 @@
   ];
 
   home.packages = with pkgs; [
-    tree
+    eza
+    thefuck
+    zoxide
     neovim
     p7zip
     htop
