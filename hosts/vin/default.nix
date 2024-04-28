@@ -22,7 +22,10 @@ in
     networkmanager.enable = true;
   };
 
-  boot.loader.grub.minegrub-theme.enable = true;
+  boot.loader.grub = {
+    minegrub-theme.enable = true;
+    configurationLimit = 5;
+  };
 
   services = {
     xserver = {
@@ -142,12 +145,22 @@ in
 
   virtualisation.docker.enable = true;
 
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+
+  environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
     go
 
     cmake
     gnumake
     unzip
+
+    # Tools
+    obsidian
+    postman
+    openvpn
+    networkmanager-openvpn
 
     # Haskell env
     stack
