@@ -10,7 +10,8 @@
     zoxide
     neovim
     p7zip
-    htop
+    btop
+    ncdu
     bat
     socat
     jq
