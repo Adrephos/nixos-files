@@ -17,28 +17,32 @@ in
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   networking = {
-    #firewall.enable = false;
+    firewall.enable = false;
     hostName = "vin";
     networkmanager.enable = true;
   };
 
   boot.loader.grub = {
-    minegrub-theme.enable = true;
+    theme = pkgs.stdenv.mkDerivation {
+      pname = "sekiro_grub_theme";
+      version = "1.0";
+      src =pkgs.fetchFromGitHub {
+        owner = "semimqmo";
+        repo = "sekiro_grub_theme";
+        rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+        hash = "sha256-wTr5S/17uwQXkWwElqBKIV1J3QUP6W2Qx2Nw0SaM7Qk=";
+      };
+      installPhase = "cp -r Sekiro $out";
+    };
     configurationLimit = 5;
   };
 
   services = {
+    gnome.gnome-keyring.enable = true;
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
       enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-          theme = "chili";
-        };
-        defaultSession = "xfce";
-      };
       desktopManager = {
         # cinnamon.enable = true;
         xterm.enable = false;
@@ -51,12 +55,19 @@ in
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
-          i3status # gives you the default i3 status bar
-          i3lock #default i3 screen locker
+          i3status
+          i3lock
           i3-gaps
         ];
       };
       videoDrivers = ["nvidia"];
+    };
+    displayManager = {
+      sddm = {
+        enable = true;
+        theme = "chili";
+      };
+      defaultSession = "xfce";
     };
     picom = {
       enable = true;
