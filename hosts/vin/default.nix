@@ -98,6 +98,7 @@ in
   };
 
   programs = {
+    adb.enable = true;
     steam.enable = true;
     noisetorch.enable = true;
   };
@@ -161,6 +162,10 @@ in
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
+    # Development
+    godot_4
+    android-studio
+
     go
 
     cmake
