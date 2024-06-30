@@ -22,6 +22,7 @@ in
     networkmanager.enable = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub = {
     theme = pkgs.stdenv.mkDerivation {
       pname = "sekiro_grub_theme";
@@ -34,7 +35,7 @@ in
       };
       installPhase = "cp -r Sekiro $out";
     };
-    configurationLimit = 5;
+    configurationLimit = 3;
   };
 
   services = {
@@ -76,39 +77,26 @@ in
         rounded-corners-exclude = [ "class_g = 'i3bar'" ];
       };
     };
-    tlp = {
+    asusd = {
       enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 20;
-
-        #Optional helps save long term battery health
-        START_CHARGE_THRESH_BAT1 = 40; # 40 and bellow it starts to charge
-        STOP_CHARGE_THRESH_BAT1 = 80; # 80 and above it stops charging
-      };
+      enableUserService = true;
     };
+    power-profiles-daemon.enable = true;
   };
 
   programs = {
     adb.enable = true;
     steam.enable = true;
     noisetorch.enable = true;
+    nix-ld.enable = true;
   };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      setLdLibraryPath = true;
+      # driSupport = true;
+      enable32Bit = true;
+      # setLdLibraryPath = true;
 
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
@@ -117,29 +105,24 @@ in
 
     opentabletdriver.enable = true;
 
-    bluetooth = {
-      enable = false; # enables support for Bluetooth
-      powerOnBoot = false; # powers up the default Bluetooth controller on boot
-    };
+    bluetooth = { enable = false; };
 
     pulseaudio.extraConfig = "load-module module-combine-sink";
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
+      open = false;
+      nvidiaSettings = true;
+
       modesetting.enable = true;
 
       powerManagement.enable = true;
       powerManagement.finegrained = false;
 
-      open = false;
-
-      nvidiaSettings = true;
-
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      
+
       prime = {
         sync.enable = true;
-
         amdgpuBusId = "PCI:4:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -151,7 +134,24 @@ in
       system.nixos.tags = [ "on-the-go" ];
       boot.initrd.kernelModules = [ "amdgpu" ];
       services.xserver.videoDrivers = [ "amdgpu" ];
-      hardware.nvidia = {};
+
+      boot.extraModprobeConfig = ''
+        blacklist nouveau
+        options nouveau modeset=0
+      '';
+
+      services.udev.extraRules = ''
+        # Remove NVIDIA USB xHCI Host Controller devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA USB Type-C UCSI devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA Audio devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA VGA/3D controller devices
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+      '';
+
+      boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
     };
   };
 
@@ -163,8 +163,10 @@ in
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
     # Development
+    linuxHeaders
     godot_4
     android-studio
+    scrcpy
 
     go
 
@@ -209,7 +211,7 @@ in
   ];
 
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
+  system.autoUpgrade.allowReboot = true;
 
   system.stateVersion = "23.11";
 }
