@@ -39,7 +39,12 @@ in
   };
 
   services = {
+    blueman.enable = true;
     gnome.gnome-keyring.enable = true;
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
@@ -61,6 +66,7 @@ in
           i3-gaps
         ];
       };
+      windowManager.bspwm.enable = true;
       videoDrivers = ["nvidia"];
     };
     displayManager = {
@@ -72,10 +78,10 @@ in
     };
     picom = {
       enable = true;
-      settings = {
-        corner-radius = 10;
-        rounded-corners-exclude = [ "class_g = 'i3bar'" ];
-      };
+      # settings = {
+      #   corner-radius = 10;
+      #   rounded-corners-exclude = [ "class_g = 'i3bar'" ];
+      # };
     };
     asusd = {
       enable = true;
@@ -105,9 +111,17 @@ in
 
     opentabletdriver.enable = true;
 
-    bluetooth = { enable = false; };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
 
-    pulseaudio.extraConfig = "load-module module-combine-sink";
+    # pulseaudio.extraConfig = "load-module module-combine-sink";
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
@@ -173,18 +187,30 @@ in
     cmake
     gnumake
     unzip
+    teams-for-linux
 
     # Tools
+    bruno
     obsidian
     postman
     openvpn
     networkmanager-openvpn
+    gpu-screen-recorder-gtk
+
+    # Scala
+    sbt
+    scala
+    scala-cli
+    ammonite
+    scalafmt
 
     # Haskell env
     stack
     cabal-install
     haskell-language-server
-    ghc
+    # ghc
+    haskell.compiler.ghc810
+
 
     # Erlang
     gleam
