@@ -178,8 +178,6 @@ in
   environment.systemPackages = with pkgs; [
     # Development
     linuxHeaders
-    godot_4
-    android-studio
     scrcpy
 
     go
@@ -192,7 +190,6 @@ in
     # Tools
     bruno
     obsidian
-    postman
     openvpn
     networkmanager-openvpn
     gpu-screen-recorder-gtk
