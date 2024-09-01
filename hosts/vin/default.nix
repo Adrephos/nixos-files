@@ -22,7 +22,6 @@ in
     networkmanager.enable = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub = {
     theme = pkgs.stdenv.mkDerivation {
       pname = "sekiro_grub_theme";
@@ -41,16 +40,11 @@ in
   services = {
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
-    ollama = {
-      enable = true;
-      acceleration = "cuda";
-    };
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
       enable = true;
       desktopManager = {
-        # cinnamon.enable = true;
         xterm.enable = false;
         xfce = {
           enable = true;
@@ -74,14 +68,10 @@ in
         enable = true;
         theme = "chili";
       };
-      defaultSession = "xfce";
+      defaultSession = "xfce+i3";
     };
     picom = {
       enable = true;
-      # settings = {
-      #   corner-radius = 10;
-      #   rounded-corners-exclude = [ "class_g = 'i3bar'" ];
-      # };
     };
     asusd = {
       enable = true;
@@ -175,6 +165,7 @@ in
   virtualisation.virtualbox.host.enable = true;
 
   environment.homeBinInPath = true;
+  nixpkgs.config.permittedInsecurePackages = [ "electron-29.4.6" ];
   environment.systemPackages = with pkgs; [
     # Development
     linuxHeaders
@@ -182,10 +173,11 @@ in
 
     go
 
+    gcc
+
     cmake
     gnumake
     unzip
-    teams-for-linux
 
     # Tools
     bruno
