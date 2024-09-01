@@ -9,6 +9,22 @@
   qt.platformTheme.name = "qtct";
   qt.style.name = "kvantum";
 
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "vanilla-dmz";
+      package = pkgs.vanilla-dmz;
+    };
+    iconTheme = {
+      name = "papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = {
+      name = "dracula";
+      package = pkgs.dracula-theme;
+    };
+  };
+
   home = {
     username = lib.mkDefault "gleipnir";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
