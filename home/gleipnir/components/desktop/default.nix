@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     firefox
+    chromium
+    okular
     dunst
     libnotify
     rofi
