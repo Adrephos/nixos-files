@@ -5,7 +5,6 @@
     inputs@{ self
     , nixpkgs
     , home-manager
-    , minegrub-theme
     , ...
     }:
     let
@@ -17,7 +16,7 @@
       nixosConfigurations = {
         vin = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/vin minegrub-theme.nixosModules.default ];
+          modules = [ ./hosts/vin ];
         };
       };
 
@@ -37,7 +36,5 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 }
