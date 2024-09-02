@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     firefox
+    obs-studio
     chromium
     okular
     dunst
