@@ -31,7 +31,7 @@ in
       set kitty_count (pgrep -c -f "kitty")
 
       if test $kitty_count -eq 1
-        neofetch --kitty ~/Pictures/onefetch/diamond.jpg --size 375px
+        neofetch --kitty ~/Pictures/onefetch/asuka.jpg --size 375px
       end
 
       function cd
