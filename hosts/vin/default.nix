@@ -186,6 +186,9 @@ in
     networkmanager-openvpn
     gpu-screen-recorder-gtk
 
+    # Learning
+    exercism
+
     # Scala
     sbt
     scala
