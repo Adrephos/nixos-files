@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     firefox
+    brave
     obs-studio
     chromium
     okular
