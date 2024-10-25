@@ -167,19 +167,24 @@ in
   environment.homeBinInPath = true;
   nixpkgs.config.permittedInsecurePackages = [ "electron-29.4.6" ];
   environment.systemPackages = with pkgs; [
+    # Java Zzzz
+    jdk
+    jdk11
+    jdk22
+    jetbrains.idea-community
+    gradle
+
     # Development
-    linuxHeaders
-    scrcpy
-
     go
-
     gcc
-
+    scrcpy
+    linuxHeaders
     cmake
     gnumake
-    unzip
 
     # Tools
+    wineWowPackages.stable
+    unzip
     bruno
     obsidian
     openvpn
@@ -214,7 +219,9 @@ in
     python311Packages.pip
 
     # La vida
+    stremio
     discord
+    vesktop
     pavucontrol
     pulseaudio
     prismlauncher
