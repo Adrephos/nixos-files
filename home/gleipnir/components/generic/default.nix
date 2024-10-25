@@ -37,8 +37,8 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
       (catppuccin-kvantum.override {
-        accent = "Mauve";
-        variant = "Mocha";
+        accent = "mauve";
+        variant = "mocha";
       })
     ];
   };
@@ -57,7 +57,7 @@
 
     kitty = {
       enable = true;
-      theme = "Catppuccin-Macchiato";
+      themeFile = "Catppuccin-Macchiato";
       settings = {
         shell = "fish";
         single_window_padding_width = 10;

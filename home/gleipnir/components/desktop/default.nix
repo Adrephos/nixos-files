@@ -11,7 +11,7 @@
     transmission_4-gtk
     youtube-music
     playerctl
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     redshift
     anki
     onedriver

@@ -90,9 +90,7 @@ in
   hardware = {
     graphics = {
       enable = true;
-      # driSupport = true;
       enable32Bit = true;
-      # setLdLibraryPath = true;
 
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
@@ -111,7 +109,6 @@ in
       };
     };
 
-    # pulseaudio.extraConfig = "load-module module-combine-sink";
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
@@ -165,7 +162,6 @@ in
   virtualisation.virtualbox.host.enable = true;
 
   environment.homeBinInPath = true;
-  nixpkgs.config.permittedInsecurePackages = [ "electron-29.4.6" ];
   environment.systemPackages = with pkgs; [
     # Java Zzzz
     jdk
