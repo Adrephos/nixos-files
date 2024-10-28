@@ -31,21 +31,26 @@ in
       set kitty_count (pgrep -c -f "kitty")
 
       if test $kitty_count -eq 1
-        neofetch --kitty ~/Pictures/onefetch/asuka.png --size 375px
+        neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
       end
 
       function cd
-        builtin cd $argv
-        git rev-parse 2>/dev/null
+        z $argv
+        set git_root (git rev-parse --show-toplevel 2>/dev/null)
 
-        if test $status -eq 0
-          onefetch -d dependencies authors contributors license -i /home/gleipnir/Pictures/onefetch/diamond.jpg --image-protocol kitty
+        if test -n "$git_root"
+          if test "$git_root" != "$last_git_root"
+            clear
+            onefetch -d dependencies authors contributors license -i /home/${config.home.username}/Pictures/onefetch/marcille.png --image-protocol kitty
+            set -g last_git_root "$git_root"
+          end
+        else
+          set -g last_git_root ""
         end
       end
 
       thefuck --alias | source
       zoxide init fish | source
-      alias cd="z"
     '';
   };
 }
