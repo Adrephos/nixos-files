@@ -170,8 +170,12 @@ in
     jetbrains.idea-community
     gradle
 
-    # Development
+    # Go
     go
+    wgo
+    templ
+
+    # Development
     gcc
     scrcpy
     linuxHeaders
