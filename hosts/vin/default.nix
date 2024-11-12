@@ -166,8 +166,7 @@ in
     # Java Zzzz
     jdk
     jdk11
-    jdk22
-    jetbrains.idea-community
+    jdk21
     gradle
 
     # Go
