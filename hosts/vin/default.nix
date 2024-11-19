@@ -218,6 +218,7 @@ in
     python311Packages.pip
 
     # La vida
+    slack
     stremio
     discord
     vesktop
