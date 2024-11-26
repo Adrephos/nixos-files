@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     anki
-    floorp
     obs-studio
     chromium
     okular

@@ -163,6 +163,8 @@ in
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${system}".specific
+    
     # Java Zzzz
     jdk
     jdk11
