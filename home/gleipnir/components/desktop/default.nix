@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     anki
-    firefox
-    brave
+    floorp
     obs-studio
     chromium
     okular
