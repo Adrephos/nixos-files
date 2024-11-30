@@ -34,7 +34,7 @@
       VISUAL = "nvim";
     };
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
 
       (catppuccin-kvantum.override {
         accent = "mauve";

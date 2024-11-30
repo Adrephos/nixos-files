@@ -161,6 +161,12 @@ in
   # virtualbox
   virtualisation.virtualbox.host.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-runtime-6.0.36"
+    "dotnet-sdk-wrapped-6.0.428"
+    "dotnet-sdk-6.0.428"
+  ];
+
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages."${system}".specific
