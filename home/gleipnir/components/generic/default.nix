@@ -64,7 +64,7 @@
         background_opacity = "0.9";
       };
       font = {
-        name = "JetBrainsMono NFM";
+        name = "JetBrainsMono NF";
         size = 12;
       };
       shellIntegration.enableFishIntegration = true;
