@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     anki
+    teams-for-linux
     obs-studio
     chromium
     okular
