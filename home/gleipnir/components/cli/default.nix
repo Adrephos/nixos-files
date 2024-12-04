@@ -24,6 +24,7 @@
     mpv
     feh
     zellij
+    google-cloud-sdk-gce
     (nnn.override { withNerdIcons = true; })
   ];
 }
