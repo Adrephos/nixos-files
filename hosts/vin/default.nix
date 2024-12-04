@@ -221,6 +221,7 @@ in
     elixir
 
     # de juguete
+    pnpm
     nodejs
     python3
     python311Packages.pip
