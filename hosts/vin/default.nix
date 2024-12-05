@@ -193,6 +193,7 @@ in
     wineWowPackages.stable
     unzip
     bruno
+    postman
     obsidian
     openvpn
     networkmanager-openvpn
