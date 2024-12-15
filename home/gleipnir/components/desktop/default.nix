@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    anki
     teams-for-linux
     obs-studio
     chromium
@@ -13,7 +12,7 @@
     playerctl
     noto-fonts-cjk-sans
     redshift
-    anki
+    anki-bin
     onedriver
     udiskie
     keepassxc

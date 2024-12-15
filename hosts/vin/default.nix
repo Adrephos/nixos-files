@@ -231,7 +231,6 @@ in
     slack
     stremio
     discord
-    vesktop
     pavucontrol
     pulseaudio
     prismlauncher
