@@ -50,6 +50,9 @@ in
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
 
         if test -n "$git_root"
+          if not ssh-add -l > /dev/null 2>&1
+            ssh-add ~/secrets/ssh/id_ed25519
+          end
           if test "$git_root" != "$last_git_root"
             clear
             onefetch -d dependencies authors contributors license -i /home/${config.home.username}/Pictures/onefetch/marcille.png --image-protocol kitty
