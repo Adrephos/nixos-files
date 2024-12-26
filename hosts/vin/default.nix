@@ -22,21 +22,6 @@ in
     networkmanager.enable = true;
   };
 
-  boot.loader.grub = {
-    theme = pkgs.stdenv.mkDerivation {
-      pname = "sekiro_grub_theme";
-      version = "1.0";
-      src =pkgs.fetchFromGitHub {
-        owner = "semimqmo";
-        repo = "sekiro_grub_theme";
-        rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-        hash = "sha256-wTr5S/17uwQXkWwElqBKIV1J3QUP6W2Qx2Nw0SaM7Qk=";
-      };
-      installPhase = "cp -r Sekiro $out";
-    };
-    configurationLimit = 3;
-  };
-
   services = {
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -56,7 +41,7 @@ in
         enable = true;
         extraPackages = with pkgs; [
           i3status
-          i3lock
+          i3lock-color
           i3-gaps
         ];
       };
@@ -169,8 +154,8 @@ in
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
-    inputs.zen-browser.packages."${system}".specific
-    
+    inputs.zen-browser.packages.${pkgs.system}.default
+
     # Java Zzzz
     jdk
     jdk11

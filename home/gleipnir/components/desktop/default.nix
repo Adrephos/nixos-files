@@ -7,7 +7,6 @@
     dunst
     libnotify
     rofi
-    transmission_4-gtk
     youtube-music
     playerctl
     noto-fonts-cjk-sans
