@@ -8,7 +8,6 @@
         support32Bit = true;
       };
       pulse.enable = true;
-      jack.enable = true;
     };
     pipewire.extraConfig.pipewire."crackling" = {
       "context.properties" = {

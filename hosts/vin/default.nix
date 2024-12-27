@@ -156,6 +156,8 @@ in
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
 
+    anydesk
+
     # Java Zzzz
     jdk
     jdk11
@@ -175,32 +177,23 @@ in
     gnumake
 
     # Tools
-    wineWowPackages.stable
     unzip
     bruno
     postman
     obsidian
     openvpn
     networkmanager-openvpn
+    wineWowPackages.stable
     gpu-screen-recorder-gtk
 
     # Learning
     exercism
 
-    # Scala
-    sbt
-    scala
-    scala-cli
-    ammonite
-    scalafmt
-
-    # Haskell env
+    # Haskell
     stack
     cabal-install
     haskell-language-server
-    # ghc
     haskell.compiler.ghc810
-
 
     # Erlang
     gleam
@@ -216,8 +209,8 @@ in
     slack
     stremio
     discord
-    pavucontrol
     pulseaudio
+    pavucontrol
     prismlauncher
 
     pkgs.haskellPackages.greenclip
