@@ -50,12 +50,14 @@ in
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
         set revaisor_dir "/home/${config.home.username}/workspace/github.com/revaisor"
 
-        if string match -r "^"$revaisor_dir"(/.*|\$)" (pwd)
-          if not ssh-add -l | grep -q "revaisor"
-            ssh-add ~/secrets/ssh/revaisorkey
-          end
-        else if test -n "$git_root"
-          if not ssh-add -l | grep -q "adrephos"
+        if test -n "$git_root"
+          if string match -r "^"$revaisor_dir"(/.*|\$)" $PWD
+            if not ssh-add -l | grep -q "revaisor"
+              ssh-add -D
+              ssh-add ~/secrets/ssh/revaisorkey
+            end
+            git config user.email "juanesteban@revaisor.com"
+          else if not ssh-add -l | grep -q "adrephos"
             ssh-add ~/secrets/ssh/id_ed25519
           end
           if test "$git_root" != "$last_git_root"
