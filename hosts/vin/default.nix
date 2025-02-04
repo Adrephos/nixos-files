@@ -63,6 +63,7 @@ in
       enableUserService = true;
     };
     power-profiles-daemon.enable = true;
+    tumbler.enable = true;
   };
 
   programs = {
@@ -70,6 +71,9 @@ in
     steam.enable = true;
     noisetorch.enable = true;
     nix-ld.enable = true;
+    thunar.plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+    ];
   };
 
   hardware = {
@@ -157,12 +161,16 @@ in
     inputs.zen-browser.packages.${pkgs.system}.default
 
     anydesk
+    xarchiver
+    thunderbird
 
     # Java Zzzz
     jdk
     jdk11
     jdk21
     gradle
+    maven
+    jetbrains.idea-community-bin
 
     # Go
     go
