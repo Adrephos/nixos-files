@@ -162,7 +162,6 @@ in
 
     anydesk
     xarchiver
-    thunderbird
 
     # Java Zzzz
     jdk
