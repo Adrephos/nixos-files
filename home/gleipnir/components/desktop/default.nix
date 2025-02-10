@@ -20,5 +20,6 @@
     psmisc
     gnumake
     flameshot
+    transmission_4-gtk
   ];
 }
