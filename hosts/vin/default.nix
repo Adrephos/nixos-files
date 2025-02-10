@@ -25,6 +25,7 @@ in
   services = {
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
+    pulseaudio.enable = false;
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
@@ -35,6 +36,7 @@ in
           enable = true;
           noDesktop = true;
           enableXfwm = false;
+          enableScreensaver = false;
         };
       };
       windowManager.i3 = {
@@ -74,6 +76,7 @@ in
     thunar.plugins = with pkgs.xfce; [
       thunar-archive-plugin
     ];
+    xfconf.enable = true;
   };
 
   hardware = {
@@ -84,7 +87,6 @@ in
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
     };
-    pulseaudio.enable = false;
 
     opentabletdriver.enable = true;
 
@@ -109,7 +111,7 @@ in
       powerManagement.enable = true;
       powerManagement.finegrained = false;
 
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       prime = {
         sync.enable = true;
