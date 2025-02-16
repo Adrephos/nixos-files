@@ -21,5 +21,6 @@
     gnumake
     flameshot
     transmission_4-gtk
+    dbeaver-bin
   ];
 }
