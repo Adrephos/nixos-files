@@ -194,6 +194,7 @@ in
     networkmanager-openvpn
     wineWowPackages.stable
     gpu-screen-recorder-gtk
+    gpu-screen-recorder
 
     # Learning
     exercism

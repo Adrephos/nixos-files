@@ -41,7 +41,7 @@ in
 
       set kitty_count (pgrep -c -f "kitty")
 
-      if test $kitty_count -eq 1
+      if test $kitty_count -eq 2
         neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
       end
 
