@@ -39,9 +39,9 @@ in
       fish_config theme choose Catppuccin\ Macchiato
       fish_config prompt choose astronaut
 
-      set kitty_count (pgrep -c -f "kitty")
+      set kitty_count (pgrep -c "kitty")
 
-      if test $kitty_count -eq 2
+      if test $kitty_count -eq 1 && [ -z "$ZELLIJ" ]
         neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
       end
 
@@ -60,7 +60,7 @@ in
           else if not ssh-add -l | grep -q "adrephos"
             ssh-add ~/secrets/ssh/id_ed25519
           end
-          if test "$git_root" != "$last_git_root"
+          if test "$git_root" != "$last_git_root" && [ -z "$ZELLIJ" ]
             clear
             onefetch -d dependencies authors contributors license -i /home/${config.home.username}/Pictures/onefetch/marcille.png --image-protocol kitty
             set -g last_git_root "$git_root"
