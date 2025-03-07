@@ -27,8 +27,11 @@ in
       package = pkgs.catppuccin-cursors.mochaDark;
     };
     iconTheme = {
-      name = "papirus";
-      package = pkgs.epapirus-icon-theme;
+      name = "Catpuccin-papirus";
+      package = (pkgs.catppuccin-papirus-folders.override {
+        accent = "${accent}";
+        flavor = "${variant}";
+      });
     };
     theme = {
       name = "Catppuccin-GTK";
