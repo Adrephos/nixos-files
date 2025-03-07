@@ -12,16 +12,19 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "vanilla-dmz";
-      package = pkgs.vanilla-dmz;
+      name = "Catppuccin-Mocha-Mauve-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
     };
     iconTheme = {
       name = "papirus";
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "dracula";
-      package = pkgs.dracula-theme;
+      name = "Catppuccin-GTK";
+      package = (pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        variant = "mocha";
+      });
     };
   };
 
@@ -57,7 +60,7 @@
 
     kitty = {
       enable = true;
-      themeFile = "Catppuccin-Macchiato";
+      themeFile = "Catppuccin-Mocha";
       settings = {
         shell = "fish";
         single_window_padding_width = 10;

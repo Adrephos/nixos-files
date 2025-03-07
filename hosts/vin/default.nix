@@ -173,6 +173,9 @@ in
     maven
     jetbrains.idea-community-bin
 
+    #zig
+    zig
+
     # Go
     go
     wgo
