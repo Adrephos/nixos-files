@@ -3,7 +3,7 @@
     teams-for-linux
     obs-studio
     chromium
-    okular
+    kdePackages.okular
     dunst
     libnotify
     rofi
