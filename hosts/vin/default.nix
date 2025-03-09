@@ -31,6 +31,7 @@ in
       xkb.variant = "altgr-intl";
       enable = true;
       desktopManager = {
+        runXdgAutostartIfNone = true;
         xterm.enable = false;
         xfce = {
           enable = true;
