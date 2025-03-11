@@ -8,9 +8,8 @@
         support32Bit = true;
       };
       pulse.enable = true;
-      jack.enable = true;
     };
-    pipewire.extraConfig.pipewire."crackling" = {
+    pipewire.extraConfig.pipewire."99-crackling" = {
       "context.properties" = {
         "default.clock.rate" = 48000;
         "default.clock.quantum" = 1024;
