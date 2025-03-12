@@ -78,6 +78,7 @@ in
       thunar-archive-plugin
     ];
     xfconf.enable = true;
+    file-roller.enable = true;
   };
 
   hardware = {
