@@ -166,6 +166,7 @@ in
 
     anydesk
     xarchiver
+    ripgrep
 
     # Java Zzzz
     jdk
