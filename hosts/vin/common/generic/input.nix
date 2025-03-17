@@ -9,4 +9,8 @@
       kdePackages.fcitx5-qt
     ];
   };
+  environment.sessionVariables = {
+    SDL_IM_MODULE  = "fcitx";
+    GLFW_IM_MODULE  = "ibus";
+  };
 }
