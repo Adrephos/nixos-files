@@ -17,7 +17,7 @@ in
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   networking = {
-    firewall.enable = false;
+    firewall.enable = true;
     hostName = "vin";
     networkmanager.enable = true;
   };
@@ -26,6 +26,8 @@ in
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     pulseaudio.enable = false;
+    clamav.daemon.enable = true;
+    clamav.updater.enable = true;
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
@@ -164,9 +166,11 @@ in
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
 
-    anydesk
-    xarchiver
-    ripgrep
+    # Security
+    clamav
+
+    # Gaming
+    lutris
 
     # Java Zzzz
     jdk
@@ -199,8 +203,13 @@ in
     openvpn
     networkmanager-openvpn
     wineWowPackages.stable
+    xarchiver
+    ripgrep
+
+    # Utils
     gpu-screen-recorder-gtk
     gpu-screen-recorder
+    anydesk
 
     # Learning
     exercism

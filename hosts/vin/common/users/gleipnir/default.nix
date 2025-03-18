@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   users.users.gleipnir = {
     isNormalUser = true;
-    description = "No tengo idea";
+    description = "ヴァイオレット・エヴァーガーデン";
     extraGroups = [ "networkmanager" "wheel" "docker" "adbusers"];
     packages = [
       pkgs.home-manager
