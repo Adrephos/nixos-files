@@ -169,8 +169,11 @@ in
     # Security
     clamav
 
-    # Gaming
+    # Wine
     lutris
+    winetricks
+    wineWowPackages.stable
+    wineWowPackages.fonts
 
     # Java Zzzz
     jdk
@@ -202,7 +205,6 @@ in
     obsidian
     openvpn
     networkmanager-openvpn
-    wineWowPackages.stable
     xarchiver
     ripgrep
 
