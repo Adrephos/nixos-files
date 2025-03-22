@@ -203,9 +203,9 @@ in
     ripgrep
 
     # Utils
+    anydesk
     gpu-screen-recorder-gtk
     gpu-screen-recorder
-    anydesk
 
     # Learning
     exercism
