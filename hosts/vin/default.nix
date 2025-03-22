@@ -169,12 +169,6 @@ in
     # Security
     clamav
 
-    # Wine
-    lutris
-    winetricks
-    wineWowPackages.stable
-    wineWowPackages.fonts
-
     # Java Zzzz
     jdk
     jdk11
@@ -215,6 +209,7 @@ in
 
     # Learning
     exercism
+    python312Packages.manga-ocr
 
     # Haskell
     stack
@@ -240,7 +235,20 @@ in
     pavucontrol
     prismlauncher
 
-    pkgs.haskellPackages.greenclip
+    haskellPackages.greenclip
+
+    # Wine
+    winetricks
+    wineWowPackages.stable
+    wineWowPackages.fonts
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        SDL2
+      ];
+      extraPkgs = pkgs: [
+        pkg-config
+      ];
+    })
 
     (sddm-chili-theme.override {
       themeConfig = {
