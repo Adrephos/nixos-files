@@ -90,5 +90,18 @@ in
       };
       shellIntegration.enableFishIntegration = true;
     };
+    mpv = {
+      enable = true;
+
+      package = (
+        pkgs.mpv-unwrapped.wrapper {
+          scripts = with pkgs.mpvScripts; [
+            mpvacious
+          ];
+
+          mpv = pkgs.mpv-unwrapped;
+        }
+      );
+    };
   };
 }

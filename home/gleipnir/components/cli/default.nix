@@ -21,7 +21,6 @@
     fzf
     onefetch
     wget
-    mpv
     feh
     zellij
     google-cloud-sdk-gce
