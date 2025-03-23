@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     teams-for-linux
     obs-studio
-    chromium
+    brave
     kdePackages.okular
     dunst
     libnotify
