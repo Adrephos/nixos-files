@@ -51,7 +51,7 @@ in
         ];
       };
       windowManager.bspwm.enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = [ "nvidia" ];
     };
     displayManager = {
       sddm = {
@@ -201,6 +201,7 @@ in
     networkmanager-openvpn
     xarchiver
     ripgrep
+    nixpkgs-fmt
 
     # Utils
     anydesk
@@ -242,7 +243,7 @@ in
     wineWowPackages.stable
     wineWowPackages.fonts
     (lutris.override {
-      extraLibraries =  pkgs: [
+      extraLibraries = pkgs: [
         SDL2
       ];
       extraPkgs = pkgs: [

@@ -2,7 +2,7 @@
   users.users.gleipnir = {
     isNormalUser = true;
     description = "ヴァイオレット・エヴァーガーデン";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
     packages = [
       pkgs.home-manager
     ];

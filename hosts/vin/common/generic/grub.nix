@@ -15,7 +15,7 @@
       theme = pkgs.stdenv.mkDerivation {
         pname = "sekiro_grub_theme";
         version = "1.0";
-        src =pkgs.fetchFromGitHub {
+        src = pkgs.fetchFromGitHub {
           owner = "semimqmo";
           repo = "sekiro_grub_theme";
           rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";

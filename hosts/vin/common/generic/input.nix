@@ -10,8 +10,8 @@
     ];
   };
   environment.sessionVariables = {
-    SDL_IM_MODULE  = "fcitx";
-    GLFW_IM_MODULE  = "ibus";
+    SDL_IM_MODULE = "fcitx";
+    GLFW_IM_MODULE = "ibus";
     JDTLS_JVM_ARGS = "-javaagent:$HOME/lombok.jar";
   };
 }
