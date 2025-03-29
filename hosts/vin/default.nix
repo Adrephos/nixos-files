@@ -201,6 +201,7 @@ in
     networkmanager-openvpn
     xarchiver
     ripgrep
+    nil
     nixpkgs-fmt
 
     # Utils

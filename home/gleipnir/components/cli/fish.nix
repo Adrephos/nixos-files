@@ -36,6 +36,7 @@ in
     ];
     interactiveShellInit = ''
       set -U fish_greeting
+
       fish_config theme choose Catppuccin\ Macchiato
       fish_config prompt choose astronaut
 
@@ -72,6 +73,7 @@ in
 
       thefuck --alias | source
       zoxide init fish | source
+      source /home/gleipnir/.env
     '';
   };
 }
