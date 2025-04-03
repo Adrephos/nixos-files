@@ -88,6 +88,9 @@ in
         name = "JetBrainsMono NF";
         size = 12;
       };
+      keybindings = {
+        "kitty_mod+y" = "new_tab_with_cwd";
+      };
       shellIntegration.enableFishIntegration = true;
     };
     mpv = {

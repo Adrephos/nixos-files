@@ -22,7 +22,7 @@
     onefetch
     wget
     feh
-    zellij
+    # zellij
     google-cloud-sdk-gce
     (nnn.override { withNerdIcons = true; })
   ];
