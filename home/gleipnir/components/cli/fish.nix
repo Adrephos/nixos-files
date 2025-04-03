@@ -73,7 +73,7 @@ in
 
       thefuck --alias | source
       zoxide init fish | source
-      source /home/gleipnir/.env
+      source /home/${config.home.username}/.env
     '';
   };
 }
