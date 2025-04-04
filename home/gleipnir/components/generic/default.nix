@@ -79,10 +79,11 @@ in
     kitty = {
       enable = true;
       themeFile = "Catppuccin-Mocha";
+      extraConfig = "background #101119";
       settings = {
         shell = "fish";
         single_window_padding_width = 10;
-        background_opacity = "0.9";
+        background_opacity = "0.96";
       };
       font = {
         name = "JetBrainsMono NF";
