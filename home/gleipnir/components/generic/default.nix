@@ -83,7 +83,7 @@ in
       settings = {
         shell = "fish";
         single_window_padding_width = 10;
-        background_opacity = "0.96";
+        background_opacity = "0.9";
       };
       font = {
         name = "JetBrainsMono NF";
@@ -94,6 +94,17 @@ in
       };
       shellIntegration.enableFishIntegration = true;
     };
+
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vkcapture
+      ];
+    };
+
     mpv = {
       enable = true;
 

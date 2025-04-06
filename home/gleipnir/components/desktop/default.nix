@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     teams-for-linux
-    obs-studio
     brave
     kdePackages.okular
     dunst
