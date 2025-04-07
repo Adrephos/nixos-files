@@ -54,7 +54,6 @@ in
         if test -n "$git_root"
           if string match -r "^"$revaisor_dir"(/.*|\$)" $PWD
             if not ssh-add -l | grep -q "revaisor"
-              ssh-add -D
               ssh-add ~/secrets/ssh/revaisorkey
             end
             git config user.email "juanesteban@revaisor.com"
