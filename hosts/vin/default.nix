@@ -17,7 +17,7 @@ in
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
     hostName = "vin";
     networkmanager.enable = true;
   };
