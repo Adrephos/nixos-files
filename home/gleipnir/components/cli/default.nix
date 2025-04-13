@@ -8,7 +8,6 @@
     eza
     thefuck
     zoxide
-    neovim
     p7zip
     btop
     ncdu
