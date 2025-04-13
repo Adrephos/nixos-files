@@ -16,29 +16,32 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.name = "gtk2";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "Catppuccin-Mocha-Mauve-Cursors";
+      name = "catppuccin-mocha-dark-cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
     iconTheme = {
-      name = "Catpuccin-papirus";
+      name = "Papirus-Dark";
       package = (pkgs.catppuccin-papirus-folders.override {
         accent = "${accent}";
         flavor = "${variant}";
       });
     };
     theme = {
-      name = "Catppuccin-GTK";
+      name = "catppuccin-mocha-mauve-standard";
       package = (pkgs.catppuccin-gtk.override {
         accents = [ "${accent}" ];
         variant = "${variant}";
       });
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
     };
   };
 
@@ -52,9 +55,11 @@ in
     };
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
-
-
-    ];
+      (catppuccin-kvantum.override {
+        accent = "${accent}";
+        variant = "${variant}";
+      })
+    ]; 
   };
 
   xdg.configFile = {
@@ -75,6 +80,12 @@ in
     };
     home-manager.enable = true;
     git.enable = true;
+
+    neovim = {
+      enable = true;
+      extraLuaPackages = ps: [ ps.magick ];
+      extraPackages = [ pkgs.imagemagick ];
+    };
 
     kitty = {
       enable = true;
