@@ -107,7 +107,7 @@ in
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
-      open = false;
+      open = true;
       nvidiaSettings = true;
 
       modesetting.enable = true;
