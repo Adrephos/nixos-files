@@ -21,6 +21,8 @@
     onefetch
     wget
     feh
+    timer
+    lolcat
     google-cloud-sdk-gce
     (nnn.override { withNerdIcons = true; })
   ];
