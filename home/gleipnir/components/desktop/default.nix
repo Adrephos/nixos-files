@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     teams-for-linux
     brave
+    chromium
     kdePackages.okular
     dunst
     libnotify

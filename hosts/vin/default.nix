@@ -73,8 +73,16 @@ in
 
   programs = {
     adb.enable = true;
-    steam.enable = true;
+    gamemode.enable = true;
     noisetorch.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
     nix-ld.enable = true;
     thunar.plugins = with pkgs.xfce; [
       thunar-archive-plugin
@@ -239,18 +247,10 @@ in
 
     haskellPackages.greenclip
 
-    # Wine
+    # Wine & Gaming
+    mangohud
     winetricks
     wineWowPackages.stable
-    wineWowPackages.fonts
-    (lutris.override {
-      extraLibraries = pkgs: [
-        SDL2
-      ];
-      extraPkgs = pkgs: [
-        pkg-config
-      ];
-    })
 
     (sddm-chili-theme.override {
       themeConfig = {
