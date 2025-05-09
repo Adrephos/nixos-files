@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    mpv
     teams-for-linux
     brave
     chromium
