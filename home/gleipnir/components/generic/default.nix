@@ -87,36 +87,52 @@ in
       extraPackages = [ pkgs.imagemagick ];
     };
 
-    ghostty = {
-      enable = true;
-      package = pkgs.ghostty;
-      enableFishIntegration = true;
-      settings = {
-        command = "fish";
-        gtk-titlebar = false;
-        font-family = "JetBrainsMono NF";
-        font-size = 12;
-        theme = "catppuccin-mocha";
-        background-opacity = 0.9;
-        background = "#101119";
-      };
-    };
+    # ghostty = {
+    #   enable = true;
+    #   package = pkgs.ghostty;
+    #   enableFishIntegration = true;
+    #   settings = {
+    #     command = "fish";
+    #     gtk-titlebar = false;
+    #     font-family = "JetBrainsMono NF";
+    #     font-size = 15;
+    #     theme = "catppuccin-mocha";
+    #     background-opacity = 0.9;
+    #     background = "#101119";
+    #     cursor-text = "#000000";
+    #     window-padding-x = 10;
+    #     window-padding-y = 10;
+    #     font-style = "Medium";
+    #     gtk-wide-tabs = false;
+    #     gtk-adwaita = true;
+    #     gtk-single-instance = true;
+    #   };
+    # };
 
     kitty = {
       enable = true;
       themeFile = "Catppuccin-Mocha";
-      extraConfig = "background #101119";
       settings = {
         shell = "fish";
         single_window_padding_width = 10;
         background_opacity = "0.9";
+        tab_bar_edge = "top";
+        background = "#101119";
+      };
+      keybindings = {
+        "alt+1" = "goto_tab 1";
+        "alt+2" = "goto_tab 2";
+        "alt+3" = "goto_tab 3";
+        "alt+4" = "goto_tab 4";
+        "alt+5" = "goto_tab 5";
+        "alt+6" = "goto_tab 6";
+        "alt+7" = "goto_tab 7";
+        "alt+8" = "goto_tab 8";
+        "alt+9" = "goto_tab 9";
       };
       font = {
         name = "JetBrainsMono NF";
-        size = 12;
-      };
-      keybindings = {
-        "kitty_mod+y" = "new_tab_with_cwd";
+        size = 15;
       };
       shellIntegration.enableFishIntegration = true;
     };

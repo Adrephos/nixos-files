@@ -73,8 +73,8 @@ in
 
   programs = {
     adb.enable = true;
-    gamemode.enable = true;
     noisetorch.enable = true;
+    gamemode.enable = true;
     gamescope = {
       enable = true;
       capSysNice = true;
@@ -252,6 +252,7 @@ in
     mangohud
     winetricks
     wineWowPackages.stable
+    heroic
 
     (sddm-chili-theme.override {
       themeConfig = {
