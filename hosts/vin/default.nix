@@ -26,8 +26,8 @@ in
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     pulseaudio.enable = false;
-    clamav.daemon.enable = true;
-    clamav.updater.enable = true;
+    # clamav.daemon.enable = true;
+    # clamav.updater.enable = true;
     xserver = {
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
@@ -72,6 +72,7 @@ in
   };
 
   programs = {
+    dconf.enable = true;
     adb.enable = true;
     noisetorch.enable = true;
     gamemode.enable = true;
@@ -115,7 +116,7 @@ in
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
-      open = true;
+      open = false;
       nvidiaSettings = true;
 
       modesetting.enable = true;
@@ -123,12 +124,12 @@ in
       powerManagement.enable = true;
       powerManagement.finegrained = false;
 
-      # package = config.boot.kernelPackages.nvidiaPackages.latest;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       prime = {
+        offload.enable = false;
         sync.enable = true;
-        amdgpuBusId = "PCI:4:0:0";
+        amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
@@ -169,6 +170,10 @@ in
     "dotnet-runtime-6.0.36"
     "dotnet-sdk-wrapped-6.0.428"
     "dotnet-sdk-6.0.428"
+  ];
+
+  nixpkgs.overlays = [
+    inputs.templ.overlays.default
   ];
 
   environment.homeBinInPath = true;
@@ -249,10 +254,10 @@ in
     haskellPackages.greenclip
 
     # Wine & Gaming
+    lm_sensors
     mangohud
     winetricks
     wineWowPackages.stable
-    heroic
 
     (sddm-chili-theme.override {
       themeConfig = {
