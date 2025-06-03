@@ -74,7 +74,6 @@ in
   programs = {
     dconf.enable = true;
     adb.enable = true;
-    noisetorch.enable = true;
     gamemode.enable = true;
     gamescope = {
       enable = true;
@@ -181,7 +180,7 @@ in
     inputs.zen-browser.packages.${pkgs.system}.default
 
     # Security
-    clamav
+    # clamav
 
     # Java Zzzz
     jdk
