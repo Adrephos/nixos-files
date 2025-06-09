@@ -93,6 +93,7 @@ in
 
   hardware = {
     xone.enable = true;
+    xpad-noone.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;

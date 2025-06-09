@@ -70,7 +70,6 @@ in
         end
       end
 
-      thefuck --alias | source
       zoxide init fish | source
       source /home/${config.home.username}/.env
     '';

@@ -6,7 +6,6 @@
 
   home.packages = with pkgs; [
     eza
-    thefuck
     zoxide
     p7zip
     btop
