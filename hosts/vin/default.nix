@@ -92,6 +92,7 @@ in
   };
 
   hardware = {
+    xone.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -225,12 +226,6 @@ in
     # Learning
     exercism
     python312Packages.manga-ocr
-
-    # Haskell
-    stack
-    cabal-install
-    haskell-language-server
-    haskell.compiler.ghc810
 
     # Erlang
     gleam
