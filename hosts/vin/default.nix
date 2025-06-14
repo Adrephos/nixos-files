@@ -93,7 +93,6 @@ in
 
   hardware = {
     xone.enable = true;
-    xpad-noone.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -249,6 +248,7 @@ in
     haskellPackages.greenclip
 
     # Wine & Gaming
+    inputs.boosteroid.packages.x86_64-linux.boosteroid
     lm_sensors
     mangohud
     winetricks
