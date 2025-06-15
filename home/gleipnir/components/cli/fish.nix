@@ -42,24 +42,22 @@ in
 
       set kitty_count (pgrep -c "kitty")
 
-      if test $kitty_count -eq 1 && [ -z "$ZELLIJ" ]
-        neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
-      end
+      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
 
-      function cd
-        z $argv
+      function handle_directory_change --on-variable PWD
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
-        set revaisor_dir "/home/${config.home.username}/workspace/github.com/revaisor"
+        set revaisor_dir "/home/gleipnir/workspace/github.com/revaisor"
 
         if test -n "$git_root"
           if string match -r "^"$revaisor_dir"(/.*|\$)" $PWD
-            if not ssh-add -l | grep -q "revaisor"
-              ssh-add ~/secrets/ssh/revaisorkey
+            if not ssh-add -l | grep -q revaisor
+                ssh-add ~/secrets/ssh/revaisorkey
             end
             git config user.email "juanesteban@revaisor.com"
-          else if not ssh-add -l | grep -q "adrephos"
+          else if not ssh-add -l | grep -q adrephos
             ssh-add ~/secrets/ssh/id_ed25519
           end
+          # This is the corrected line from before
           if test "$git_root" != "$last_git_root" && [ -z "$ZELLIJ" ]
             clear
             onefetch -d dependencies authors contributors license -i /home/${config.home.username}/Pictures/onefetch/marcille.png --image-protocol kitty
@@ -70,7 +68,7 @@ in
         end
       end
 
-      zoxide init fish | source
+      zoxide init --cmd cd fish | source
       source /home/${config.home.username}/.env
     '';
   };
