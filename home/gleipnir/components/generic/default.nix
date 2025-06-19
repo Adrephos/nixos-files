@@ -1,11 +1,22 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 let
   variant = "mocha";
   accent = "mauve";
   kvantumThemePackage = pkgs.catppuccin-kvantum.override {
     inherit variant accent;
   };
-
+  yazi-plugins = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "plugins";
+    rev = "86d28e4fb4f25f36cc501b8cb0badb37a6b14263";
+    hash = "sha256-m/gJTDm0cVkIdcQ1ZJliPqBhNKoCW1FciLkuq7D1mxo=";
+  };
+  relative-motions-plugin = pkgs.fetchFromGitHub {
+    owner = "dedukun";
+    repo = "relative-motions.yazi";
+    rev = "2e3b6172e6226e0db96aea12d09dea2d2e443fea";
+    hash = "sha256-v0e06ieBKNmt9DATdL7R4AyVFa9DlNBwpfME3LHozLA=";
+  };
 in
 {
   imports = [
@@ -91,27 +102,37 @@ in
       extraPackages = [ pkgs.imagemagick ];
     };
 
-    # ghostty = {
-    #   enable = true;
-    #   package = pkgs.ghostty;
-    #   enableFishIntegration = true;
-    #   settings = {
-    #     command = "fish";
-    #     gtk-titlebar = false;
-    #     font-family = "JetBrainsMono NF";
-    #     font-size = 15;
-    #     theme = "catppuccin-mocha";
-    #     background-opacity = 0.9;
-    #     background = "#101119";
-    #     cursor-text = "#000000";
-    #     window-padding-x = 10;
-    #     window-padding-y = 10;
-    #     font-style = "Medium";
-    #     gtk-wide-tabs = false;
-    #     gtk-adwaita = true;
-    #     gtk-single-instance = true;
-    #   };
-    # };
+    yazi = {
+      enable = true;
+      package = inputs.yazi.packages.${pkgs.system}.default;
+      enableFishIntegration = true;
+      settings = {
+        mgr = {
+          show_hidden = true;
+          sort_by = "mtime";
+          sort_dir_first = true;
+          sort_reverse = true;
+        };
+      };
+      keymap = {
+        mgr.prepend_keymap = [
+          { run = "plugin mount"; on = [ "M" ]; }
+          { run = "plugin relative-motions"; on = [ "m" ]; }
+          { run = "plugin zoom 1"; on = [ "+" ]; }
+          { run = "plugin zoom -1"; on = [ "-" ]; }
+        ];
+      };
+      plugins = {
+        mount = pkgs.yaziPlugins.mount;
+        zoom = "${yazi-plugins}/zoom.yazi";
+        git = "${yazi-plugins}/git.yazi";
+        chmod = "${yazi-plugins}/chmod.yazi";
+        glow = "${yazi-plugins}/glow.yazi";
+        full-border = "${yazi-plugins}/full-border.yazi";
+        relative-motions = relative-motions-plugin;
+      };
+      initLua = ./init.lua;
+    };
 
     kitty = {
       enable = true;

@@ -39,10 +39,11 @@ in
 
       fish_config theme choose Catppuccin\ Macchiato
       fish_config prompt choose astronaut
+      fish_vi_key_bindings
 
       set kitty_count (pgrep -c "kitty")
 
-      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
+      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 475px
 
       function handle_directory_change --on-variable PWD
         set git_root (git rev-parse --show-toplevel 2>/dev/null)

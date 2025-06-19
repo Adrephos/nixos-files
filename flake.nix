@@ -38,6 +38,8 @@
 
     boosteroid.url = "github:Adrephos/boosteroid-flake";
 
+    yazi.url = "github:sxyazi/yazi";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
