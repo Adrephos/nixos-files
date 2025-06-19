@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./fish.nix
+    ./yazi.nix
   ];
 
   home.packages = with pkgs; [
@@ -22,6 +23,7 @@
     feh
     timer
     lolcat
+    glow
     google-cloud-sdk-gce
   ];
 }
