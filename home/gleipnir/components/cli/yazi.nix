@@ -42,10 +42,10 @@ in
       };
       keymap = {
         mgr.prepend_keymap = [
-          { run = "plugin mount"; on = [ "M" ]; }
-          { run = "plugin zoom 1"; on = [ "+" ]; }
-          { run = "plugin zoom -1"; on = [ "-" ]; }
-          { run = "plugin relative-motions"; on = [ "m" ]; }
+          { on = [ "M" ]; run = "plugin mount"; }
+          { on = [ "+" ]; run = "plugin zoom 1"; }
+          { on = [ "-" ]; run = "plugin zoom -1"; }
+          { on = [ "m" ]; run = "plugin relative-motions"; }
           { on = [ "1" ]; run = "plugin relative-motions 1"; }
           { on = [ "2" ]; run = "plugin relative-motions 2"; }
           { on = [ "3" ]; run = "plugin relative-motions 3"; }
@@ -55,6 +55,7 @@ in
           { on = [ "7" ]; run = "plugin relative-motions 7"; }
           { on = [ "8" ]; run = "plugin relative-motions 8"; }
           { on = [ "9" ]; run = "plugin relative-motions 9"; }
+          { on = [ "C" ]; run = "shell -- cb copy $@"; }
         ];
       };
       plugins = {
