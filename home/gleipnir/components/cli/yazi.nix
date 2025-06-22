@@ -6,6 +6,12 @@ let
     rev = "86d28e4fb4f25f36cc501b8cb0badb37a6b14263";
     hash = "sha256-m/gJTDm0cVkIdcQ1ZJliPqBhNKoCW1FciLkuq7D1mxo=";
   };
+  yazi-flavors = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
+    rev = "d04a298a8d4ada755816cb1a8cfb74dd46ef7124";
+    hash = "sha256-m3yk6OcJ9vbCwtxkMRVUDhMMTOwaBFlqWDxGqX2Kyvc=";
+  };
   relative-motions-plugin = pkgs.fetchFromGitHub {
     owner = "dedukun";
     repo = "relative-motions.yazi";
@@ -56,6 +62,7 @@ in
           { on = [ "8" ]; run = "plugin relative-motions 8"; }
           { on = [ "9" ]; run = "plugin relative-motions 9"; }
           { on = [ "C" ]; run = "shell -- cb copy $@"; }
+          { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod on selected files"; }
         ];
       };
       plugins = {
@@ -66,6 +73,14 @@ in
         piper = "${yazi-plugins}/piper.yazi";
         full-border = "${yazi-plugins}/full-border.yazi";
         relative-motions = relative-motions-plugin;
+      };
+      flavors = {
+        catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
+      };
+      theme = {
+        flavor = {
+          dark = "catppuccin-mocha";
+        };
       };
       initLua = ./init.lua;
     };
