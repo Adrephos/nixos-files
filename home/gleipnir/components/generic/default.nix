@@ -51,6 +51,7 @@ in
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      TERMINAL = "kitty";
     };
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
@@ -186,6 +187,12 @@ in
         bind - split-window -v -c "#{pane_current_path}"
         bind c new-window -c "#{pane_current_path}"
       '';
+    };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+      settings = pkgs.lib.importTOML ./starship.toml;
     };
 
     # mpv = {

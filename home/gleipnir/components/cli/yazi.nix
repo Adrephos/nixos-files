@@ -63,6 +63,8 @@ in
           { on = [ "9" ]; run = "plugin relative-motions 9"; }
           { on = [ "C" ]; run = "shell -- cb copy $@"; }
           { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod on selected files"; }
+          { on = "<C-n>"; run = ''shell -- dragon-drop -x -i -T "$1"''; }
+          { on = [ "g" "r" ]; run = "shell -- ya emit cd \"$(git rev-parse --show-toplevel)\""; desc = "Go root of the git repo"; }
         ];
       };
       plugins = {
