@@ -1,8 +1,9 @@
 { pkgs, ... }: {
   imports = [
-    ./git.nix
-    ./fish.nix
-    ./yazi.nix
+    ./git
+    ./fish
+    ./yazi
+    ./starship
   ];
 
   home.packages = with pkgs; [

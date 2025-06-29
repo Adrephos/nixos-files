@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     mpv
     teams-for-linux
-    brave
     kdePackages.okular
     dunst
     libnotify

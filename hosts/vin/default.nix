@@ -87,7 +87,7 @@ in
     thunar.plugins = with pkgs.xfce; [
       thunar-archive-plugin
     ];
-    xfconf.enable = true;
+    # xfconf.enable = true;
     file-roller.enable = true;
   };
 

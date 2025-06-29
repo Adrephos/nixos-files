@@ -189,12 +189,6 @@ in
       '';
     };
 
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = pkgs.lib.importTOML ./starship.toml;
-    };
-
     # mpv = {
     #   enable = true;
 
