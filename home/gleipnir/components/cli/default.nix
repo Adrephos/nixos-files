@@ -4,6 +4,9 @@
     ./fish
     ./yazi
     ./starship
+    ./tmux
+    ./kitty
+    ./ghostty
   ];
 
   home.packages = with pkgs; [

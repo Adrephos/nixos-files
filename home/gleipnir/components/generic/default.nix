@@ -91,56 +91,6 @@ in
       extraPackages = [ pkgs.imagemagick ];
     };
 
-    kitty = {
-      enable = true;
-      themeFile = "Catppuccin-Mocha";
-      settings = {
-        shell = "fish";
-        single_window_padding_width = 10;
-        background_opacity = "0.9";
-        tab_bar_edge = "top";
-        background = "#101119";
-      };
-      keybindings = {
-        "alt+1" = "goto_tab 1";
-        "alt+2" = "goto_tab 2";
-        "alt+3" = "goto_tab 3";
-        "alt+4" = "goto_tab 4";
-        "alt+5" = "goto_tab 5";
-        "alt+6" = "goto_tab 6";
-        "alt+7" = "goto_tab 7";
-        "alt+8" = "goto_tab 8";
-        "alt+9" = "goto_tab 9";
-      };
-      font = {
-        name = "JetBrainsMono NF";
-        size = 15;
-      };
-      shellIntegration.enableFishIntegration = true;
-    };
-
-    ghostty = {
-      enable = true;
-      package = pkgs.ghostty;
-      enableFishIntegration = true;
-      settings = {
-        command = "fish";
-        gtk-titlebar = false;
-        font-family = "JetBrainsMono NF";
-        font-size = 15;
-        theme = "catppuccin-mocha";
-        background-opacity = 0.9;
-        background = "#101119";
-        cursor-text = "#000000";
-        window-padding-x = 10;
-        window-padding-y = 10;
-        font-style = "Medium";
-        gtk-wide-tabs = false;
-        gtk-adwaita = true;
-        gtk-single-instance = true;
-      };
-    };
-
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
@@ -149,44 +99,6 @@ in
         obs-pipewire-audio-capture
         obs-vkcapture
       ];
-    };
-
-    tmux = {
-      enable = true;
-      shortcut = "a";
-      shell = "${pkgs.fish}/bin/fish";
-      baseIndex = 1;
-      newSession = true;
-      escapeTime = 0;
-      secureSocket = false;
-
-      plugins = with pkgs; [
-        tmuxPlugins.better-mouse-mode
-        {
-          plugin = tmuxPlugins.catppuccin;
-          extraConfig = '' 
-            set -g @catppuccin_flavour 'mocha'
-            set -g @catppuccin_window_tabs_enabled on
-            set -g @catppuccin_date_time "%H:%M"
-          '';
-        }
-      ];
-
-      extraConfig = ''
-        # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-        set -g default-terminal "xterm-256color"
-        set -ga terminal-overrides ",*256col*:Tc"
-        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-        set -g allow-passthrough on
-        set-environment -g COLORTERM "truecolor"
-
-        # Mouse works as expected
-        set-option -g mouse on
-        # easy-to-remember split pane commands
-        bind | split-window -h -c "#{pane_current_path}"
-        bind - split-window -v -c "#{pane_current_path}"
-        bind c new-window -c "#{pane_current_path}"
-      '';
     };
 
     # mpv = {

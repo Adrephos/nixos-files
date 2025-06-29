@@ -43,7 +43,7 @@ in
 
       set kitty_count (pgrep -c "kitty")
 
-      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 475px
+      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
 
       function handle_directory_change --on-variable PWD
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
