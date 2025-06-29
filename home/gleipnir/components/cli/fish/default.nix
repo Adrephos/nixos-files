@@ -41,13 +41,9 @@ in
       fish_config prompt choose astronaut
       fish_vi_key_bindings
 
-      set kitty_count (pgrep -c "kitty")
-
-      neofetch --kitty /home/${config.home.username}/Pictures/onefetch/asuka.png --size 375px
-
       function handle_directory_change --on-variable PWD
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
-        set revaisor_dir "/home/gleipnir/workspace/github.com/revaisor"
+        set revaisor_dir "/home/${config.home.username}/workspace/github.com/revaisor"
 
         if test -n "$git_root"
           if string match -r "^"$revaisor_dir"(/.*|\$)" $PWD
@@ -71,6 +67,8 @@ in
 
       zoxide init --cmd cd fish | source
       source /home/${config.home.username}/.env
+
+      fastfetch
     '';
   };
 }

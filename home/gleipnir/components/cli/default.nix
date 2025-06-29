@@ -18,7 +18,7 @@
     bat
     socat
     jq
-    neofetch
+    fastfetch
     cmatrix
     brightnessctl
     fzf

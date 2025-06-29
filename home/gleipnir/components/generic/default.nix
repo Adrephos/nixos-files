@@ -51,7 +51,7 @@ in
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      TERMINAL = "kitty";
+      TERMINAL = "ghostty";
     };
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
