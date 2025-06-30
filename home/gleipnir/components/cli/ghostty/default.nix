@@ -5,6 +5,8 @@
     enableFishIntegration = true;
     settings = {
       command = "fish";
+      working-directory = "home";
+      window-inherit-working-directory = false;
       gtk-titlebar = false;
       font-family = "JetBrainsMono NF";
       font-size = 15;
@@ -14,7 +16,6 @@
       cursor-text = "#000000";
       window-padding-x = 10;
       window-padding-y = 10;
-      font-style = "Medium";
       gtk-wide-tabs = false;
       gtk-adwaita = true;
       gtk-single-instance = true;
