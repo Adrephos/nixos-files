@@ -4,6 +4,12 @@ let
     url = "https://raw.githubusercontent.com/Adrephos/dotfiles/main/Pictures/Wallpaper/Dracula/EzQ53i7VoAMPd4h.jpeg";
     sha256 = "sha256-YpxWWc7VFJ9l/h4H23yDYHJkxrKV8cl7UKZw0i0tiTo=";
   };
+  sddm-theme = pkgs.fetchFromGitHub {
+    owner = "sammhansen";
+    repo = "nix-sddm";
+    rev = "686fcd335fada39e5ffbed3ade289f304ddf1b31";
+    sha256 = "01zbv98l5qcksifp13jccfinlrb3fch6n5dmbaafgi4s7d1ali9z";
+  };
 in
 {
   imports = [
@@ -54,11 +60,17 @@ in
       videoDrivers = [ "nvidia" ];
     };
     displayManager = {
+      defaultSession = "xfce+i3";
       sddm = {
         enable = true;
-        theme = "chili";
+        package = pkgs.kdePackages.sddm;
+        theme = "${sddm-theme}";
+        extraPackages = with pkgs.kdePackages; [
+          qtsvg
+          qtmultimedia
+          qtvirtualkeyboard
+        ];
       };
-      defaultSession = "xfce+i3";
     };
     picom = {
       enable = true;
@@ -182,6 +194,7 @@ in
 
     # Security
     # clamav
+    libsForQt5.qt5.qtquickcontrols
 
     # Java Zzzz
     jdk
@@ -253,12 +266,6 @@ in
     mangohud
     winetricks
     wineWowPackages.stable
-
-    (sddm-chili-theme.override {
-      themeConfig = {
-        background = image;
-      };
-    })
   ];
 
   system.autoUpgrade.enable = true;
