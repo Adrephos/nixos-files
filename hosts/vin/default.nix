@@ -82,6 +82,7 @@ in
   };
 
   programs = {
+    command-not-found.enable = true;
     dconf.enable = true;
     hyprland.enable = true;
     adb.enable = true;

@@ -5,6 +5,7 @@
     ./visual.nix
     ./waybar.nix
     ./hyprlock.nix
+    ./wlogout.nix
   ];
 
   home = {
@@ -26,8 +27,6 @@
     };
   };
 
-  programs.wlogout.enable = true;
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -44,7 +43,7 @@
         left_handed = true;
         follow_mouse = 1;
         touchpad.natural_scroll = "no";
-        sensitivity = 0;
+        sensitivity = -0.2;
       };
 
       windowrulev2 = [
@@ -63,7 +62,6 @@
         "fcitx5 -d --replace"
         "fcitx5-remote -r"
         "nm-applet"
-        "sleep 10 && pkill -SIGUSR1 waybar"
 
         "sleep 12 && ~/bin/temperature"
         "sleep 12 && ~/bin/check_ram"
@@ -75,6 +73,20 @@
         "greenclip daemon"
 
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
+      ];
+
+      env = [
+        # Nvidia
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "NVD_BACKEND,direct"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
       ];
 
       "$terminal" = "kitty";

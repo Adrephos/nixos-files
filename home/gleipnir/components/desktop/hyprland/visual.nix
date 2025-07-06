@@ -3,12 +3,12 @@
     general = {
       gaps_in = 2;
       gaps_out = 5;
-      border_size = 2;
+      border_size = 1;
       layout = "dwindle";
       allow_tearing = false;
 
-      "col.active_border" = "rgba(8aadf4ee) rgba(f5bde6ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
+      "col.active_border" = "rgb(c6a0f6) rgb(24273A) rgb(24273A) rgb(c6a0f6) 45deg";
+      "col.inactive_border" = "rgb(24273A) rgb(24273A) rgb(24273A) rgb(27273A) 45deg";
     };
 
     decoration = {
@@ -17,6 +17,9 @@
         enabled = true;
         size = 3;
         passes = 1;
+        new_optimizations = true;
+        vibrancy = 0.1696;
+        ignore_opacity = true;
       };
       shadow = {
         enabled = true;

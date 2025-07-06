@@ -50,6 +50,8 @@
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioStop, exec, playerctl stop"
+        ", XF86MonBrightnessUp,   exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"

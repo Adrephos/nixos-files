@@ -10,6 +10,7 @@
     dunst
     libnotify
     # rofi
+    networkmanagerapplet
     youtube-music
     chromium
     playerctl
