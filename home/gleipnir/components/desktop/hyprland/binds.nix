@@ -15,13 +15,15 @@
       in
       [
         "SUPER, RETURN, exec, $terminal"
-        "SUPER SHIFT, S, exec, $sshot"
+        "SUPER SHIFT, S, exec, $sshot_region"
+        ", PRINT, exec, $sshot_monitor"
         "SUPER, P, exec, $menu"
-        "CTRL SHIFT, S, exec, $music"
+        "SUPER CTRL, Y, exec, $music"
         "SUPER, B, exec, $toggle_bar"
-
         "ALT, Z, exec, $stop_replay"
         "SUPER SHIFT, V, exec, $clipboard"
+        "CTRL ALT, F, exec, $filemanager"
+        "CTRL SHIFT, Escape, exec, $resourcemonitor"
 
         "SUPER, Q, killactive,"
         "SUPER SHIFT, C, exit,"
@@ -37,9 +39,6 @@
         "SUPER CTRL SHIFT, J, resizeactive, 0 40"
 
         "SUPER SHIFT,E,exec,wlogout"
-
-        # "SUPER, Tab, changegroupactive f"
-        # "SUPER SHIFT, Tab, changegroupactive b"
 
         "SUPER, N, togglespecialworkspace, magic"
         "SUPER SHIFT, N, movetoworkspace, special:magic"

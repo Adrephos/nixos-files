@@ -30,29 +30,30 @@ in
     pulseaudio.enable = false;
     # clamav.daemon.enable = true;
     # clamav.updater.enable = true;
+    udisks2.enable = true;
     xserver = {
+      enable = true;
       xkb.layout = "us";
       xkb.variant = "altgr-intl";
-      enable = true;
       desktopManager = {
         runXdgAutostartIfNone = true;
         xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-          enableScreensaver = false;
-        };
+        # xfce = {
+        #   enable = true;
+        #   noDesktop = true;
+        #   enableXfwm = false;
+        #   enableScreensaver = false;
+        # };
       };
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          i3status
-          i3lock-color
-          i3-gaps
-        ];
-      };
-      windowManager.bspwm.enable = true;
+      # windowManager.i3 = {
+      #   enable = true;
+      #   extraPackages = with pkgs; [
+      #     i3status
+      #     i3lock-color
+      #     i3-gaps
+      #   ];
+      # };
+      # windowManager.bspwm.enable = false;
       videoDrivers = [ "nvidia" ];
     };
     displayManager = {

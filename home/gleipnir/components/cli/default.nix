@@ -6,7 +6,7 @@
     ./starship
     ./tmux
     ./kitty
-    ./ghostty
+    # ./ghostty
   ];
 
   home.packages = with pkgs; [

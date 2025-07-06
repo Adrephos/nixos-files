@@ -1,25 +1,36 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./binds.nix
     ./visual.nix
     ./waybar.nix
+    ./hyprlock.nix
   ];
 
-  home.packages = with pkgs; [
-    grim
-    slurp
-    wl-clipboard
-    swww
-    rofi-wayland
-  ];
-
-  programs.wlogout = {
-    enable = true;
+  home = {
+    packages = with pkgs; [
+      grim
+      slurp
+      hyprshot
+      wl-clipboard
+      swww
+      rofi-wayland
+    ];
+    sessionVariables = {
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      ENABLE_VKBASALT = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      HYPRSHOT_DIR = "/home/${config.home.username}/Pictures/Screenshots";
+    };
   };
+
+  programs.wlogout.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
 
     settings = {
       monitor = [
@@ -39,9 +50,11 @@
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "float, class:^(com.adrephos.floating)$"
+        "size 1200 700, class:^(com.adrephos.floating)$"
       ];
 
-      exec = [
+      exec-once = [
         ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
         "waybar"
         "udiskie"
@@ -65,8 +78,11 @@
       ];
 
       "$terminal" = "kitty";
+      "$filemanager" = ''kitty --class="com.adrephos.floating" -e fish -c yazi'';
+      "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
-      "$sshot" = ''grim -g "$(slurp -d)" - | wl-copy -t image/png'';
+      "$sshot_region" = "hyprshot -m region --clipboard-only";
+      "$sshot_monitor" = "hyprshot -m output";
       "$music" = "youtube-music";
       "$switchkbd" = "switch_kbd_locale";
       "$session" = "kitty session";
