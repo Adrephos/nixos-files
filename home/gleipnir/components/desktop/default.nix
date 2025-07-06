@@ -1,13 +1,19 @@
 { pkgs, ... }: {
+  imports = [
+    ./hyprland
+  ];
+
   home.packages = with pkgs; [
     mpv
     teams-for-linux
     kdePackages.okular
     dunst
     libnotify
-    rofi
+    # rofi
     youtube-music
+    chromium
     playerctl
+    pamixer
     noto-fonts-cjk-sans
     redshift
     anki-bin
@@ -15,6 +21,7 @@
     udiskie
     keepassxc
     xclip
+    wl-clipboard
     xxd
     psmisc
     gnumake

@@ -1,9 +1,5 @@
 { pkgs, inputs, outputs, lib, config, ... }:
 let
-  image = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/Adrephos/dotfiles/main/Pictures/Wallpaper/Dracula/EzQ53i7VoAMPd4h.jpeg";
-    sha256 = "sha256-YpxWWc7VFJ9l/h4H23yDYHJkxrKV8cl7UKZw0i0tiTo=";
-  };
   sddm-theme = pkgs.fetchFromGitHub {
     owner = "sammhansen";
     repo = "nix-sddm";
@@ -60,7 +56,8 @@ in
       videoDrivers = [ "nvidia" ];
     };
     displayManager = {
-      defaultSession = "xfce+i3";
+      # defaultSession = "xfce+i3";
+      defaultSession = "hyprland";
       sddm = {
         enable = true;
         package = pkgs.kdePackages.sddm;
@@ -85,6 +82,7 @@ in
 
   programs = {
     dconf.enable = true;
+    hyprland.enable = true;
     adb.enable = true;
     gamemode.enable = true;
     gamescope = {
