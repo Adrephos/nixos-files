@@ -21,10 +21,6 @@ in
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
-    };
     iconTheme = {
       name = "Papirus-Dark";
       package = (pkgs.catppuccin-papirus-folders.override {
@@ -45,6 +41,12 @@ in
   };
 
   home = {
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "catppuccin-mocha-dark-cursors";
+      size = 16;
+    };
     username = lib.mkDefault "gleipnir";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = "23.11";
