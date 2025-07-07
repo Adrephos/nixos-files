@@ -159,14 +159,14 @@ in
             m = 30;
           };
           interval = 10;
-          format = " {percentage}%"; # Changed to percentage with new icon
-          "format-m" = "  {percentage}%"; # Changed to percentage with new icon
-          "format-h" = "  {percentage}%"; # Changed to percentage with new icon
-          "format-c" = "  {percentage}%"; # Changed to percentage with new icon
-          "format-alt" = "  {percentage}%"; # Changed icon
+          format = "  {percentage}%"; 
+          "format-m" = "  {percentage}%";
+          "format-h" = "  {percentage}%";
+          "format-c" = "  {percentage}%";
+          "format-alt" = "  {percentage}%";
           "max-length" = 10;
           tooltip = true;
-          "tooltip-format" = "  {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"; # Adjusted tooltip for clarity
+          "tooltip-format" = "  {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"; 
         };
 
         cpu = {

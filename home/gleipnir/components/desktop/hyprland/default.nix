@@ -55,6 +55,7 @@
 
       exec-once = [
         ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
+        "wper"
         "waybar"
         "udiskie"
 
@@ -62,6 +63,7 @@
         "fcitx5 -d --replace"
         "fcitx5-remote -r"
         "nm-applet"
+        "blueman-applet"
 
         "sleep 12 && ~/bin/temperature"
         "sleep 12 && ~/bin/check_ram"
