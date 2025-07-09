@@ -75,10 +75,6 @@ in
     "Kvantum/catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
   };
 
-  services = {
-    easyeffects.enable = true;
-  };
-
   programs = {
     direnv = {
       enable = true;

@@ -50,7 +50,12 @@
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         "float, class:^(com.adrephos.floating)$"
+        "float, title:^(Picture-in-Picture)$"
+        "pin, title:^(Picture-in-Picture)$"
+        "float, title:.*Checker Plus for Google Calendar.*$"
         "size 1200 700, class:^(com.adrephos.floating)$"
+        "maximize, class:^(.scrcpy-wrapped)$"
+        "idleinhibit fullscreen, class:^(Boosteroid)$"
       ];
 
       exec-once = [
@@ -59,9 +64,7 @@
         "waybar"
         "udiskie"
 
-        "fcitx5-remote -r"
         "fcitx5 -d --replace"
-        "fcitx5-remote -r"
         "nm-applet"
         "blueman-applet"
 
@@ -71,10 +74,12 @@
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
 
-        "discord"
-        "greenclip daemon"
-
+        "wl-paste --watch cliphist store"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
+
+        "[workspace 1 silent] vesktop"
+        "[workspace special:music silent] youtube-music"
+        "[workspace 2 silent] kitty"
       ];
 
       env = [
@@ -84,7 +89,7 @@
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        # "ELECTRON_OZONE_PLATFORM_HINT,auto"
 
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
@@ -92,17 +97,17 @@
       ];
 
       "$terminal" = "kitty";
-      "$filemanager" = ''kitty --class="com.adrephos.floating" -e fish -c yazi'';
+      "$filemanager" = ''kitty -e fish -c yazi'';
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
-      "$sshot_region" = "hyprshot -m region --clipboard-only";
-      "$sshot_monitor" = "hyprshot -m output";
+      "$sshot_region" = "hyprshot -m region --clipboard-only --freeze";
+      "$sshot_monitor" = "hyprshot -m output --freeze";
       "$music" = "youtube-music";
       "$switchkbd" = "switch_kbd_locale";
       "$session" = "kitty session";
       "$toggle_bar" = "pkill -SIGUSR1 waybar";
       "$stop_replay" = "save-gpu-recording";
-      "$clipboard" = "rofi -modi 'clipboard:greenclip print' -show";
+      "$clipboard" = "rofi -modi clipboard:/home/${config.home.username}/bin/cliphist-rofi -show clipboard";
     };
   };
 }

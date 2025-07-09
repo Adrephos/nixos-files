@@ -39,9 +39,9 @@
         background = [
           {
             monitor = "";
-            path = "screenshot";
-            blur_passes = 3;
-            blur_size = 8;
+            path = "/home/${config.home.username}/Pictures/Wallpaper/Other/ranni-cropped.jpg";
+            blur_passes = 2;
+            blur_size = 4;
             brightness = 0.8;
             contrast = 0.8;
             color = "rgba(17, 17, 17, 1.0)";
@@ -110,7 +110,7 @@
         image = [
           {
             monitor = "";
-            path = "/home/${config.home.username}/Pictures/pfp/gwen_icon_by_machemrodez_dh25ss0-pre.jpg"; 
+            path = "/home/${config.home.username}/Pictures/pfp/614099fed01eb9a0579ab80ebbf83149-cropped.jpg"; 
             size = 280; 
             rounding = -1;
             border_size = 4; 

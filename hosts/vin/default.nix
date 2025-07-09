@@ -70,9 +70,9 @@ in
         ];
       };
     };
-    picom = {
-      enable = true;
-    };
+    # picom = {
+    #   enable = true;
+    # };
     asusd = {
       enable = true;
       enableUserService = true;
@@ -96,11 +96,11 @@ in
       gamescopeSession.enable = true;
     };
     nix-ld.enable = true;
-    thunar.plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-    ];
+    # thunar.plugins = with pkgs.xfce; [
+    #   thunar-archive-plugin
+    # ];
     # xfconf.enable = true;
-    file-roller.enable = true;
+    # file-roller.enable = true;
   };
 
   hardware = {
@@ -254,11 +254,13 @@ in
     slack
     stremio
     discord
+    vesktop
     pulseaudio
     pavucontrol
     prismlauncher
 
     haskellPackages.greenclip
+    cliphist
 
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
