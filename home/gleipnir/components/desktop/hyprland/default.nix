@@ -14,6 +14,7 @@
       slurp
       hyprshot
       wl-clipboard
+      hyprshade
       swww
       rofi-wayland
     ];
@@ -44,6 +45,7 @@
         follow_mouse = 1;
         touchpad.natural_scroll = "no";
         sensitivity = -0.2;
+        resolve_binds_by_sym = 1;
       };
 
       windowrulev2 = [
@@ -52,9 +54,10 @@
         "float, class:^(com.adrephos.floating)$"
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
-        "float, title:.*Checker Plus for Google Calendar.*$"
+        "float, title:.*Checker.Plus.for.Google.Calendar.*"
+        "float, title:Extension.*"
         "size 1200 700, class:^(com.adrephos.floating)$"
-        "maximize, class:^(.scrcpy-wrapped)$"
+        "tile, class:^(.scrcpy-wrapped)$"
         "idleinhibit fullscreen, class:^(Boosteroid)$"
       ];
 
@@ -68,18 +71,22 @@
         "nm-applet"
         "blueman-applet"
 
-        "sleep 12 && ~/bin/temperature"
         "sleep 12 && ~/bin/check_ram"
         "sleep 12 && ~/bin/scrcpy_promt"
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
 
+        "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         "wl-paste --watch cliphist store"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
 
-        "[workspace 1 silent] vesktop"
+        "[workspace 1 silent] discord"
         "[workspace special:music silent] youtube-music"
         "[workspace 2 silent] kitty"
+      ];
+
+      exec = [
+        "hyprshade auto"
       ];
 
       env = [

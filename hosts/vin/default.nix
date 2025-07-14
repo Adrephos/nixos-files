@@ -33,18 +33,18 @@ in
     udisks2.enable = true;
     xserver = {
       enable = true;
-      xkb.layout = "us";
-      xkb.variant = "altgr-intl";
-      desktopManager = {
-        runXdgAutostartIfNone = true;
-        xterm.enable = false;
+      # xkb.layout = "us";
+      # xkb.variant = "altgr-intl";
+      # desktopManager = {
+        # runXdgAutostartIfNone = true;
+        # xterm.enable = false;
         # xfce = {
         #   enable = true;
         #   noDesktop = true;
         #   enableXfwm = false;
         #   enableScreensaver = false;
         # };
-      };
+      # };
       # windowManager.i3 = {
       #   enable = true;
       #   extraPackages = with pkgs; [
@@ -78,7 +78,6 @@ in
       enableUserService = true;
     };
     power-profiles-daemon.enable = true;
-    tumbler.enable = true;
   };
 
   programs = {
@@ -96,11 +95,6 @@ in
       gamescopeSession.enable = true;
     };
     nix-ld.enable = true;
-    # thunar.plugins = with pkgs.xfce; [
-    #   thunar-archive-plugin
-    # ];
-    # xfconf.enable = true;
-    # file-roller.enable = true;
   };
 
   hardware = {
@@ -128,7 +122,7 @@ in
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
-      open = false;
+      open = true;
       nvidiaSettings = true;
 
       modesetting.enable = true;
@@ -198,10 +192,10 @@ in
 
     # Java Zzzz
     jdk
+    maven
     jdk11
     jdk21
     gradle
-    maven
     jetbrains.idea-community-bin
 
     #zig
@@ -214,26 +208,27 @@ in
 
     # Development
     gcc
-    scrcpy
-    linuxHeaders
     cmake
+    scrcpy
     gnumake
+    linuxHeaders
 
     # Tools
+    nil
+    rar
     unzip
     bruno
     postman
-    obsidian
     openvpn
-    networkmanager-openvpn
-    xarchiver
     ripgrep
-    nil
+    obsidian
     nixpkgs-fmt
+    networkmanager-openvpn
 
     # Utils
-    anydesk
-    gpu-screen-recorder-gtk
+    file
+    # anydesk
+    # gpu-screen-recorder-gtk
     gpu-screen-recorder
 
     # Learning

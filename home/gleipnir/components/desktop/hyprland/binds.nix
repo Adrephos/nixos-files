@@ -54,7 +54,7 @@
         "SUPER, Tab, changegroupactive, f"
         "SUPER SHIFT, Tab, changegroupactive, b"
 
-        "CTRL SHIFT, space, exec, fcitx5-remote -t"
+        "CTRL SHIFT, space, exec, fcitx5-toggle"
 
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
         ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"

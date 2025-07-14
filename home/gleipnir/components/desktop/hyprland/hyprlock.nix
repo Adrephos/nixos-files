@@ -9,6 +9,7 @@
           lock_cmd = "hyprlock";
           before_sleep_cmd = "hyprlock";
           after_sleep_cmd = "hyprctl dispatch dpms on";
+          inhibit_sleep = 1;
         };
 
         listener = [
@@ -33,7 +34,7 @@
         general = {
           disable_loading_bar = true;
           grace = 0;
-          hide_cursor = false;
+          hide_cursor = true;
         };
 
         background = [

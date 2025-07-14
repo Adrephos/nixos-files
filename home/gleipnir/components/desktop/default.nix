@@ -16,7 +16,7 @@
     playerctl
     pamixer
     noto-fonts-cjk-sans
-    redshift
+    # redshift
     anki-bin
     onedriver
     udiskie

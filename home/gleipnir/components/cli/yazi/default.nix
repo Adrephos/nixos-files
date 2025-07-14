@@ -18,6 +18,12 @@ let
     rev = "2e3b6172e6226e0db96aea12d09dea2d2e443fea";
     hash = "sha256-v0e06ieBKNmt9DATdL7R4AyVFa9DlNBwpfME3LHozLA=";
   };
+  compress-plugin = pkgs.fetchFromGitHub {
+    owner = "KKV9";
+    repo = "compress.yazi";
+    rev = "9fc8fe0bd82e564f50eb98b95941118e7f681dc8";
+    hash = "sha256-VKo4HmNp5LzOlOr+SwUXGx3WsLRUVTxE7RI7kIRKoVs=";
+  };
 in
 {
   programs = {
@@ -61,10 +67,16 @@ in
           { on = [ "7" ]; run = "plugin relative-motions 7"; }
           { on = [ "8" ]; run = "plugin relative-motions 8"; }
           { on = [ "9" ]; run = "plugin relative-motions 9"; }
-          { on = [ "C" ]; run = "shell -- cb copy $@"; }
+          { on = [ "C" ]; run = ''shell -- copy-img "$@"''; }
           { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod on selected files"; }
           { on = "<C-n>"; run = ''shell -- dragon-drop -x -i -T "$1"''; }
           { on = [ "g" "r" ]; run = "shell -- ya emit cd \"$(git rev-parse --show-toplevel)\""; desc = "Go root of the git repo"; }
+
+          { on = [ "c" "a" "a" ]; run = "plugin compress"; desc = "Archive selected files"; }
+          { on = [ "c" "a" "p" ]; run = "plugin compress -p"; desc = "Archive selected files (password)"; }
+          { on = [ "c" "a" "h" ]; run = "plugin compress -ph"; desc = "Archive selected files (password+header)"; }
+          { on = [ "c" "a" "l" ]; run = "plugin compress -l"; desc = "Archive selected files (compression level)"; }
+          { on = [ "c" "a" "u" ]; run = "plugin compress -phl"; desc = "Archive selected files (password+header+level)"; }
         ];
       };
       plugins = {
@@ -75,6 +87,7 @@ in
         piper = "${yazi-plugins}/piper.yazi";
         full-border = "${yazi-plugins}/full-border.yazi";
         relative-motions = relative-motions-plugin;
+        compress = compress-plugin;
       };
       flavors = {
         catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
