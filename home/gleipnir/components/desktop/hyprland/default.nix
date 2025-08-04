@@ -14,7 +14,7 @@
       slurp
       hyprshot
       wl-clipboard
-      hyprshade
+      hyprsunset
       swww
       rofi-wayland
     ];
@@ -48,6 +48,10 @@
         resolve_binds_by_sym = 1;
       };
 
+      misc = {
+        middle_click_paste = false;
+      };
+
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
@@ -63,9 +67,11 @@
 
       exec-once = [
         ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
+        "xrandr --output HDMI-A-1 --primary"
         "wper"
         "waybar"
         "udiskie"
+        "awatcher"
 
         "fcitx5 -d --replace"
         "nm-applet"
@@ -83,10 +89,8 @@
         "[workspace 1 silent] discord"
         "[workspace special:music silent] youtube-music"
         "[workspace 2 silent] kitty"
-      ];
 
-      exec = [
-        "hyprshade auto"
+        "hyprctl reload"
       ];
 
       env = [
@@ -107,7 +111,7 @@
       "$filemanager" = ''kitty -e fish -c yazi'';
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
-      "$sshot_region" = "hyprshot -m region --clipboard-only --freeze";
+      "$sshot_region" = "sleep 0.3 && hyprshot -m region --clipboard-only --freeze";
       "$sshot_monitor" = "hyprshot -m output --freeze";
       "$music" = "youtube-music";
       "$switchkbd" = "switch_kbd_locale";

@@ -36,14 +36,14 @@ in
       # xkb.layout = "us";
       # xkb.variant = "altgr-intl";
       # desktopManager = {
-        # runXdgAutostartIfNone = true;
-        # xterm.enable = false;
-        # xfce = {
-        #   enable = true;
-        #   noDesktop = true;
-        #   enableXfwm = false;
-        #   enableScreensaver = false;
-        # };
+      # runXdgAutostartIfNone = true;
+      # xterm.enable = false;
+      # xfce = {
+      #   enable = true;
+      #   noDesktop = true;
+      #   enableXfwm = false;
+      #   enableScreensaver = false;
+      # };
       # };
       # windowManager.i3 = {
       #   enable = true;
@@ -197,6 +197,7 @@ in
     jdk21
     gradle
     jetbrains.idea-community-bin
+    dbeaver-bin
 
     #zig
     zig
@@ -210,10 +211,12 @@ in
     gcc
     cmake
     scrcpy
+    simple-mtpfs
     gnumake
     linuxHeaders
 
     # Tools
+    cargo
     nil
     rar
     unzip

@@ -3,13 +3,13 @@
 
 let
   colors = {
-    base = "rgba(21, 18, 27, 0)";
+    base = "rgba(28, 28, 42, 1)"; # A shade between original base and surface1
     text = "#cdd6f4";
     subtext0 = "#a6adc8";
     subtext1 = "#b5e8e0";
     lavender = "#b7b7e3";
-    surface0 = "#1e1e2e";
-    surface1 = "#313244";
+    surface0 = "#11111b"; # Catppuccin Mocha Crust (darker)
+    surface1 = "#242436"; # Custom darker shade of original surface1
     overlay0 = "#6c7086";
     red = "#eba0ac";
     green = "#a6e3a1";
@@ -30,8 +30,9 @@ in
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        mode = "dock";
+        position = "bottom";
+        mode = "hide";
+        start_hidden = true;
         exclusive = true;
         passthrough = false;
         "gtk-layer-shell" = true;
@@ -88,14 +89,14 @@ in
           rotate = 0;
           "tooltip-format" = "<tt>{calendar}</tt>";
           calendar = {
-            mode = "month";
+            mode = "year";
             "mode-mon-col" = 3;
             "on-scroll" = 1;
             "on-click-right" = "mode";
             format = {
               months = "<span color='${colors.subtext0}'><b>{}</b></span>";
               weekdays = "<span color='${colors.subtext0}'><b>{}</b></span>";
-              today = "<span color='${colors.subtext0}'><b>{}</b></span>";
+              today = "<span color='${colors.green}'><b>{}</b></span>";
               days = "<span color='${colors.gray}'><b>{}</b></span>";
             };
           };
@@ -159,14 +160,14 @@ in
             m = 30;
           };
           interval = 10;
-          format = "  {percentage}%"; 
+          format = "  {percentage}%";
           "format-m" = "  {percentage}%";
           "format-h" = "  {percentage}%";
           "format-c" = "  {percentage}%";
           "format-alt" = "  {percentage}%";
           "max-length" = 10;
           tooltip = true;
-          "tooltip-format" = "  {used:0.1f}GB/{total:0.1f}GB ({percentage}%)"; 
+          "tooltip-format" = "  {used:0.1f}GB/{total:0.1f}GB ({percentage}%)";
         };
 
         cpu = {
@@ -253,15 +254,17 @@ in
 
       #backlight {
           border-radius: 10px 0px 0px 10px;
+          background: ${colors.surface1};
       }
 
       #tray {
           border-radius: 10px;
           margin-right: 10px;
+          background: ${colors.surface1};
       }
 
       #workspaces {
-          background: ${colors.surface0};
+          background: ${colors.surface1};
           border-radius: 10px;
           margin-left: 10px;
           padding-right: 0px;
@@ -271,16 +274,19 @@ in
       #cpu {
           border-radius: 0px 10px 10px 0px;
           margin-right: 10px;
+          background: ${colors.surface1};
       }
 
       #memory {
           border-radius: 10px 0px 0px 10px;
+          background: ${colors.surface1};
       }
 
       #window {
           border-radius: 10px;
           margin-left: 60px;
           margin-right: 60px;
+          background: ${colors.surface1};
       }
 
       #clock {
@@ -288,18 +294,20 @@ in
           border-radius: 10px 10px 10px 10px;
           margin-left: 5px;
           border-right: 0px;
+          background: ${colors.surface1};
       }
 
       #network {
           color: ${colors.subtext0};
           border-radius: 10px 0px 0px 10px;
-
+          background: ${colors.surface1};
       }
 
       #pulseaudio {
           color: ${colors.subtext0};
           border-left: 0px;
           border-right: 0px;
+          background: ${colors.surface1};
       }
 
       #pulseaudio.microphone {
@@ -308,12 +316,14 @@ in
           border-left: 0px;
           border-right: 0px;
           margin-right: 5px;
+          background: ${colors.surface1};
       }
 
       #battery {
           color:${colors.subtext0};
           border-radius: 0px 10px 10px 0px;
           margin-right: 10px;
+          background: ${colors.surface1};
       }
     '';
   };

@@ -27,7 +27,6 @@
     psmisc
     gnumake
     transmission_4-gtk
-    dbeaver-bin
     syncplay
   ];
 }

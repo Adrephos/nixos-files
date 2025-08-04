@@ -56,6 +56,7 @@ in
       TERMINAL = "ghostty";
     };
     packages = with pkgs; [
+      awatcher
       nerd-fonts.jetbrains-mono
       (catppuccin-kvantum.override {
         accent = "${accent}";
@@ -73,6 +74,18 @@ in
     # The important bit is here, links the theme directory from the package to a directory under `~/.config`
     # where Kvantum should find it.
     "Kvantum/catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
+  };
+
+  xdg.desktopEntries = {
+    obsidian = {
+      categories = [ "Office" ];
+      comment= "Knowledge base";
+      exec = "fish -c obsidian %u";
+      icon = "obsidian";
+      mimeType = [ "x-scheme-handler/obsidian" ];
+      name = "Obsidian";
+      type = "Application";
+    };
   };
 
   programs = {
@@ -112,5 +125,15 @@ in
     #     }
     #   );
     # };
+  };
+
+  services.activitywatch = {
+    enable = true;
+    watchers = {
+      awatcher = {
+        package = pkgs.awatcher;
+        executable = "awatcher";
+      };
+    };
   };
 }

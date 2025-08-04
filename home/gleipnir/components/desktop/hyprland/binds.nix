@@ -113,5 +113,11 @@
       "SUPER, mouse:272, movewindow"
       "SUPER, mouse:273, resizewindow"
     ];
+    bindit = [
+      "SUPER,SUPER_L,exec,pkill -SIGUSR1 waybar"
+    ];
+    binditr = [
+      ",SUPER_L,exec,pkill -SIGUSR1 waybar"
+    ];
   };
 }
