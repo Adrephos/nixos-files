@@ -3,20 +3,20 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "86d28e4fb4f25f36cc501b8cb0badb37a6b14263";
-    hash = "sha256-m/gJTDm0cVkIdcQ1ZJliPqBhNKoCW1FciLkuq7D1mxo=";
+    rev = "de53d90cb2740f84ae595f93d0c4c23f8618a9e4";
+    hash = "sha256-ixZKOtLOwLHLeSoEkk07TB3N57DXoVEyImR3qzGUzxQ=";
   };
   yazi-flavors = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "flavors";
-    rev = "d04a298a8d4ada755816cb1a8cfb74dd46ef7124";
-    hash = "sha256-m3yk6OcJ9vbCwtxkMRVUDhMMTOwaBFlqWDxGqX2Kyvc=";
+    rev = "7a355f832d6dd8d755b978dc1b399da4513cf3cd";
+    hash = "sha256-7ndz5nzode9XyTFALikK0nz0gJICaOyxiHok0U/gzQA=";
   };
   relative-motions-plugin = pkgs.fetchFromGitHub {
     owner = "dedukun";
     repo = "relative-motions.yazi";
-    rev = "2e3b6172e6226e0db96aea12d09dea2d2e443fea";
-    hash = "sha256-v0e06ieBKNmt9DATdL7R4AyVFa9DlNBwpfME3LHozLA=";
+    rev = "a603d9ea924dfc0610bcf9d3129e7cba605d4501";
+    hash = "sha256-9i6x/VxGOA3bB3FPieB7mQ1zGaMK5wnMhYqsq4CvaM4=";
   };
   compress-plugin = pkgs.fetchFromGitHub {
     owner = "KKV9";
@@ -24,11 +24,18 @@ let
     rev = "9fc8fe0bd82e564f50eb98b95941118e7f681dc8";
     hash = "sha256-VKo4HmNp5LzOlOr+SwUXGx3WsLRUVTxE7RI7kIRKoVs=";
   };
+  drag-plugin = pkgs.fetchFromGitHub {
+    owner = "Joao-Queiroga";
+    repo = "drag.yazi";
+    rev = "65414eae6fe2e22b6db3df2955fc0addb9e5454b";
+    hash = "sha256-aqFVa/+3zZK4ifVP68ojYyUsR+LYJyL+50Igl8zapXM=";
+  };
 in
 {
   home.packages = with pkgs; [
     exiftool
     mediainfo
+    ripdrag
   ];
 
   programs = {
@@ -74,7 +81,7 @@ in
           { on = [ "9" ]; run = "plugin relative-motions 9"; }
           { on = [ "C" ]; run = ''shell -- copy-img "$@"''; }
           { on = [ "c" "m" ]; run = "plugin chmod"; desc = "Chmod on selected files"; }
-          { on = "<C-n>"; run = ''shell -- dragon-drop -x -i -T "$1"''; }
+          { on = [ "<C-n>" ]; run = "plugin drag"; desc = "Drag Files"; }
           { on = [ "g" "r" ]; run = "shell -- ya emit cd \"$(git rev-parse --show-toplevel)\""; desc = "Go root of the git repo"; }
 
           { on = [ "c" "a" "a" ]; run = "plugin compress"; desc = "Archive selected files"; }
@@ -93,6 +100,7 @@ in
         full-border = "${yazi-plugins}/full-border.yazi";
         relative-motions = relative-motions-plugin;
         compress = compress-plugin;
+        drag = drag-plugin;
       };
       flavors = {
         catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
