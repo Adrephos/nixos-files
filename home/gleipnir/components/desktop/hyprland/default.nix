@@ -13,6 +13,7 @@
       grim
       slurp
       hyprshot
+      hyprsunset
       wl-clipboard
       hyprsunset
       swww
@@ -34,8 +35,8 @@
 
     settings = {
       monitor = [
-        "HDMI-A-1,1920x1080@144,0x0,1"
-        "eDP-1,1920x1080@144,1920x0,1"
+        "HDMI-A-1,1920x1080@144,0x0,1,cm,auto"
+        "eDP-1,1920x1080@144,1920x0,1,cm,auto"
       ];
 
       input = {
@@ -66,6 +67,7 @@
       ];
 
       exec-once = [
+        "sleep 5 && hyprctl reload && hyprsunset"
         ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
         "xrandr --output HDMI-A-1 --primary"
         "wper"
@@ -81,6 +83,7 @@
         "sleep 12 && ~/bin/scrcpy_promt"
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
+        "sleep 6 && ~/bin/temperature"
 
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         "wl-paste --watch cliphist store"
@@ -89,8 +92,6 @@
         "[workspace 1 silent] discord"
         "[workspace special:music silent] youtube-music"
         "[workspace 2 silent] kitty"
-
-        "hyprctl reload"
       ];
 
       env = [

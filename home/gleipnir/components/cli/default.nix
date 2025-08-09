@@ -29,6 +29,5 @@
     lolcat
     glow
     google-cloud-sdk-gce
-    xdragon
   ];
 }

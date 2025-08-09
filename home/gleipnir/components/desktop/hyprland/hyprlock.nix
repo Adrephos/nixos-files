@@ -2,24 +2,6 @@
 { config, ... }:
 {
   services = {
-    hyprsunset = {
-      enable = true;
-      settings = {
-        max-gamma = 150;
-
-        profile = [
-          {
-            time = "5:00";
-            identity = true;
-          }
-          {
-            time = "19:00";
-            temperature = 2500;
-            gamma = 0.8;
-          }
-        ];
-      };
-    };
     hypridle = {
       enable = true;
       settings = {
