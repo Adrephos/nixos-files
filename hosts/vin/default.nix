@@ -230,6 +230,7 @@ in
 
     # Utils
     file
+    onlyoffice-desktopeditors
     # anydesk
     # gpu-screen-recorder-gtk
     gpu-screen-recorder
