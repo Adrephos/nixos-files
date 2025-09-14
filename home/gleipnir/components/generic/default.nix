@@ -58,6 +58,7 @@ in
     packages = with pkgs; [
       awatcher
       nerd-fonts.jetbrains-mono
+      librsvg
       (catppuccin-kvantum.override {
         accent = "${accent}";
         variant = "${variant}";
@@ -79,7 +80,7 @@ in
   xdg.desktopEntries = {
     obsidian = {
       categories = [ "Office" ];
-      comment= "Knowledge base";
+      comment = "Knowledge base";
       exec = "fish -c obsidian %u";
       icon = "obsidian";
       mimeType = [ "x-scheme-handler/obsidian" ];
@@ -127,12 +128,24 @@ in
     # };
   };
 
-  services.activitywatch = {
-    enable = true;
-    watchers = {
-      awatcher = {
-        package = pkgs.awatcher;
-        executable = "awatcher";
+  services = {
+    clipse = {
+      enable = true;
+      historySize = 200;
+      imageDisplay = {
+        type = "kitty";
+        scaleX = 25;
+        scaleY = 25;
+        heightCut = 14;
+      };
+    };
+    activitywatch = {
+      enable = true;
+      watchers = {
+        awatcher = {
+          package = pkgs.awatcher;
+          executable = "awatcher";
+        };
       };
     };
   };

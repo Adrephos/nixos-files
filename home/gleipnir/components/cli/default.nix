@@ -19,7 +19,6 @@
     socat
     jq
     fastfetch
-    cmatrix
     brightnessctl
     fzf
     onefetch
@@ -29,5 +28,10 @@
     lolcat
     glow
     google-cloud-sdk-gce
+    gum
+    ueberzugpp
+    posting
+    lazygit
+    lazysql
   ];
 }

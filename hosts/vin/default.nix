@@ -196,8 +196,8 @@ in
     jdk11
     jdk21
     gradle
-    jetbrains.idea-community-bin
-    dbeaver-bin
+    # jetbrains.idea-community-bin
+    # dbeaver-bin
 
     #zig
     zig
@@ -235,6 +235,10 @@ in
     # gpu-screen-recorder-gtk
     gpu-screen-recorder
 
+    # owasp
+    zap
+    burpsuite
+
     # Learning
     exercism
     python312Packages.manga-ocr
@@ -250,23 +254,20 @@ in
     python311Packages.pip
 
     # La vida
-    slack
+    # slack
     stremio
     discord
-    vesktop
+    # vesktop
     pulseaudio
     pavucontrol
     prismlauncher
 
-    haskellPackages.greenclip
-    cliphist
-
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
-    lm_sensors
-    mangohud
-    winetricks
-    wineWowPackages.stable
+    # lm_sensors
+    # mangohud
+    # winetricks
+    # wineWowPackages.stable
   ];
 
   system.autoUpgrade.enable = true;

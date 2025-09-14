@@ -35,14 +35,16 @@
 
     settings = {
       monitor = [
-        "HDMI-A-1,1920x1080@144,0x0,1,cm,auto"
-        "eDP-1,1920x1080@144,1920x0,1,cm,auto"
+        # "HDMI-A-1,1920x1080@144,0x0,1,cm,auto"
+        # "eDP-1,1920x1080@144,1920x0,1,cm,auto"
+        "eDP-1,1920x1080@144,0x0,1,cm,auto"
+        "HDMI-A-1,1920x1080@144,1920x0,1,cm,auto"
       ];
 
       input = {
         kb_layout = "us";
         kb_variant = "altgr-intl";
-        left_handed = true;
+        left_handed = false;
         follow_mouse = 1;
         touchpad.natural_scroll = "no";
         sensitivity = -0.2;
@@ -64,6 +66,7 @@
         "size 1200 700, class:^(com.adrephos.floating)$"
         "tile, class:^(.scrcpy-wrapped)$"
         "idleinhibit fullscreen, class:^(Boosteroid)$"
+        "noanim, class:^(ueberzugpp).*$"
       ];
 
       exec-once = [
@@ -74,6 +77,7 @@
         "waybar"
         "udiskie"
         "awatcher"
+        "clipse -listen"
 
         "fcitx5 -d --replace"
         "nm-applet"
@@ -83,15 +87,15 @@
         "sleep 12 && ~/bin/scrcpy_promt"
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
+        "hyprsunset"
         "sleep 6 && ~/bin/temperature"
 
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
-        "wl-paste --watch cliphist store"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] youtube-music"
-        "[workspace 2 silent] kitty"
+        "[workspace special:terminal silent] kitty"
       ];
 
       env = [
@@ -119,7 +123,7 @@
       "$session" = "kitty session";
       "$toggle_bar" = "pkill -SIGUSR1 waybar";
       "$stop_replay" = "save-gpu-recording";
-      "$clipboard" = "rofi -modi clipboard:/home/${config.home.username}/bin/cliphist-rofi -show clipboard";
+      "$clipboard" = ''kitty --class="com.adrephos.floating" -e clipse'';
     };
   };
 }

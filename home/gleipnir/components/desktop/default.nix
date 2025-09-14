@@ -13,6 +13,7 @@
     networkmanagerapplet
     youtube-music
     chromium
+    firefox
     playerctl
     pamixer
     noto-fonts-cjk-sans

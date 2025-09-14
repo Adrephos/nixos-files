@@ -12,6 +12,12 @@ let
     rev = "7a355f832d6dd8d755b978dc1b399da4513cf3cd";
     hash = "sha256-7ndz5nzode9XyTFALikK0nz0gJICaOyxiHok0U/gzQA=";
   };
+  tokyo-night-flavor = pkgs.fetchFromGitHub {
+    owner = "BennyOe";
+    repo = "tokyo-night.yazi";
+    rev = "5f5636427f9bb16cc3f7c5e5693c60914c73f036";
+    hash = "sha256-4aNPlO5aXP8c7vks6bTlLCuyUQZ4Hx3GWtGlRmbhdto=";
+  };
   relative-motions-plugin = pkgs.fetchFromGitHub {
     owner = "dedukun";
     repo = "relative-motions.yazi";
@@ -44,6 +50,9 @@ in
       package = inputs.yazi.packages.${pkgs.system}.default;
       enableFishIntegration = true;
       settings = {
+        preview = {
+          ueberzug_offset = [ 1 2 0 0 ];
+        };
         mgr = {
           show_hidden = true;
           sort_by = "mtime";
@@ -104,10 +113,11 @@ in
       };
       flavors = {
         catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
+        tokyo-night = "${tokyo-night-flavor}";
       };
       theme = {
         flavor = {
-          dark = "catppuccin-mocha";
+          dark = "tokyo-night";
         };
       };
       initLua = ./init.lua;

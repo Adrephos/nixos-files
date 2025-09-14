@@ -17,7 +17,6 @@ in
       ls = "eza --color=always --git --icons=always --no-time --no-user --no-permissions -a";
       ll = "eza --color=always --long --git --icons=always -la";
       tree = "eza --tree";
-      nnn = "nnn -d -e -H -r";
       cat = "bat --theme Dracula";
       venv = "source venv/bin/activate.fish";
       ssh = "env TERM=xterm-256color ssh";

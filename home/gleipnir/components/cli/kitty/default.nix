@@ -1,10 +1,11 @@
 { ... }: {
   programs.kitty = {
     enable = true;
-    themeFile = "Catppuccin-Mocha";
+    themeFile = "tokyo_night_moon";
+    # themeFile = "gruvbox-dark";
     settings = {
       shell = "fish";
-      single_window_padding_width = 10;
+      single_window_padding_width = 0;
       background_opacity = "0.9";
       tab_bar_edge = "top";
       background = "#101119";
@@ -22,7 +23,7 @@
     };
     font = {
       name = "JetBrainsMono NF";
-      size = 15;
+      size = 13;
     };
     shellIntegration.enableFishIntegration = true;
   };

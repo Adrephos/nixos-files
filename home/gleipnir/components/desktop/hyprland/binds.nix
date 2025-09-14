@@ -25,9 +25,6 @@
         "CTRL ALT, F, exec, $filemanager"
         "CTRL SHIFT, Escape, exec, $resourcemonitor"
 
-        "ALT, minus, sendshortcut, CTRL SHIFT, M, class:^(vesktop)$"
-        "ALT, equal, sendshortcut, CTRL SHIFT, D, class:^(vesktop)$"
-
         "SUPER SHIFT, G, pin"
 
         "SUPER, Q, killactive,"
@@ -48,6 +45,9 @@
         "SUPER, N, togglespecialworkspace, music"
         "SUPER SHIFT, N, movetoworkspace, special:music"
 
+        "SUPER, comma, togglespecialworkspace, terminal"
+        "SUPER SHIFT, comma, movetoworkspace, special:terminal"
+
         "SUPER, minus, togglespecialworkspace, magic"
         "SUPER SHIFT, minus, movetoworkspace, special:magic"
 
@@ -56,9 +56,9 @@
 
         "CTRL SHIFT, space, exec, fcitx5-toggle"
 
-        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-        ", XF86AudioMute, exec, pamixer -t"
+        ", XF86AudioRaiseVolume, exec, volume_control up"
+        ", XF86AudioLowerVolume, exec, volume_control down"
+        ", XF86AudioMute, exec, volume_control mute"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
