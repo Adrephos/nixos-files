@@ -38,7 +38,7 @@ in
 
       fish_config theme choose Catppuccin\ Macchiato
       fish_config prompt choose astronaut
-      fish_vi_key_bindings
+      fish_hybrid_key_bindings
 
       function handle_directory_change --on-variable PWD
         set git_root (git rev-parse --show-toplevel 2>/dev/null)

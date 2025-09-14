@@ -176,6 +176,7 @@ in
     "dotnet-runtime-6.0.36"
     "dotnet-sdk-wrapped-6.0.428"
     "dotnet-sdk-6.0.428"
+    "qtwebengine-5.15.19"
   ];
 
   nixpkgs.overlays = [
@@ -188,7 +189,7 @@ in
 
     # Security
     # clamav
-    libsForQt5.qt5.qtquickcontrols
+    # libsForQt5.qt5.qtquickcontrols
 
     # Java Zzzz
     jdk

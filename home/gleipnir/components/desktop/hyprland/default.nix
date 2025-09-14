@@ -17,7 +17,7 @@
       wl-clipboard
       hyprsunset
       swww
-      rofi-wayland
+      rofi
     ];
     sessionVariables = {
       GBM_BACKEND = "nvidia-drm";
