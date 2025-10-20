@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hyprland
+    ./anki
   ];
 
   home.packages = with pkgs; [

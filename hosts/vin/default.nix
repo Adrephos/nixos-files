@@ -1,10 +1,10 @@
 { pkgs, inputs, outputs, lib, config, ... }:
 let
   sddm-theme = pkgs.fetchFromGitHub {
-    owner = "sammhansen";
-    repo = "nix-sddm";
-    rev = "686fcd335fada39e5ffbed3ade289f304ddf1b31";
-    sha256 = "01zbv98l5qcksifp13jccfinlrb3fch6n5dmbaafgi4s7d1ali9z";
+    owner = "Keyitdev";
+    repo = "sddm-astronaut-theme";
+    rev = "c10bd950544036c7418e0f34cbf1b597dae2b72f";
+    sha256 = "sha256-ITufiMTnSX9cg83mlmuufNXxG1dp9OKG90VBZdDeMxw=";
   };
 in
 {
@@ -28,51 +28,26 @@ in
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     pulseaudio.enable = false;
-    # clamav.daemon.enable = true;
-    # clamav.updater.enable = true;
     udisks2.enable = true;
+    openssh = {
+      enable = true;
+      ports = [ 22 ];
+      settings = {
+        PasswordAuthentication = true;
+      };
+    };
     xserver = {
       enable = true;
-      # xkb.layout = "us";
-      # xkb.variant = "altgr-intl";
-      # desktopManager = {
-      # runXdgAutostartIfNone = true;
-      # xterm.enable = false;
-      # xfce = {
-      #   enable = true;
-      #   noDesktop = true;
-      #   enableXfwm = false;
-      #   enableScreensaver = false;
-      # };
-      # };
-      # windowManager.i3 = {
-      #   enable = true;
-      #   extraPackages = with pkgs; [
-      #     i3status
-      #     i3lock-color
-      #     i3-gaps
-      #   ];
-      # };
-      # windowManager.bspwm.enable = false;
       videoDrivers = [ "nvidia" ];
     };
     displayManager = {
-      # defaultSession = "xfce+i3";
       defaultSession = "hyprland";
       sddm = {
         enable = true;
-        package = pkgs.kdePackages.sddm;
         theme = "${sddm-theme}";
-        extraPackages = with pkgs.kdePackages; [
-          qtsvg
-          qtmultimedia
-          qtvirtualkeyboard
-        ];
+        extraPackages = with pkgs.kdePackages; [ qtmultimedia ];
       };
     };
-    # picom = {
-    #   enable = true;
-    # };
     asusd = {
       enable = true;
       enableUserService = true;
@@ -102,9 +77,6 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-
-      extraPackages = [ pkgs.amdvlk ];
-      extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
     };
 
     opentabletdriver.enable = true;
@@ -166,10 +138,7 @@ in
       boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
     };
   };
-
   virtualisation.docker.enable = true;
-
-  # virtualbox
   virtualisation.virtualbox.host.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -187,18 +156,13 @@ in
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
 
-    # Security
-    # clamav
-    # libsForQt5.qt5.qtquickcontrols
 
     # Java Zzzz
     jdk
-    maven
     jdk11
     jdk21
+    maven
     gradle
-    # jetbrains.idea-community-bin
-    # dbeaver-bin
 
     #zig
     zig
@@ -226,13 +190,16 @@ in
     openvpn
     ripgrep
     obsidian
+    tree-sitter
+    texlive.combined.scheme-full
+    ghostscript
+    python311Packages.pylatexenc
     nixpkgs-fmt
     networkmanager-openvpn
 
     # Utils
     file
     onlyoffice-desktopeditors
-    # anydesk
     # gpu-screen-recorder-gtk
     gpu-screen-recorder
 
@@ -255,20 +222,15 @@ in
     python311Packages.pip
 
     # La vida
-    # slack
     stremio
     discord
-    # vesktop
+    tidal-hifi
     pulseaudio
     pavucontrol
     prismlauncher
 
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
-    # lm_sensors
-    # mangohud
-    # winetricks
-    # wineWowPackages.stable
   ];
 
   system.autoUpgrade.enable = true;

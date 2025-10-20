@@ -53,7 +53,7 @@ in
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      TERMINAL = "ghostty";
+      TERMINAL = "kitty";
     };
     packages = with pkgs; [
       awatcher
