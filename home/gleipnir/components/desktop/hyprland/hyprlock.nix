@@ -3,7 +3,7 @@
 {
   services = {
     hypridle = {
-      enable = false;
+      enable = true;
       settings = {
         general = {
           lock_cmd = "hyprlock";
@@ -13,15 +13,15 @@
         };
 
         listener = [
-          {
-            timeout = 600;
-            on-timeout = "hyprlock";
-          }
-          {
-            timeout = 3600;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }
+          # {
+          #   timeout = 3600;
+          #   on-timeout = "hyprlock";
+          # }
+          # {
+          #   timeout = 3600;
+          #   on-timeout = "hyprctl dispatch dpms off";
+          #   on-resume = "hyprctl dispatch dpms on";
+          # }
         ];
       };
     };

@@ -94,8 +94,8 @@
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
 
         "[workspace 1 silent] discord"
-        "[workspace special:music silent] youtube-music"
-        "[workspace special:terminal silent] kitty"
+        "[workspace special:music silent] $music"
+        "[workspace special:terminal silent] ghostty --gtk-single-instance=true --quit-after-last-window-closed=false"
       ];
 
       env = [
@@ -112,13 +112,15 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
 
-      "$terminal" = "kitty";
-      "$filemanager" = ''kitty -e fish -c yazi'';
+      # "$terminal" = "kitty";
+      "$terminal" = "ghostty";
+      "$filemanager" = ''ghostty -e fish -c yazi'';
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
       "$sshot_region" = "sleep 0.3 && hyprshot -m region --clipboard-only --freeze";
       "$sshot_monitor" = "hyprshot -m output --freeze";
       "$music" = "youtube-music";
+      # "$music" = "tidal-hifi";
       "$switchkbd" = "switch_kbd_locale";
       "$session" = "kitty session";
       "$toggle_bar" = "pkill -SIGUSR1 waybar";

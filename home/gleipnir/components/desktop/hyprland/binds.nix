@@ -48,8 +48,8 @@
         "SUPER, comma, togglespecialworkspace, terminal"
         "SUPER SHIFT, comma, movetoworkspace, special:terminal"
 
-        "SUPER, minus, togglespecialworkspace, magic"
-        "SUPER SHIFT, minus, movetoworkspace, special:magic"
+        "SUPER, period, togglespecialworkspace, magic"
+        "SUPER SHIFT, period, movetoworkspace, special:magic"
 
         "SUPER, Tab, changegroupactive, f"
         "SUPER SHIFT, Tab, changegroupactive, b"
