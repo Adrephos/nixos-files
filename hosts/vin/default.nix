@@ -29,12 +29,27 @@ in
   };
 
   networking = {
-    firewall.enable = false;
+    firewall = {
+      enable = false;
+      allowedTCPPorts = [ 8384 22000 ];
+      allowedUDPPorts = [ 22000 21027 ];
+    };
     hostName = "vin";
     networkmanager.enable = true;
   };
 
   services = {
+    syncthing = {
+      enable = true;
+      user = "gleipnir";
+      dataDir = "/home/gleipnir/.config/syncthing";
+      configDir = "/home/gleipnir/.config/syncthing";
+      openDefaultPorts = true;
+      settings.gui = {
+        user = "adrephos";
+        password = "my password";
+      };
+    };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     pulseaudio.enable = false;
