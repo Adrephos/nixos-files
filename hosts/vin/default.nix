@@ -18,6 +18,16 @@ in
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
+  # Hibernation
+  boot.kernelParams = [ "resume=/dev/disk/by-label/swap" ];
+  boot.resumeDevice = "/dev/disk/by-label/swap";
+  powerManagement.enable = true;
+
+  services.logind.settings.Login = {
+    HandlePowerKey = "hibernate";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+
   networking = {
     firewall.enable = false;
     hostName = "vin";
@@ -156,7 +166,6 @@ in
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
 
-
     # Java Zzzz
     jdk
     jdk11
@@ -228,6 +237,7 @@ in
     pulseaudio
     pavucontrol
     prismlauncher
+    osu-lazer
 
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
