@@ -13,8 +13,8 @@
     # rofi
     networkmanagerapplet
     youtube-music
-    chromium
-    firefox
+    brave
+    # firefox
     playerctl
     pamixer
     noto-fonts-cjk-sans
