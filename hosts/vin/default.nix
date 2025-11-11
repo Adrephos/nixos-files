@@ -45,9 +45,20 @@ in
       dataDir = "/home/gleipnir/.config/syncthing";
       configDir = "/home/gleipnir/.config/syncthing";
       openDefaultPorts = true;
-      settings.gui = {
-        user = "adrephos";
-        password = "my password";
+      overrideDevices = true;
+      overrideFolders = true;
+      guiPasswordFile = "/home/gleipnir/secrets/syncthing/passwd";
+      settings = {
+        gui = { user = "adrephos"; };
+        devices = {
+          "phone" = { id = "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO"; };
+        };
+        folders = {
+          "Notes" = {
+            path = "/home/gleipnir/workspace/obsidian";
+            devices = [ "phone" ];
+          };
+        };
       };
     };
     blueman.enable = true;

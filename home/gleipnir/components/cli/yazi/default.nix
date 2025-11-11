@@ -3,8 +3,8 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "de53d90cb2740f84ae595f93d0c4c23f8618a9e4";
-    hash = "sha256-ixZKOtLOwLHLeSoEkk07TB3N57DXoVEyImR3qzGUzxQ=";
+    rev = "8f1d9711bcd0e48af1fcb4153c16d24da76e732d";
+    hash = "sha256-7vsqHvdNimH/YVWegfAo7DfJ+InDr3a1aNU0f+gjcdw=";
   };
   yazi-flavors = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
@@ -101,7 +101,7 @@ in
         ];
       };
       plugins = {
-        mount = pkgs.yaziPlugins.mount;
+        mount = "${yazi-plugins}/mount.yazi";
         zoom = "${yazi-plugins}/zoom.yazi";
         git = "${yazi-plugins}/git.yazi";
         chmod = "${yazi-plugins}/chmod.yazi";
