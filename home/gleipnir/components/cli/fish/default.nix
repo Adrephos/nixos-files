@@ -36,7 +36,7 @@ in
     interactiveShellInit = ''
       set -U fish_greeting
 
-      fish_config theme choose Rosé Pine
+      fish_config theme choose Rosé\ Pine
       fish_config prompt choose astronaut
       fish_hybrid_key_bindings
 
