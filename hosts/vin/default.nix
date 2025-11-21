@@ -219,6 +219,7 @@ in
     cargo
     nil
     rar
+    loupe
     unzip
     bruno
     postman
@@ -244,6 +245,7 @@ in
 
     # Learning
     exercism
+    mokuro
     python312Packages.manga-ocr
 
     # Erlang
@@ -253,6 +255,7 @@ in
     # de juguete
     pnpm
     nodejs
+    uv
     python3
     python311Packages.pip
 
