@@ -11,15 +11,9 @@
     plugins = with pkgs; [
       tmuxPlugins.better-mouse-mode
       {
-        plugin = tmuxPlugins.tokyo-night-tmux;
+        plugin = tmuxPlugins.rose-pine;
         extraConfig = ''
-          set -g @tokyo-night-tmux_theme night
-          set -g @tokyo-night-tmux_transparent 1
-
-          set -g @tokyo-night-tmux_window_id_style none
-          set -g @tokyo-night-tmux_show_wbg 0
-          set -g @tokyo-night-tmux_show_music 1
-          set -g @tokyo-night-tmux_show_git 0
+          set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
         '';
       }
     ];

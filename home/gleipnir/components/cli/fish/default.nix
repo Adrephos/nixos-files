@@ -1,15 +1,15 @@
 { config, pkgs, ... }:
 let
-  catppuccin-fish = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
+  rose-pine-fish = pkgs.fetchFromGitHub {
+    owner = "rose-pine";
     repo = "fish";
-    rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
-    hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
+    rev = "0749331afd4be6bc8035a812a20e489efe1d616f";
+    hash = "sha256-hOcsGt0IMoX1a02t85qeoE381XEca0F2x0AtFNwOqj0=";
   };
 in
 {
   home.file = {
-    ".config/fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
+    ".config/fish/themes/Rosé Pine.theme".source = "${rose-pine-fish}/themes/Rosé Pine.theme";
   };
   programs.fish = {
     enable = true;
@@ -36,7 +36,7 @@ in
     interactiveShellInit = ''
       set -U fish_greeting
 
-      fish_config theme choose Catppuccin\ Macchiato
+      fish_config theme choose Rosé Pine
       fish_config prompt choose astronaut
       fish_hybrid_key_bindings
 

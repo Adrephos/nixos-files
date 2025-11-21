@@ -1,8 +1,7 @@
 { ... }: {
   programs.kitty = {
     enable = true;
-    themeFile = "tokyo_night_moon";
-    # themeFile = "gruvbox-dark";
+    themeFile = "rose-pine-moon";
     settings = {
       shell = "fish";
       single_window_padding_width = 0;

@@ -11,7 +11,7 @@
       gtk-titlebar = false;
       font-family = "JetBrainsMono NF";
       font-size = 13;
-      theme = "Catppuccin Mocha";
+      theme = "Rose Pine Moon";
       background-opacity = 0.9;
       background = "#101119";
       cursor-text = "#000000";
