@@ -55,6 +55,12 @@
         middle_click_paste = false;
       };
 
+      workspace = [
+        "special:terminal, border:false, on-created-empty:$terminal"
+        "special:music,  on-created-empty:$music"
+        "special:magic, on-created-empty:anki"
+      ];
+
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"

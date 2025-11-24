@@ -190,7 +190,7 @@ in
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Java Zzzz
     jdk
