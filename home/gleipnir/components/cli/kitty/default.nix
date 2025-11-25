@@ -6,7 +6,7 @@
       shell = "fish";
       single_window_padding_width = 0;
       background_opacity = "0.9";
-      tab_bar_edge = "top";
+      # tab_bar_edge = "top";
       background = "#101119";
     };
     keybindings = {
@@ -21,7 +21,7 @@
       "alt+9" = "goto_tab 9";
     };
     font = {
-      name = "JetBrainsMono NF";
+      name = "JetBrainsMono NF Light";
       size = 13;
     };
     shellIntegration.enableFishIntegration = true;

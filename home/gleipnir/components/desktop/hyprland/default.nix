@@ -56,7 +56,7 @@
       };
 
       workspace = [
-        "special:terminal, border:false, on-created-empty:$terminal"
+        "special:terminal, on-created-empty:$terminal"
         "special:music,  on-created-empty:$music"
         "special:magic, on-created-empty:anki"
       ];
@@ -101,7 +101,6 @@
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"
-        "[workspace special:terminal silent] ghostty --gtk-single-instance=true --quit-after-last-window-closed=false"
       ];
 
       env = [
@@ -119,8 +118,8 @@
       ];
 
       # "$terminal" = "kitty";
-      "$terminal" = "ghostty";
-      "$filemanager" = ''ghostty -e fish -c yazi'';
+      "$terminal" = "kitty";
+      "$filemanager" = ''kitty -e fish -c yazi'';
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
       "$sshot_region" = "sleep 0.3 && hyprshot -m region --clipboard-only --freeze";
