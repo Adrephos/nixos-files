@@ -87,6 +87,16 @@
         "SUPER SHIFT, 8, movetoworkspace, 8"
         "SUPER SHIFT, 9, movetoworkspace, 9"
         "SUPER SHIFT, 0, movetoworkspace, 10"
+
+        # Zoom?
+        "SUPER, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
+        "SUPER, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
+
+        "SUPER SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1"
+        "SUPER SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1"
+        "SUPER SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1"
+        "SUPER SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1"
+        "SUPER SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1"
       ] ++
       (lib.mapAttrsToList
         (key: direction:
@@ -108,6 +118,14 @@
           "SUPER ALT SHIFT,${key},movecurrentworkspacetomonitor,${direction}"
         )
         directions);
+
+    binde = [
+      # Zoom?
+      "SUPER, equal, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
+      "SUPER, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
+      "SUPER, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
+      "SUPER, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
+    ];
 
     bindm = [
       "SUPER, mouse:272, movewindow"

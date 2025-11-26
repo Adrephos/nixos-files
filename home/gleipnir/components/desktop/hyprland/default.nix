@@ -117,12 +117,11 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
 
-      # "$terminal" = "kitty";
       "$terminal" = "kitty";
       "$filemanager" = ''kitty -e fish -c yazi'';
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
-      "$sshot_region" = "sleep 0.3 && hyprshot -m region --clipboard-only --freeze";
+      "$sshot_region" = ''grim -g "$(slurp -d)" - | wl-copy -t image/png'';
       "$sshot_monitor" = "hyprshot -m output --freeze";
       "$music" = "youtube-music";
       # "$music" = "tidal-hifi";
