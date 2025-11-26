@@ -5,7 +5,7 @@
     settings = {
       shell = "fish";
       single_window_padding_width = 0;
-      background_opacity = "0.9";
+      background_opacity = "0.85";
       # tab_bar_edge = "top";
       background = "#101119";
     };

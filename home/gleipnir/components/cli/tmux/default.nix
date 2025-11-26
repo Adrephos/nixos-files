@@ -32,7 +32,7 @@
       set-environment -g COLORTERM "truecolor"
 
       # Update tmux statusline every second
-      set -g status-interval 1
+      # set -g status-interval 1
 
       # Mouse works as expected
       set-option -g mouse on

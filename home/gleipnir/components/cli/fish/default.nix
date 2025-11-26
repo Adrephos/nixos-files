@@ -67,7 +67,9 @@ in
       zoxide init --cmd cd fish | source
       source /home/${config.home.username}/.env
 
-      fastfetch
+      if test -z "$TMUX"
+        fastfetch
+      end
     '';
   };
 }

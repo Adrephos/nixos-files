@@ -56,7 +56,7 @@
       };
 
       workspace = [
-        "special:terminal, on-created-empty:$terminal"
+        "special:terminal, border:false, on-created-empty:$terminal"
         "special:music,  on-created-empty:$music"
         "special:magic, on-created-empty:anki"
       ];
