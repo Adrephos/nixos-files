@@ -27,6 +27,9 @@
 
         "SUPER SHIFT, G, pin"
 
+        ''ALT, minus, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, M", class:discord''
+        ''ALT, equal, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, D", class:discord''
+
         "SUPER, Q, killactive,"
         "SUPER SHIFT, C, exit,"
         "SUPER, I, togglesplit,"
