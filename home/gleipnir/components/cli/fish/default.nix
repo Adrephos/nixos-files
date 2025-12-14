@@ -21,6 +21,7 @@ in
       venv = "source venv/bin/activate.fish";
       ssh = "env TERM=xterm-256color ssh";
       dot = "git --git-dir=$HOME/dotfiles/ --work-tree=$HOME";
+      v = "nvim";
     };
     plugins = [
       {

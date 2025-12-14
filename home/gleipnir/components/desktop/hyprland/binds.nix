@@ -27,9 +27,6 @@
 
         "SUPER SHIFT, G, pin"
 
-        ''ALT, minus, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, M", class:discord''
-        ''ALT, equal, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, D", class:discord''
-
         "SUPER, Q, killactive,"
         "SUPER SHIFT, C, exit,"
         "SUPER, I, togglesplit,"
@@ -58,6 +55,8 @@
         "SUPER SHIFT, Tab, changegroupactive, b"
 
         "CTRL SHIFT, space, exec, fcitx5-toggle"
+
+        "SUPER SHIFT, B, exec, toggle-bluetooth"
 
         ", XF86AudioRaiseVolume, exec, volume_control up"
         ", XF86AudioLowerVolume, exec, volume_control down"
@@ -128,6 +127,11 @@
       "SUPER, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
       "SUPER, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
       "SUPER, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
+    ];
+
+    bindtpel = [
+      ''ALT, minus, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, M", class:discord''
+      ''ALT, equal, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, D", class:discord''
     ];
 
     bindm = [

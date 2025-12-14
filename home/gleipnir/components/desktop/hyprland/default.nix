@@ -62,8 +62,9 @@
       ];
 
       windowrulev2 = [
-        "stayfocused, title:^()$,class:^(steam)$"
-        "minsize 1 1, title:^()$,class:^(steam)$"
+        "minsize 1 1, class:^(steam)$"
+        "tile, class:^(steam)$"
+        "workspace 9 silent, class:^(steam)$"
         "float, class:^(com.adrephos.floating)$"
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
@@ -79,7 +80,7 @@
         "sleep 5 && hyprctl reload && hyprsunset"
         ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
         "xrandr --output HDMI-A-1 --primary"
-        "wper"
+        "sleep 10 && ~/bin/wper"
         "waybar"
         "udiskie"
         "awatcher"
@@ -94,10 +95,11 @@
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
         "hyprsunset"
-        "sleep 6 && ~/bin/temperature"
+        "sleep 15 && ~/bin/temperature"
 
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
+        "sleep 10 && rclone cmount gdrive:/ ~/drive/gdrive/"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"
