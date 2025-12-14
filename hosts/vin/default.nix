@@ -205,7 +205,9 @@ in
     # Go
     go
     wgo
+    air
     templ
+    cobra-cli
 
     # Development
     gcc
@@ -216,6 +218,8 @@ in
     linuxHeaders
 
     # Tools
+    caligula # iso image
+    rclone
     cargo
     nil
     rar
