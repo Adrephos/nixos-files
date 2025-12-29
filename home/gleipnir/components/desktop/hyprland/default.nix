@@ -65,6 +65,7 @@
         "minsize 1 1, class:^(steam)$"
         "tile, class:^(steam)$"
         "workspace 9 silent, class:^(steam)$"
+        "workspace 1 silent, class:^(discord)$"
         "float, class:^(com.adrephos.floating)$"
         "float, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
@@ -95,7 +96,7 @@
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
         "hyprsunset"
-        "sleep 15 && ~/bin/temperature"
+        # "sleep 15 && ~/bin/temperature"
 
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"

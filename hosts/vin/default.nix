@@ -51,7 +51,10 @@ in
       settings = {
         gui = { user = "adrephos"; };
         devices = {
-          "phone" = { id = "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO"; };
+          "phone" = {
+            id =
+              "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO";
+          };
         };
         folders = {
           "Notes" = {
@@ -68,9 +71,7 @@ in
     openssh = {
       enable = true;
       ports = [ 22 ];
-      settings = {
-        PasswordAuthentication = true;
-      };
+      settings = { PasswordAuthentication = true; };
     };
     xserver = {
       enable = true;
@@ -120,14 +121,11 @@ in
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
+      settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
     };
 
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode =
+      lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
       open = true;
@@ -171,7 +169,8 @@ in
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
       '';
 
-      boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+      boot.blacklistedKernelModules =
+        [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
     };
   };
   virtualisation.docker.enable = true;
@@ -184,9 +183,7 @@ in
     "qtwebengine-5.15.19"
   ];
 
-  nixpkgs.overlays = [
-    inputs.templ.overlays.default
-  ];
+  nixpkgs.overlays = [ inputs.templ.overlays.default ];
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
@@ -212,6 +209,7 @@ in
     # Development
     gcc
     cmake
+    godot
     scrcpy
     simple-mtpfs
     gnumake
@@ -234,7 +232,7 @@ in
     texlive.combined.scheme-full
     ghostscript
     python311Packages.pylatexenc
-    nixpkgs-fmt
+    nixfmt-classic
     networkmanager-openvpn
 
     # Utils
