@@ -23,7 +23,8 @@
     fzf
     onefetch
     wget
-    feh
+    # feh
+    loupe
     timer
     lolcat
     glow

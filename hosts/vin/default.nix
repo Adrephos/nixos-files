@@ -36,6 +36,7 @@ in
     };
     hostName = "vin";
     networkmanager.enable = true;
+    # nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 
   services = {
@@ -59,6 +60,10 @@ in
         folders = {
           "Notes" = {
             path = "/home/gleipnir/workspace/obsidian";
+            devices = [ "phone" ];
+          };
+          "Pictures" = {
+            path = "/run/media/gleipnir/IDK/Pictures";
             devices = [ "phone" ];
           };
         };
@@ -221,7 +226,6 @@ in
     cargo
     nil
     rar
-    loupe
     unzip
     bruno
     postman
@@ -234,6 +238,8 @@ in
     python311Packages.pylatexenc
     nixfmt-classic
     networkmanager-openvpn
+    networkmanager-vpnc
+    wg-netmanager
 
     # Utils
     file

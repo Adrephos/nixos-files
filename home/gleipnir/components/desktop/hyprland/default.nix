@@ -96,7 +96,7 @@
         "sleep 12 && ~/bin/start-gpu-recording"
         "sleep 5 && ~/bin/profile"
         "hyprsunset"
-        # "sleep 15 && ~/bin/temperature"
+        "sleep 10 && ~/bin/temperature"
 
         "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
         "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"

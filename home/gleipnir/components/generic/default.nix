@@ -2,14 +2,11 @@
 let
   variant = "mocha";
   accent = "mauve";
-  kvantumThemePackage = pkgs.catppuccin-kvantum.override {
-    inherit variant accent;
-  };
+  kvantumThemePackage =
+    pkgs.catppuccin-kvantum.override { inherit variant accent; };
 in
 {
-  imports = [
-    ../cli
-  ];
+  imports = [ ../cli ];
 
   fonts.fontconfig.enable = true;
 
@@ -35,9 +32,7 @@ in
         variant = "${variant}";
       });
     };
-    gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
-    };
+    gtk3 = { extraConfig.gtk-application-prefer-dark-theme = true; };
   };
 
   home = {
@@ -74,7 +69,8 @@ in
 
     # The important bit is here, links the theme directory from the package to a directory under `~/.config`
     # where Kvantum should find it.
-    "Kvantum/catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
+    "Kvantum/catppuccin-${variant}-${accent}".source =
+      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
   };
 
   xdg.desktopEntries = {
@@ -88,6 +84,17 @@ in
       type = "Application";
     };
   };
+
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "image/jpeg" = "org.gnome.Loupe.desktop";
+  #     "image/png" = "org.gnome.Loupe.desktop";
+  #     "image/webp" = "org.gnome.Loupe.desktop";
+  #     "image/gif" = "org.gnome.Loupe.desktop";
+  #     "image/tiff" = "org.gnome.Loupe.desktop";
+  #   };
+  # };
 
   programs = {
     direnv = {
