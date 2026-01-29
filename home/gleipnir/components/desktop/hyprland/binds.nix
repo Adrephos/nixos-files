@@ -58,9 +58,9 @@
 
         "SUPER SHIFT, B, exec, toggle-bluetooth"
 
-        ", XF86AudioRaiseVolume, exec, volume_control up"
-        ", XF86AudioLowerVolume, exec, volume_control down"
-        ", XF86AudioMute, exec, volume_control mute"
+        ", XF86AudioRaiseVolume, exec, volume-control up"
+        ", XF86AudioLowerVolume, exec, volume-control down"
+        ", XF86AudioMute, exec, volume-control mute"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"

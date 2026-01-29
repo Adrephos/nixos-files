@@ -78,29 +78,31 @@
       ];
 
       exec-once = [
-        "sleep 5 && hyprctl reload && hyprsunset"
-        ''swww-daemon --format xrgb && swww img "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n 1)"''
-        "xrandr --output HDMI-A-1 --primary"
-        "sleep 10 && ~/bin/wper"
-        "waybar"
-        "udiskie"
-        "awatcher"
-        "clipse -listen"
+        "sh -c 'sleep 5; hyprctl reload; hyprsunset &'"
+        "sh -c 'swww-daemon --format xrgb & disown'"
+        # "sh -c 'swww img \"$(find ~/Pictures/Wallpaper/Current -type f \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) | shuf -n 1)\" &'"
+        "sh -c 'wper &'"
 
-        "fcitx5 -d --replace"
-        "nm-applet"
-        "blueman-applet"
+        "sh -c 'xrandr --output HDMI-A-1 --primary &'"
 
-        "sleep 12 && ~/bin/check_ram"
-        "sleep 12 && ~/bin/scrcpy_promt"
-        "sleep 12 && ~/bin/start-gpu-recording"
-        "sleep 5 && ~/bin/profile"
-        "hyprsunset"
-        "sleep 10 && ~/bin/temperature"
+        "sh -c 'sleep 10; wper &'"
+        "sh -c 'waybar &'"
+        "sh -c 'udiskie &'"
+        "sh -c 'awatcher &'"
+        "sh -c 'clipse -listen &'"
 
-        "dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE"
-        "sleep 10 && systemctl --user start onedriver@home-gleipnir-onedrive-college.service"
-        "sleep 10 && rclone cmount gdrive:/ ~/drive/gdrive/"
+        "sh -c 'fcitx5 -d --replace &'"
+        "sh -c 'nm-applet &'"
+        "sh -c 'blueman-applet &'"
+
+        "sh -c 'sleep 10; check-ram &'"
+        "sh -c 'sleep 10; scrcpy-prompt &'"
+        "sh -c 'sleep 10; start-gpu-recording &'"
+        "sh -c 'sleep 5; profile &'"
+        "sh -c 'sleep 10; temperature &'"
+
+        "sh -c 'dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE &'"
+        "sh -c 'sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/ &'"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"
@@ -121,7 +123,7 @@
       ];
 
       "$terminal" = "kitty";
-      "$filemanager" = ''kitty -e fish -c yazi'';
+      "$filemanager" = "kitty -e fish -c yazi";
       "$resourcemonitor" = ''kitty --class="com.adrephos.floating" -e btop'';
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
       "$sshot_region" = ''grim -g "$(slurp -d)" - | wl-copy -t image/png'';
