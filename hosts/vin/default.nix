@@ -1,4 +1,10 @@
-{ pkgs, inputs, outputs, lib, config, ... }:
+{ pkgs
+, inputs
+, outputs
+, lib
+, config
+, ...
+}:
 let
   sddm-theme = pkgs.fetchFromGitHub {
     owner = "Keyitdev";
@@ -31,11 +37,20 @@ in
   networking = {
     firewall = {
       enable = false;
-      allowedTCPPorts = [ 8384 22000 ];
-      allowedUDPPorts = [ 22000 21027 ];
+      allowedTCPPorts = [
+        8384
+        22000
+      ];
+      allowedUDPPorts = [
+        22000
+        21027
+      ];
     };
     hostName = "vin";
     networkmanager.enable = true;
+    networkmanager.plugins = [
+      pkgs.networkmanager-openvpn
+    ];
     # nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 
@@ -50,11 +65,12 @@ in
       overrideFolders = true;
       guiPasswordFile = "/home/gleipnir/secrets/syncthing/passwd";
       settings = {
-        gui = { user = "adrephos"; };
+        gui = {
+          user = "adrephos";
+        };
         devices = {
           "phone" = {
-            id =
-              "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO";
+            id = "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO";
           };
         };
         folders = {
@@ -76,7 +92,9 @@ in
     openssh = {
       enable = true;
       ports = [ 22 ];
-      settings = { PasswordAuthentication = true; };
+      settings = {
+        PasswordAuthentication = true;
+      };
     };
     xserver = {
       enable = true;
@@ -126,11 +144,14 @@ in
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
     };
 
-    cpu.amd.updateMicrocode =
-      lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
       open = true;
@@ -174,8 +195,12 @@ in
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
       '';
 
-      boot.blacklistedKernelModules =
-        [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+      boot.blacklistedKernelModules = [
+        "nouveau"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_modeset"
+      ];
     };
   };
   virtualisation.docker.enable = true;
@@ -214,7 +239,7 @@ in
     # Development
     gcc
     cmake
-    godot
+    # godot
     scrcpy
     simple-mtpfs
     gnumake
@@ -236,8 +261,7 @@ in
     texlive.combined.scheme-full
     ghostscript
     python311Packages.pylatexenc
-    nixfmt-classic
-    networkmanager-openvpn
+    nixfmt
     networkmanager-vpnc
     wg-netmanager
 
@@ -274,7 +298,8 @@ in
     pulseaudio
     pavucontrol
     prismlauncher
-    osu-lazer
+    # osu-lazer
+    protonvpn-gui
 
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
