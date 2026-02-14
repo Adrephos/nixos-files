@@ -272,8 +272,8 @@ in
     gpu-screen-recorder
 
     # owasp
-    zap
-    burpsuite
+    # zap
+    # burpsuite
 
     # Learning
     exercism
@@ -294,6 +294,7 @@ in
     # La vida
     stremio
     discord
+    zoom-us
     tidal-hifi
     pulseaudio
     pavucontrol

@@ -100,9 +100,11 @@
         "sh -c 'sleep 10; start-gpu-recording &'"
         "sh -c 'sleep 5; profile &'"
         "sh -c 'sleep 10; temperature &'"
+        "sh -c 'sleep 10; monitor-change &'"
 
         "sh -c 'dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE &'"
         "sh -c 'sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/ &'"
+        "sh -c 'sleep 20; hyprctl dispatch exec [workspace $TARGET_WORKSPACE silent] \"keepassxc --minimized\" &'"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"
@@ -135,6 +137,7 @@
       "$toggle_bar" = "pkill -SIGUSR1 waybar";
       "$stop_replay" = "save-gpu-recording";
       "$clipboard" = ''kitty --class="com.adrephos.floating" -e clipse'';
+      "$show_time" = ''notify-send "$(date '+%B %d %Y')" "$(date '+%A, %H:%M')" -a "Date & Time"'';
     };
   };
 }

@@ -33,7 +33,7 @@ in
         position = "bottom";
         mode = "hide";
         start_hidden = true;
-        exclusive = true;
+        exclusive = false;
         passthrough = false;
         "gtk-layer-shell" = true;
         height = 0;

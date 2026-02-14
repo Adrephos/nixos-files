@@ -45,6 +45,7 @@
         "SUPER, N, togglespecialworkspace, music"
         "SUPER SHIFT, N, movetoworkspace, special:music"
 
+        "SUPER, T, exec, $show_time"
         "SUPER, comma, togglespecialworkspace, terminal"
         "SUPER SHIFT, comma, movetoworkspace, special:terminal"
 

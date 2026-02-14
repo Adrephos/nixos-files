@@ -14,6 +14,7 @@
     networkmanagerapplet
     youtube-music
     brave
+    # chromium
     # firefox
     playerctl
     pamixer
