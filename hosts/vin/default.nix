@@ -119,7 +119,6 @@ in
     command-not-found.enable = true;
     dconf.enable = true;
     hyprland.enable = true;
-    adb.enable = true;
     gamemode.enable = true;
     gamescope = {
       enable = true;
@@ -237,6 +236,8 @@ in
     cobra-cli
 
     # Development
+    neovim
+    imagemagick
     gcc
     cmake
     # godot
@@ -266,6 +267,7 @@ in
     wg-netmanager
 
     # Utils
+    android-tools
     file
     onlyoffice-desktopeditors
     # gpu-screen-recorder-gtk
@@ -292,7 +294,7 @@ in
     python311Packages.pip
 
     # La vida
-    stremio
+    # stremio
     discord
     zoom-us
     tidal-hifi

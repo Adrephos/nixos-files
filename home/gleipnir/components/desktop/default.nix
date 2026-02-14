@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./hyprland
     ./anki
@@ -12,7 +13,7 @@
     libnotify
     # rofi
     networkmanagerapplet
-    youtube-music
+    pear-desktop
     brave
     # chromium
     # firefox

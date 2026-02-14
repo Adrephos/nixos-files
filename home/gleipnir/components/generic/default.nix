@@ -104,11 +104,11 @@ in
     home-manager.enable = true;
     git.enable = true;
 
-    neovim = {
-      enable = true;
-      extraLuaPackages = ps: [ ps.magick ];
-      extraPackages = [ pkgs.imagemagick ];
-    };
+    # neovim = {
+    #   enable = true;
+    #   extraLuaPackages = ps: [ ps.magick ];
+    #   extraPackages = [ pkgs.imagemagick ];
+    # };
 
     obs-studio = {
       enable = true;
