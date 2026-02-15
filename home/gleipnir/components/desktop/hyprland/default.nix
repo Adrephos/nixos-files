@@ -58,23 +58,57 @@
       workspace = [
         "special:terminal, border:false, on-created-empty:$terminal"
         "special:music,  on-created-empty:$music"
-        "special:magic, on-created-empty:anki"
       ];
 
-      windowrulev2 = [
-        "minsize 1 1, class:^(steam)$"
-        "tile, class:^(steam)$"
-        "workspace 9 silent, class:^(steam)$"
-        "workspace 1 silent, class:^(discord)$"
-        "float, class:^(com.adrephos.floating)$"
-        "float, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "float, title:.*Checker.Plus.for.Google.Calendar.*"
-        "float, title:Extension.*"
-        "size 1200 700, class:^(com.adrephos.floating)$"
-        "tile, class:^(.scrcpy-wrapped)$"
-        "idleinhibit fullscreen, class:^(Boosteroid)$"
-        "noanim, class:^(ueberzugpp).*$"
+      windowrule = [
+        {
+          name = "floating-class";
+          "match:class" = "^(com.adrephos.floating)";
+          float = true;
+          size = "1200 700";
+        }
+        {
+          name = "steam";
+          "match:class" = "^(steam)$";
+          tile = true;
+          workspace = "9 silent";
+        }
+        {
+          name = "discord";
+          "match:class" = "^(discord)$";
+          workspace = "1 silent";
+        }
+        {
+          name = "discord";
+          "match:class" = "^(discord)$";
+          workspace = "1 silent";
+        }
+        {
+          name = "Picture-in-Picture";
+          "match:title" = "^(Picture-in-Picture)$";
+          float = true;
+          pin = true;
+        }
+        {
+          name = "scrcpy";
+          "match:class" = "^(.scrcpy-wrapped)$";
+          tile = true;
+          pin = true;
+        }
+        {
+          name = "boosteroid";
+          "match:class" = "^(Boosteroid)$";
+          idle_inhibit = "fullscreen";
+        }
+        {
+          name = "ueberzugpp";
+          "match:class" = "^(ueberzugpp).*$";
+        }
+        {
+          name = "terrara";
+          "match:class" = "^(Terraria.bin.x86_6)$";
+          fullscreen = true;
+        }
       ];
 
       exec-once = [
@@ -104,7 +138,7 @@
 
         "sh -c 'dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE &'"
         "sh -c 'sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/ &'"
-        "sh -c 'sleep 20; hyprctl dispatch exec [workspace $TARGET_WORKSPACE silent] \"keepassxc --minimized\" &'"
+        "sh -c 'sleep 20; hyprctl dispatch exec [workspace 10 silent] \"keepassxc\" &'"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"
@@ -130,7 +164,7 @@
       "$menu" = "rofi -show drun -icon-theme Papirus -show-icons";
       "$sshot_region" = ''grim -g "$(slurp -d)" - | wl-copy -t image/png'';
       "$sshot_monitor" = "hyprshot -m output --freeze";
-      "$music" = "youtube-music";
+      "$music" = "pear-desktop";
       # "$music" = "tidal-hifi";
       "$switchkbd" = "switch_kbd_locale";
       "$session" = "kitty session";
