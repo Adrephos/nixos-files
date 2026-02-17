@@ -3,14 +3,14 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "8f1d9711bcd0e48af1fcb4153c16d24da76e732d";
-    hash = "sha256-7vsqHvdNimH/YVWegfAo7DfJ+InDr3a1aNU0f+gjcdw=";
+    rev = "25918dcde97f11ac37f80620cc264680aedc4df8";
+    hash = "sha256-TzHJNIFZjUOImZ4dRC0hnB4xsDZCOuEjfXRi2ZXr8QE=";
   };
   yazi-flavors = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "flavors";
-    rev = "7a355f832d6dd8d755b978dc1b399da4513cf3cd";
-    hash = "sha256-7ndz5nzode9XyTFALikK0nz0gJICaOyxiHok0U/gzQA=";
+    rev = "4c5753789ea535540e868e2764127be9230cef23";
+    hash = "sha256-tCAJXPV7s1akc+zHGdWjmdMPG4NpBE92vcO7LAvI5TI=";
   };
   tokyo-night-flavor = pkgs.fetchFromGitHub {
     owner = "BennyOe";
@@ -27,14 +27,14 @@ let
   compress-plugin = pkgs.fetchFromGitHub {
     owner = "KKV9";
     repo = "compress.yazi";
-    rev = "9fc8fe0bd82e564f50eb98b95941118e7f681dc8";
-    hash = "sha256-VKo4HmNp5LzOlOr+SwUXGx3WsLRUVTxE7RI7kIRKoVs=";
+    rev = "cb6e8ec0141915dc319ccd6b904dcd2f03502576";
+    hash = "sha256-D/EpcRDIc3toeyjHqi+vGw0v9B22HVvKJua5EVEAc0U=";
   };
   drag-plugin = pkgs.fetchFromGitHub {
     owner = "Joao-Queiroga";
     repo = "drag.yazi";
-    rev = "65414eae6fe2e22b6db3df2955fc0addb9e5454b";
-    hash = "sha256-aqFVa/+3zZK4ifVP68ojYyUsR+LYJyL+50Igl8zapXM=";
+    rev = "27606689cb82c56a19c052a7b7935cd9b1466bab";
+    hash = "sha256-ITkZjpwWXni4tQpDhUiVvtPrEkAo6RISgCH594NgpYE=";
   };
 in
 {
@@ -117,7 +117,7 @@ in
       };
       theme = {
         flavor = {
-          dark = "tokyo-night";
+          dark = "catppuccin-mocha";
         };
       };
       initLua = ./init.lua;
