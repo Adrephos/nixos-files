@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
-
+{ pkgs, ... }:
+{
   programs.anki = {
-    package = pkgs.anki-bin;
+    package = pkgs.anki;
     videoDriver = "software";
   };
 }

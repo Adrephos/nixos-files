@@ -21,7 +21,6 @@
     pamixer
     noto-fonts-cjk-sans
     # redshift
-    anki
     onedriver
     udiskie
     keepassxc

@@ -119,6 +119,7 @@ in
     command-not-found.enable = true;
     dconf.enable = true;
     hyprland.enable = true;
+    niri.enable = true;
     gamemode.enable = true;
     gamescope = {
       enable = true;

@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   wayland.windowManager.hyprland.settings = {
     bind =
       let
@@ -100,30 +101,22 @@
         "SUPER SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1"
         "SUPER SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1"
         "SUPER SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1"
-      ] ++
-      (lib.mapAttrsToList
-        (key: direction:
-          "SUPER,${key},movefocus,${direction}"
+      ]
+      ++ (lib.mapAttrsToList (key: direction: "SUPER,${key},movefocus,${direction}") directions)
+      ++ (lib.mapAttrsToList (key: direction: "SUPER SHIFT,${key},swapwindow,${direction}") directions)
+      ++ (lib.mapAttrsToList
+        (
+          key: direction: "SUPER CTRL,${key},movewindoworgroup,${direction}"
         )
-        directions) ++
-      (lib.mapAttrsToList
-        (key: direction:
-          "SUPER SHIFT,${key},swapwindow,${direction}"
-        )
-        directions) ++
-      (lib.mapAttrsToList
-        (key: direction:
-          "SUPER CTRL,${key},movewindoworgroup,${direction}"
-        )
-        directions) ++
-      (lib.mapAttrsToList
-        (key: direction:
-          "SUPER ALT SHIFT,${key},movecurrentworkspacetomonitor,${direction}"
+        directions)
+      ++ (lib.mapAttrsToList
+        (
+          key: direction: "SUPER ALT SHIFT,${key},movecurrentworkspacetomonitor,${direction}"
         )
         directions);
 
     binde = [
-      # Zoom?
+      # Zoom
       "SUPER, equal, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
       "SUPER, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
       "SUPER, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
@@ -131,19 +124,13 @@
     ];
 
     bindtpel = [
-      ''ALT, minus, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, M", class:discord''
-      ''ALT, equal, exec, hyprctl dispatch sendshortcut "Ctrl_Shift, D", class:discord''
+      "ALT, minus, sendshortcut, Ctrl_Shift, M, class:discord"
+      "ALT, equal, sendshortcut, Ctrl_Shift, D, class:discord"
     ];
 
     bindm = [
       "SUPER, mouse:272, movewindow"
       "SUPER, mouse:273, resizewindow"
-    ];
-    bindit = [
-      "SUPER,SUPER_L,exec,pkill -SIGUSR1 waybar"
-    ];
-    binditr = [
-      ",SUPER_L,exec,pkill -SIGUSR1 waybar"
     ];
   };
 }

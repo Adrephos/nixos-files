@@ -6,6 +6,7 @@
     ./waybar.nix
     ./hyprlock.nix
     ./wlogout.nix
+    ./windowrules.nix
   ];
 
   home = {
@@ -60,61 +61,9 @@
         "special:music,  on-created-empty:$music"
       ];
 
-      windowrule = [
-        {
-          name = "floating-class";
-          "match:class" = "^(com.adrephos.floating)";
-          float = true;
-          size = "1200 700";
-        }
-        {
-          name = "steam";
-          "match:class" = "^(steam)$";
-          tile = true;
-          workspace = "9 silent";
-        }
-        {
-          name = "discord";
-          "match:class" = "^(discord)$";
-          workspace = "1 silent";
-        }
-        {
-          name = "discord";
-          "match:class" = "^(discord)$";
-          workspace = "1 silent";
-        }
-        {
-          name = "Picture-in-Picture";
-          "match:title" = "^(Picture-in-Picture)$";
-          float = true;
-          pin = true;
-        }
-        {
-          name = "scrcpy";
-          "match:class" = "^(.scrcpy-wrapped)$";
-          tile = true;
-          pin = true;
-        }
-        {
-          name = "boosteroid";
-          "match:class" = "^(Boosteroid)$";
-          idle_inhibit = "fullscreen";
-        }
-        {
-          name = "ueberzugpp";
-          "match:class" = "^(ueberzugpp).*$";
-        }
-        {
-          name = "terrara";
-          "match:class" = "^(Terraria.bin.x86_6)$";
-          fullscreen = true;
-        }
-      ];
-
       exec-once = [
         "sh -c 'sleep 5; hyprctl reload; hyprsunset &'"
         "sh -c 'swww-daemon --format xrgb & disown'"
-        # "sh -c 'swww img \"$(find ~/Pictures/Wallpaper/Current -type f \\( -iname \"*.jpg\" -o -iname \"*.png\" \\) | shuf -n 1)\" &'"
         "sh -c 'wper &'"
 
         "sh -c 'xrandr --output HDMI-A-1 --primary &'"
@@ -165,13 +114,14 @@
       "$sshot_region" = ''grim -g "$(slurp -d)" - | wl-copy -t image/png'';
       "$sshot_monitor" = "hyprshot -m output --freeze";
       "$music" = "pear-desktop";
-      # "$music" = "tidal-hifi";
       "$switchkbd" = "switch_kbd_locale";
       "$session" = "kitty session";
       "$toggle_bar" = "pkill -SIGUSR1 waybar";
       "$stop_replay" = "save-gpu-recording";
       "$clipboard" = ''kitty --class="com.adrephos.floating" -e clipse'';
-      "$show_time" = ''notify-send "$(date '+%B %d %Y')" "$(date '+%A, %H:%M')" -a "Date & Time"'';
+      # "$show_time" = ''notify-send "$(date '+%B %d %Y')" "$(date '+%A, %H:%M')" -a "Date & Time"'';
+      "$show_time" =
+        ''notify-send "$(LC_TIME=ja_JP.UTF-8 date '+%Y年%m月%d日 (%a)')" "$(LC_TIME=ja_JP.UTF-8 date '+%H時%M分')" -a "日付と時刻"'';
     };
   };
 }
