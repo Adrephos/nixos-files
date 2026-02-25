@@ -20,7 +20,7 @@
     }
     {
       name = "Picture-in-Picture";
-      "match:title" = "^([Pp]icture[- ]in[- ][Pp]icture)$";
+      "match:title" = "(?i)^picture[- ]in[- ]picture";
       float = true;
       pin = true;
       size = "454 255";
@@ -29,7 +29,7 @@
     }
     {
       name = "File chooser";
-      "match:title" = "^(([Ss]ave|[Oo]pen) [Ff]ile|.* wants to (save|open))$";
+      "match:title" = "(?i)^(save|open) file|.* wants to (save|open)";
       float = true;
       size = "1200 700";
     }
