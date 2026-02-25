@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland.settings.windowrule = [
     {
@@ -19,15 +19,19 @@
       workspace = "1 silent";
     }
     {
-      name = "discord";
-      "match:class" = "^(discord)$";
-      workspace = "1 silent";
-    }
-    {
       name = "Picture-in-Picture";
-      "match:title" = "^(Picture-in-Picture)$";
+      "match:title" = "^([Pp]icture[- ]in[- ][Pp]icture)$";
       float = true;
       pin = true;
+      size = "454 255";
+      move = "monitor_w-454 (monitor_h/2)-(255/2)";
+      keep_aspect_ratio = true;
+    }
+    {
+      name = "File chooser";
+      "match:title" = "^(([Ss]ave|[Oo]pen) [Ff]ile|.* wants to (save|open))$";
+      float = true;
+      size = "1200 700";
     }
     {
       name = "scrcpy";
@@ -39,15 +43,6 @@
       name = "boosteroid";
       "match:class" = "^(Boosteroid)$";
       idle_inhibit = "fullscreen";
-    }
-    {
-      name = "ueberzugpp";
-      "match:class" = "^(ueberzugpp).*$";
-    }
-    {
-      name = "terrara";
-      "match:class" = "^(Terraria.bin.x86_6)$";
-      fullscreen = true;
     }
   ];
 }

@@ -119,7 +119,6 @@
       "$toggle_bar" = "pkill -SIGUSR1 waybar";
       "$stop_replay" = "save-gpu-recording";
       "$clipboard" = ''kitty --class="com.adrephos.floating" -e clipse'';
-      # "$show_time" = ''notify-send "$(date '+%B %d %Y')" "$(date '+%A, %H:%M')" -a "Date & Time"'';
       "$show_time" =
         ''notify-send "$(LC_TIME=ja_JP.UTF-8 date '+%Y年%m月%d日 (%a)')" "$(LC_TIME=ja_JP.UTF-8 date '+%H時%M分')" -a "日付と時刻"'';
     };
