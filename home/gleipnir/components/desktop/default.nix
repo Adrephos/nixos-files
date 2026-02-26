@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  brave-previews = inputs.brave-previews;
+in
 {
   imports = [
     ./hyprland
@@ -14,7 +17,7 @@
     # rofi
     networkmanagerapplet
     pear-desktop
-    brave
+    brave-previews.packages.${pkgs.stdenv.hostPlatform.system}.brave-beta
     # chromium
     # firefox
     playerctl

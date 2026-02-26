@@ -29,7 +29,7 @@
     }
     {
       name = "File chooser";
-      "match:title" = "(?i)^(save|open) file|.* wants to (save|open)";
+      "match:title" = "(?i)^(save|open) file(s)?|.* wants to (save|open)";
       float = true;
       size = "1200 700";
     }

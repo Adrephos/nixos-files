@@ -1,7 +1,7 @@
 {
   description = "NixOS config flake";
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, brave-previews, ... }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -30,6 +30,9 @@
 
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+    brave-previews.url = "github:kcalvelli/brave-browser-previews";
+    brave-previews.inputs.nixpkgs.follows = "nixpkgs";
 
     boosteroid.url = "github:Adrephos/boosteroid-flake";
 
