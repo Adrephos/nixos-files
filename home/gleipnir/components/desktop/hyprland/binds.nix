@@ -104,16 +104,12 @@
       ]
       ++ (lib.mapAttrsToList (key: direction: "SUPER,${key},movefocus,${direction}") directions)
       ++ (lib.mapAttrsToList (key: direction: "SUPER SHIFT,${key},swapwindow,${direction}") directions)
-      ++ (lib.mapAttrsToList
-        (
-          key: direction: "SUPER CTRL,${key},movewindoworgroup,${direction}"
-        )
-        directions)
-      ++ (lib.mapAttrsToList
-        (
-          key: direction: "SUPER ALT SHIFT,${key},movecurrentworkspacetomonitor,${direction}"
-        )
-        directions);
+      ++ (lib.mapAttrsToList (
+        key: direction: "SUPER CTRL,${key},movewindoworgroup,${direction}"
+      ) directions)
+      ++ (lib.mapAttrsToList (
+        key: direction: "SUPER ALT SHIFT,${key},movecurrentworkspacetomonitor,${direction}"
+      ) directions);
 
     binde = [
       # Zoom

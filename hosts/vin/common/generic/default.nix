@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./grub.nix
     ./pipewire.nix
@@ -6,7 +7,10 @@
     ./input.nix
   ];
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     max-jobs = "auto";
     cores = 0;
   };

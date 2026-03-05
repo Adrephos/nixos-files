@@ -96,7 +96,7 @@
           }
           {
             monitor = "";
-            text = ''Accept the pain, but don't accept that you deserved it.'';
+            text = "Accept the pain, but don't accept that you deserved it.";
             font_size = 20;
             font_family = "Fira Semibold";
             position = "-100, 160";

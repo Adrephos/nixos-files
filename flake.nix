@@ -1,7 +1,14 @@
 {
   description = "NixOS config flake";
 
-  outputs = inputs@{ self, nixpkgs, home-manager, brave-previews, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      brave-previews,
+      ...
+    }:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;

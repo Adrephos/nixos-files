@@ -1,9 +1,10 @@
-{ pkgs
-, inputs
-, outputs
-, lib
-, config
-, ...
+{
+  pkgs,
+  inputs,
+  outputs,
+  lib,
+  config,
+  ...
 }:
 let
   zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;

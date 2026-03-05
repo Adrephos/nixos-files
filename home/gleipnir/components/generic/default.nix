@@ -1,9 +1,13 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   variant = "mocha";
   accent = "mauve";
-  kvantumThemePackage =
-    pkgs.catppuccin-kvantum.override { inherit variant accent; };
+  kvantumThemePackage = pkgs.catppuccin-kvantum.override { inherit variant accent; };
 in
 {
   imports = [ ../cli ];
@@ -20,19 +24,25 @@ in
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
-      package = (pkgs.catppuccin-papirus-folders.override {
-        accent = "${accent}";
-        flavor = "${variant}";
-      });
+      package = (
+        pkgs.catppuccin-papirus-folders.override {
+          accent = "${accent}";
+          flavor = "${variant}";
+        }
+      );
     };
     theme = {
       name = "catppuccin-mocha-mauve-standard";
-      package = (pkgs.catppuccin-gtk.override {
-        accents = [ "${accent}" ];
-        variant = "${variant}";
-      });
+      package = (
+        pkgs.catppuccin-gtk.override {
+          accents = [ "${accent}" ];
+          variant = "${variant}";
+        }
+      );
     };
-    gtk3 = { extraConfig.gtk-application-prefer-dark-theme = true; };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
   };
 
   home = {
