@@ -1,6 +1,8 @@
 { pkgs, inputs, ... }:
 let
-  brave-previews = inputs.brave-previews;
+  brave-packages = inputs.brave-previews.packages.${pkgs.stdenv.hostPlatform.system};
+  brave-beta = brave-packages.brave-beta;
+  brave-nightly = brave-packages.brave-nightly;
 in
 {
   imports = [
@@ -14,16 +16,13 @@ in
     kdePackages.okular
     dunst
     libnotify
-    # rofi
     networkmanagerapplet
     pear-desktop
-    brave-previews.packages.${pkgs.stdenv.hostPlatform.system}.brave-beta
-    # chromium
-    # firefox
+    brave-beta
+    brave-nightly
     playerctl
     pamixer
     noto-fonts-cjk-sans
-    # redshift
     onedriver
     udiskie
     keepassxc
@@ -33,6 +32,5 @@ in
     psmisc
     gnumake
     transmission_4-gtk
-    syncplay
   ];
 }

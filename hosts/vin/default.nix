@@ -6,6 +6,7 @@
 , ...
 }:
 let
+  zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
   sddm-theme = pkgs.fetchFromGitHub {
     owner = "Keyitdev";
     repo = "sddm-astronaut-theme";
@@ -217,7 +218,7 @@ in
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    zen-browser
 
     # Java Zzzz
     jdk
@@ -241,7 +242,6 @@ in
     imagemagick
     gcc
     cmake
-    # godot
     scrcpy
     simple-mtpfs
     gnumake
@@ -271,7 +271,6 @@ in
     android-tools
     file
     onlyoffice-desktopeditors
-    # gpu-screen-recorder-gtk
     gpu-screen-recorder
 
     # owasp
@@ -280,7 +279,6 @@ in
 
     # Learning
     exercism
-    mokuro
     python312Packages.manga-ocr
 
     # Erlang
@@ -295,14 +293,11 @@ in
     python311Packages.pip
 
     # La vida
-    # stremio
     discord
     zoom-us
-    tidal-hifi
     pulseaudio
     pavucontrol
     prismlauncher
-    # osu-lazer
     protonvpn-gui
 
     # Wine & Gaming

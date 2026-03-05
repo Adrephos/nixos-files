@@ -8,10 +8,18 @@
       size = "1200 700";
     }
     {
-      name = "steam";
+      name = "steam-main";
       "match:class" = "^(steam)$";
+      "match:initial_title" = "^(Steam)$";
       tile = true;
-      workspace = "9 silent";
+      workspace = "4 silent";
+    }
+    {
+      name = "steam-dialogs";
+      "match:class" = "^(steam)$";
+      "match:initial_title" = "^(?!Steam$).*";
+      float = true;
+      workspace = "4 silent";
     }
     {
       name = "discord";
@@ -43,6 +51,11 @@
       name = "boosteroid";
       "match:class" = "^(Boosteroid)$";
       idle_inhibit = "fullscreen";
+    }
+    {
+      name = "migaku";
+      "match:class" = "(?i)^brave-.*-Default";
+      workspace = "special:magic silent";
     }
   ];
 }

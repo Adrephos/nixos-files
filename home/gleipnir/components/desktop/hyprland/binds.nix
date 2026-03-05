@@ -124,8 +124,8 @@
     ];
 
     bindtpel = [
-      "ALT, minus, sendshortcut, Ctrl_Shift, M, class:discord"
-      "ALT, equal, sendshortcut, Ctrl_Shift, D, class:discord"
+      "SUPER SHIFT, underscore, sendshortcut, Ctrl_Shift, M, class:discord"
+      "SUPER SHIFT, plus, sendshortcut, Ctrl_Shift, D, class:discord"
     ];
 
     bindm = [
