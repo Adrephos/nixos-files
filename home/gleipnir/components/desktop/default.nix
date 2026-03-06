@@ -7,6 +7,7 @@ in
 {
   imports = [
     ./hyprland
+    ./niri
     ./anki
   ];
 

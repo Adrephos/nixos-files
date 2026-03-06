@@ -103,7 +103,8 @@ in
       videoDrivers = [ "nvidia" ];
     };
     displayManager = {
-      defaultSession = "hyprland";
+      # defaultSession = "hyprland";
+      defaultSession = "niri";
       sddm = {
         enable = true;
         theme = "${sddm-theme}";
@@ -119,7 +120,6 @@ in
 
   programs = {
     command-not-found.enable = true;
-    dconf.enable = true;
     hyprland.enable = true;
     niri.enable = true;
     gamemode.enable = true;
@@ -273,6 +273,9 @@ in
     file
     onlyoffice-desktopeditors
     gpu-screen-recorder
+    nautilus
+    glib
+    gsettings-desktop-schemas
 
     # owasp
     # zap

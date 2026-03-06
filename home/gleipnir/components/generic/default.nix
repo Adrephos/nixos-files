@@ -20,6 +20,23 @@ in
     style.name = "kvantum";
   };
 
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+      "org/gnome/nautilus/preferences" = {
+        default-sort-order = "mtime";
+        default-sort-in-reverse-order = true;
+        search-view-default-sort-order = "mtime";
+      };
+
+      "org/gtk/settings/file-chooser" = {
+        sort-directories-first = true;
+      };
+    };
+  };
+
   gtk = {
     enable = true;
     iconTheme = {
