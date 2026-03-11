@@ -29,7 +29,9 @@ input {
     touchpad {
         tap
     }
-
+    mouse {
+        accel-speed 0.2
+    }
     warp-mouse-to-focus
     focus-follows-mouse
 }
@@ -55,7 +57,7 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
-    default-column-width { proportion 0.9; }
+    default-column-width { proportion 0.95; }
     tab-indicator {
       off
     }
@@ -107,6 +109,11 @@ window-rule {
     open-on-output "HDMI-A-1"
 }
 
+window-rule {
+    match app-id="steam_app_105600"
+
+}
+
 layer-rule {
     match namespace="^swww-daemon$"
     place-within-backdrop true
@@ -114,6 +121,8 @@ layer-rule {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Alt+Z { spawn "save-gpu-recording"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
     Mod+P hotkey-overlay-title="Run an Application: Rofi" { spawn-sh "rofi -show drun -icon-theme Papirus -show-icons"; }
@@ -137,14 +146,14 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-or-monitor-right; }
-    Mod+H     { focus-column-or-monitor-left; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
     Mod+J     { focus-workspace-down; }
     Mod+K     { focus-workspace-up; }
-    Mod+L     { focus-column-or-monitor-right; }
+    Mod+L     { focus-column-right; }
 
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
