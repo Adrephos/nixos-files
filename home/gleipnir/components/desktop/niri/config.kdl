@@ -18,6 +18,7 @@ spawn-sh-at-startup "sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/"
 spawn-sh-at-startup "sleep 20; keepassxc"
 spawn-sh-at-startup "discord"
 spawn-sh-at-startup "pear-desktop"
+spawn-sh-at-startup "sleep 10; temperature"
 
 input {
     keyboard {
@@ -123,6 +124,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Alt+Z { spawn "save-gpu-recording"; }
+    Mod+Shift+E hotkey-overlay-title="Shutdown menu" { spawn "wlogout"; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
     Mod+P hotkey-overlay-title="Run an Application: Rofi" { spawn-sh "rofi -show drun -icon-theme Papirus -show-icons"; }

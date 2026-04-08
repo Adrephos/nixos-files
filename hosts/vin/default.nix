@@ -294,15 +294,20 @@ in
     nodejs
     uv
     python3
-    python311Packages.pip
+    python312Packages.pip
+    python312Packages.jupytext
+    vscodium
 
     # La vida
     discord
+    stremio
     zoom-us
     pulseaudio
     pavucontrol
     prismlauncher
     protonvpn-gui
+    redland-wayland
+    claude-code
 
     # Wine & Gaming
     inputs.boosteroid.packages.x86_64-linux.boosteroid
