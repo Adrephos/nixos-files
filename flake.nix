@@ -7,6 +7,7 @@
       nixpkgs,
       home-manager,
       brave-previews,
+      claude-code,
       ...
     }:
     let
@@ -42,6 +43,8 @@
     brave-previews.inputs.nixpkgs.follows = "nixpkgs";
 
     boosteroid.url = "github:Adrephos/boosteroid-flake";
+
+    claude-code.url = "github:sadjow/claude-code-nix";
 
     yazi.url = "github:sxyazi/yazi";
 

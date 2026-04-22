@@ -215,7 +215,10 @@ in
     "qtwebengine-5.15.19"
   ];
 
-  nixpkgs.overlays = [ inputs.templ.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.templ.overlays.default
+    inputs.claude-code.overlays.default
+  ];
 
   environment.homeBinInPath = true;
   environment.systemPackages = with pkgs; [
