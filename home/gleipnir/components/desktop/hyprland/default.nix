@@ -17,7 +17,7 @@
       hyprsunset
       wl-clipboard
       hyprsunset
-      swww
+      awww
       rofi
     ];
     sessionVariables = {
@@ -63,7 +63,7 @@
 
       exec-once = [
         "sh -c 'sleep 5; hyprctl reload; hyprsunset &'"
-        "sh -c 'swww-daemon --format xrgb & disown'"
+        "sh -c 'awww-daemon --format xrgb & disown'"
         "sh -c 'wper &'"
 
         "sh -c 'xrandr --output HDMI-A-1 --primary &'"
@@ -87,7 +87,6 @@
 
         "sh -c 'dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE &'"
         "sh -c 'sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/ &'"
-        "sh -c 'sleep 20; hyprctl dispatch exec [workspace 10 silent] \"keepassxc\" &'"
 
         "[workspace 1 silent] discord"
         "[workspace special:music silent] $music"

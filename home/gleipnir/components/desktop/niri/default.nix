@@ -4,7 +4,8 @@
     grim
     slurp
     wl-clipboard
-    swww
+    wl-mirror
+    awww
     rofi
     xwayland-satellite
     playerctl

@@ -2,7 +2,7 @@ workspace "neo" {
   open-on-output "HDMI-A-1"
 }
 
-spawn-sh-at-startup "swww-daemon --format xrgb && swww img ~/Downloads/Wallpaper/in_use.jpg"
+spawn-sh-at-startup "awww-daemon --format xrgb && awww img ~/Downloads/Wallpaper/in_use.jpg"
 spawn-sh-at-startup "fcitx5-remote -r"
 spawn-sh-at-startup "fcitx5 -d --replace"
 spawn-sh-at-startup "fcitx5-remote -r"
@@ -14,7 +14,7 @@ spawn-sh-at-startup "sleep 10; start-gpu-recording"
 spawn-sh-at-startup "sleep 10; profile"
 
 spawn-sh-at-startup "sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/"
-spawn-sh-at-startup "sleep 20; keepassxc"
+// spawn-sh-at-startup "sleep 20; keepassxc"
 spawn-sh-at-startup "sleep 20; clipse -listen"
 spawn-sh-at-startup "discord"
 spawn-sh-at-startup "pear-desktop"
@@ -117,7 +117,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 

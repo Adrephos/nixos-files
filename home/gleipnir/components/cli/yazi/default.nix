@@ -49,6 +49,7 @@ in
       enable = true;
       package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enableFishIntegration = true;
+      shellWrapperName = "yy";
       settings = {
         preview = {
           ueberzug_offset = [

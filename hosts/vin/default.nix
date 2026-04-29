@@ -56,7 +56,26 @@ in
     # nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    config.niri = {
+      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+    };
+  };
+
   services = {
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${config.programs.niri.package}/bin/niri-session";
+    #       user = "gleipnir";
+    #     };
+    #   };
+    # };
     syncthing = {
       enable = true;
       user = "gleipnir";
@@ -113,14 +132,13 @@ in
     };
     asusd = {
       enable = true;
-      enableUserService = true;
     };
     power-profiles-daemon.enable = true;
   };
 
   programs = {
     command-not-found.enable = true;
-    hyprland.enable = true;
+    # hyprland.enable = true;
     niri.enable = true;
     gamemode.enable = true;
     gamescope = {
@@ -169,7 +187,7 @@ in
       prime = {
         offload.enable = false;
         sync.enable = true;
-        amdgpuBusId = "PCI:5:0:0";
+        amdgpuBusId = "PCI:4:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
@@ -303,12 +321,11 @@ in
 
     # La vida
     discord
-    stremio
     zoom-us
     pulseaudio
     pavucontrol
     prismlauncher
-    protonvpn-gui
+    proton-vpn
     redland-wayland
     claude-code
 
