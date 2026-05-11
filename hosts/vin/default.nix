@@ -326,6 +326,7 @@ in
     pavucontrol
     prismlauncher
     proton-vpn
+    proton-pass
     redland-wayland
     claude-code
 

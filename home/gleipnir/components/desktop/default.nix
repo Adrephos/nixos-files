@@ -21,6 +21,7 @@ in
     pear-desktop
     brave-beta
     brave-nightly
+    chromium
     playerctl
     pamixer
     noto-fonts-cjk-sans
