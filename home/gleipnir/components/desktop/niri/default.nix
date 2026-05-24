@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     grim
     slurp
+    wayfreeze
+    gtk3
     wl-clipboard
     wl-mirror
     awww

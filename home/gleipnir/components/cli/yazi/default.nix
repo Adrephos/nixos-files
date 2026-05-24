@@ -67,32 +67,34 @@ in
         };
         plugin.prepend_previewers = [
           {
-            name = "*.tar*";
+            url = "*.tar*";
             run = ''piper --format=url -- tar tf "$1"'';
           }
           {
-            name = "*.csv";
+            url = "*.csv";
             run = ''piper -- bat -p --color=always "$1"'';
           }
           {
-            name = "*.md";
+            url = "*.md";
             run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
           }
           {
-            name = "*/";
+            url = "*/";
             run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"'';
           }
         ];
         plugin.prepend_fetchers = [
           {
             id = "git";
-            name = "*";
+            url = "*";
             run = "git";
+            group = "gropu1";
           }
           {
             id = "git";
-            name = "*/";
+            url = "*/";
             run = "git";
+            group = "gropu1";
           }
         ];
       };

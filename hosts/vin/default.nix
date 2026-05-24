@@ -14,6 +14,15 @@ let
     rev = "c10bd950544036c7418e0f34cbf1b597dae2b72f";
     sha256 = "sha256-ITufiMTnSX9cg83mlmuufNXxG1dp9OKG90VBZdDeMxw=";
   };
+  pythonEnv = pkgs.python313.withPackages (
+    ps: with ps; [
+      torch-bin
+      torchvision-bin
+      (manga-ocr.overridePythonAttrs (old: {
+        dependencies = (builtins.filter (d: d.pname or "" != "torch") old.dependencies) ++ [ torch-bin ];
+      }))
+    ]
+  );
 in
 {
   imports = [
@@ -22,6 +31,7 @@ in
     ./common/generic
 
     inputs.home-manager.nixosModules.home-manager
+    inputs.boosteroid.nixosModules.default
   ];
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
@@ -56,26 +66,17 @@ in
     # nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-    ];
-    config.niri = {
-      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-    };
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-wlr
+  #   ];
+  #   config.niri = {
+  #     "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+  #   };
+  # };
 
   services = {
-    # greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command = "${config.programs.niri.package}/bin/niri-session";
-    #       user = "gleipnir";
-    #     };
-    #   };
-    # };
     syncthing = {
       enable = true;
       user = "gleipnir";
@@ -137,6 +138,16 @@ in
   };
 
   programs = {
+    boosteroid = {
+      enable = true;
+      videoDecoder = "vaapi";
+      extraEnv = {
+        LIBVA_DRIVER_NAME = "radeonsi";
+        LIBVA_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
+        LD_LIBRARY_PATH = "/run/opengl-driver/lib";
+      };
+    };
+    kdeconnect.enable = true;
     command-not-found.enable = true;
     # hyprland.enable = true;
     niri.enable = true;
@@ -157,6 +168,12 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        libvdpau-va-gl
+        libva
+        libva-utils
+        nvidia-vaapi-driver
+      ];
     };
 
     opentabletdriver.enable = true;
@@ -239,6 +256,13 @@ in
   ];
 
   environment.homeBinInPath = true;
+  environment.variables = {
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+      pkgs.stdenv.cc.cc
+      pkgs.libz
+      "/run/opengl-driver"
+    ];
+  };
   environment.systemPackages = with pkgs; [
     zen-browser
 
@@ -304,7 +328,7 @@ in
 
     # Learning
     exercism
-    python312Packages.manga-ocr
+    pythonEnv
 
     # Erlang
     gleam
@@ -330,8 +354,8 @@ in
     redland-wayland
     claude-code
 
-    # Wine & Gaming
-    inputs.boosteroid.packages.x86_64-linux.boosteroid
+    ffmpeg-full
+    libva-utils
   ];
 
   system.autoUpgrade.enable = true;

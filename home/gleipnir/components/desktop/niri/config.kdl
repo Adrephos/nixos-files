@@ -20,6 +20,7 @@ spawn-sh-at-startup "discord"
 spawn-sh-at-startup "pear-desktop"
 // spawn-sh-at-startup "sleep 10; temperature"
 spawn-sh-at-startup "sleep 10; waybar"
+spawn-sh-at-startup "sleep 10; mkdir -p /tmp/manga-ocr && manga_ocr /tmp/manga-ocr"
 
 input {
     keyboard {
@@ -263,6 +264,7 @@ binds {
     Mod+Shift+S { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-screen; }
     Mod+Shift+Ctrl+Alt+S { screenshot-window; }
+    Mod+Shift+O hotkey-overlay-title="Manga OCR: capture region" { spawn "yomitan-ocr"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+C { quit; }
