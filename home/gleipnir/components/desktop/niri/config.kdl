@@ -118,7 +118,6 @@ window-rule {
 
 window-rule {
     match app-id="steam_app_105600"
-
 }
 
 layer-rule {
