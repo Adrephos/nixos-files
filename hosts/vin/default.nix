@@ -376,6 +376,10 @@ in
 
     # La vida
     discord
+    vesktop
+    protonplus
+    sgdboop
+
     zoom-us
     pulseaudio
     pavucontrol
