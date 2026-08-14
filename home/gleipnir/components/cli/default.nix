@@ -36,5 +36,7 @@
     posting
     lazygit
     lazysql
+    gopls
+    gcc
   ];
 }
