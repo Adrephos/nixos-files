@@ -39,6 +39,13 @@ in
   # Hibernation
   boot.kernelParams = [ "resume=/dev/disk/by-label/swap" ];
   boot.resumeDevice = "/dev/disk/by-label/swap";
+
+  # Droidcam
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.kernelModules = [ "v4l2loopback" ];
+
   powerManagement.enable = true;
 
   services.logind.settings.Login = {
