@@ -300,6 +300,13 @@ in
     templ
     cobra-cli
 
+    #Tecladito
+    keymapp
+
+    # Droidcam
+    v4l-utils
+    droidcam
+
     # Development
     neovim
     imagemagick
