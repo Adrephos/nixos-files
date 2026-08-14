@@ -308,6 +308,7 @@ in
     droidcam
 
     # Development
+    glab
     neovim
     imagemagick
     gcc
