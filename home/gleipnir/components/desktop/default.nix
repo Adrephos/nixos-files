@@ -8,7 +8,6 @@ in
   imports = [
     ./hyprland
     ./niri
-    ./anki
   ];
 
   home.packages = with pkgs; [
