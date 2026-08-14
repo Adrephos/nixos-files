@@ -268,7 +268,8 @@ binds {
     Print { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-screen; }
     Mod+Shift+Ctrl+Alt+S { screenshot-window; }
-    Mod+Shift+O hotkey-overlay-title="Manga OCR: capture region" { spawn "yomitan-ocr"; }
+    Alt+Print hotkey-overlay-title="Manga OCR: capture region" { spawn "yomigrep-ocr"; }
+    Mod+Shift+G hotkey-overlay-title="Manga OCR: yomigrep notify" { spawn-sh "yomigrep-ocr -c"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+C { quit; }
