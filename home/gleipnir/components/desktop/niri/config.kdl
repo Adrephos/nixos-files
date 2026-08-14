@@ -16,11 +16,14 @@ spawn-sh-at-startup "sleep 10; profile"
 // spawn-sh-at-startup "sleep 10; rclone cmount gdrive:/ ~/drive/gdrive/"
 // spawn-sh-at-startup "sleep 20; keepassxc"
 spawn-sh-at-startup "sleep 20; clipse -listen"
-spawn-sh-at-startup "discord"
+// spawn-sh-at-startup "discord"
+spawn-sh-at-startup "vesktop"
+
 spawn-sh-at-startup "pear-desktop"
 // spawn-sh-at-startup "sleep 10; temperature"
 spawn-sh-at-startup "sleep 10; waybar"
-spawn-sh-at-startup "sleep 10; mkdir -p /tmp/manga-ocr && manga_ocr /tmp/manga-ocr"
+spawn-sh-at-startup "sleep 10; start-manga-ocr"
+spawn-sh-at-startup "sleep 10; clip-dl"
 
 input {
     keyboard {
@@ -103,7 +106,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="discord"
+    // match app-id="discord"
+    match app-id="vesktop"
     open-on-output "eDP-1"
 }
 
