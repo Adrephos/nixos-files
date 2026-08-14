@@ -256,10 +256,10 @@ binds {
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
 
-    Mod+Minus { set-column-width "-5%"; }
-    Mod+Equal { set-column-width "+5%"; }
-    Mod+Shift+Minus { set-window-height "-5%"; }
-    Mod+Shift+Equal { set-window-height "+5%"; }
+    Mod+Minus { set-column-width "-2%"; }
+    Mod+Equal { set-column-width "+2%"; }
+    Mod+Shift+Minus { set-window-height "-2%"; }
+    Mod+Shift+Equal { set-window-height "+2%"; }
     Alt+Mod+M { spawn-sh "toggle-mic"; }
 
     Mod+V       { toggle-window-floating; }
