@@ -26,6 +26,7 @@
     wget
     # feh
     loupe
+    feh
     timer
     lolcat
     glow
