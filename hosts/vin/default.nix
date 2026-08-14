@@ -353,6 +353,7 @@ in
     # burpsuite
 
     # Learning
+    codecrafters-cli
     exercism
     pythonEnv
 
