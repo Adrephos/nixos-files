@@ -319,6 +319,7 @@ in
     linuxHeaders
 
     # Tools
+    whisper-cpp
     caligula # iso image
     rclone
     cargo
