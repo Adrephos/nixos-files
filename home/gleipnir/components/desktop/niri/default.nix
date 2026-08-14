@@ -1,9 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    grim
-    slurp
-    wayfreeze
+    hyprshot
     gtk3
     wl-clipboard
     wl-mirror
