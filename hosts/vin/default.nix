@@ -356,8 +356,12 @@ in
     codecrafters-cli
     exercism
     pythonEnv
+    anki
+
+    foliate
 
     # Erlang
+    # erlang
     gleam
     elixir
 
