@@ -16,6 +16,7 @@ in
     kdePackages.okular
     dunst
     libnotify
+    inotify-tools
     networkmanagerapplet
     pear-desktop
     brave-beta
