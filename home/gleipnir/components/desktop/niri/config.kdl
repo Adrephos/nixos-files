@@ -265,7 +265,7 @@ binds {
     Mod+Ctrl+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
-    Mod+Shift+S { screenshot; }
+    Print { screenshot; }
     Mod+Shift+Ctrl+S { screenshot-screen; }
     Mod+Shift+Ctrl+Alt+S { screenshot-window; }
     Mod+Shift+O hotkey-overlay-title="Manga OCR: capture region" { spawn "yomitan-ocr"; }
