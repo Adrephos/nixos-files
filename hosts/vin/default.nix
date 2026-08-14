@@ -180,6 +180,7 @@ in
   };
 
   hardware = {
+    keyboard.zsa.enable = true;
     xone.enable = true;
     graphics = {
       enable = true;
