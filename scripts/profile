@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+set_profile() {
+  if [[ "$1" == "Discharging" ]]; then
+    powerprofilesctl set power-saver;
+  else
+    powerprofilesctl set performance;
+  fi
+
+  echo "Setting power profile to $(powerprofilesctl get)"
+}
+
+set_profile $status
+while true; do
+  current=$(cat /sys/class/power_supply/BAT1/status)
+  if [ "$current" != "$status" ]; then
+    echo $current
+    status=$current
+    set_profile $status
+  fi
+  sleep 5s
+done

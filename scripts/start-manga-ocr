@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir -p /tmp/manga-ocr
+touch /tmp/manga-ocr/words.txt
+manga_ocr --read_from=/tmp/manga-ocr --write_to=/tmp/manga-ocr/words.txt

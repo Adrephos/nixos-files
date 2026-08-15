@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+while true; do
+    midnight=$(date -d "today 0" +%s)
+    morning=$((midnight + (5*3600)))
+    night=$((midnight + (19*3600)))
+    hour=$(date +%s)
+
+    if (( hour >= night || hour < morning )); then
+        # Night
+        hours_tillchange=$((morning - hour))
+        hyprctl hyprsunset temperature 2500
+        redland --sunrise 05:00 --sunset 19:00 --low 3600 --high 6500 --mode night &
+        echo "Night mode"
+    else
+        # Day
+        hours_tillchange=$((night - hour))
+        hyprctl hyprsunset identity
+        killall redland
+        echo "Day mode"
+    fi
+
+    absolute=$((hours_tillchange < 0 ? -hours_tillchange : hours_tillchange))
+    sleep $absolute
+done

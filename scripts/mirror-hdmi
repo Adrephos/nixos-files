@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+MONITOR="HDMI-A-1"
+SOURCE="eDP-1"
+STOPPED=0
+
+cleanup() {
+    STOPPED=1
+    echo "Stopping mirror loop..."
+    kill "$CHILD_PID" 2>/dev/null || true
+    exit 0
+}
+
+trap cleanup INT TERM
+echo "Starting wl-mirror loop ($SOURCE -> $MONITOR). Press Ctrl-C to stop."
+
+while [[ $STOPPED -eq 0 ]]; do
+    wl-mirror --fullscreen-output "$SOURCE" --fullscreen "$MONITOR" &
+    CHILD_PID=$!
+
+    sleep 1
+    niri msg action focus-monitor "$MONITOR" 2>/dev/null || true
+    wait "$CHILD_PID" || true
+
+    if [[ $STOPPED -eq 0 ]]; then
+        echo "wl-mirror exited, restarting in 1s..."
+        sleep 1
+    fi
+done

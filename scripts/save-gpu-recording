@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+killall -SIGUSR1 gpu-screen-recorder && notify-send -a "Screen Replay" "Screen Recording" "Replay saved"

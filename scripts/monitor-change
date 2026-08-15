@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Initial state of connected monitors
+previous_monitors=$(xrandr --query | grep ' connected')
+
+while true; do
+    # Get the current state of connected monitors
+    current_monitors=$(xrandr --query | grep ' connected')
+
+    # Compare previous and current states
+    if [ "$previous_monitors" != "$current_monitors" ]; then
+        # Run the command you want to execute
+        echo "A monitor has been added or removed."
+        
+        # Replace the following command with your desired command
+        xrandr --output HDMI-A-1 --primary
+
+        # Update previous monitors state
+        previous_monitors=$current_monitors
+        pkill waybar && waybar
+    fi
+    
+    # Sleep for a while before checking again
+    sleep 5
+done

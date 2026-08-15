@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Use the first argument as the project path if provided; otherwise, use zoxide
+if [[ $# -ge 1 ]]; then
+  if   [ -d "${1}" ]
+  then echo "${1} is a directory";
+  PRJ="$(realpath $1)"
+  else echo "${1} is not valid";
+    PRJ="$(zoxide query -i)"
+  fi
+else
+  PRJ="$(zoxide query -i)"
+fi
+
+echo "Launching tmux for $PRJ"
+cd "$PRJ" || exit 1
+
+# Set the Kitty tab title to the directory name
+DIR_NAME="$(basename "$PRJ")"
+printf "\033]2;%s\007" "$DIR_NAME"
+
+SESSION_NAME="$(echo "$PRJ" | cksum | cut -d ' ' -f1)"
+SOCKET_DIR="${HOME}/.tmux/sockets"
+mkdir -p "$SOCKET_DIR"
+TMUX_SOCKET="${SOCKET_DIR}/${SESSION_NAME}.sock"
+
+echo "Session name: $SESSION_NAME"
+
+NEW_SESSION=false
+
+if ! tmux -S "$TMUX_SOCKET" has-session -t "$SESSION_NAME" 2>/dev/null; then
+  NEW_SESSION=true
+
+  # Create a new session with first window running nvim
+  tmux -S "$TMUX_SOCKET" new-session -d -s "$SESSION_NAME" -c "$PRJ" -n nvim 'nvim'
+
+  # Create a second window with a shell
+  tmux -S "$TMUX_SOCKET" new-window -c "$PRJ" -n "shell"
+  (sleep 1 && tmux -S "$TMUX_SOCKET" send-keys -t "$SESSION_NAME:shell" "cd ." C-m) &
+fi
+
+# Only focus nvim if session was just created
+if [ "$NEW_SESSION" = true ]; then
+  exec tmux -S "$TMUX_SOCKET" attach -t "$SESSION_NAME" \; select-window -t "$SESSION_NAME:nvim"
+else
+  exec tmux -S "$TMUX_SOCKET" attach -t "$SESSION_NAME"
+fi

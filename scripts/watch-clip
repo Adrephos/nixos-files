@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $0 <folder>"
+  exit 1
+fi
+
+dir="$1"
+
+if [ ! -d "$dir" ]; then
+  echo "Not a directory: $dir"
+  exit 1
+fi
+
+while read -r filename; do
+  [[ "$filename" == *.crdownload ]] && continue
+  file="$dir/$filename"
+  mime=$(file --mime-type -b "$file")
+
+  pkill -x wl-copy 2>/dev/null
+
+  if [[ "$mime" == image/* ]]; then
+    magick "$file" png:- | wl-copy --type image/png
+  else
+    echo "file://$file" | wl-copy --type text/uri-list
+  fi
+
+  notify-send "Copied to clipboard" "$filename"
+done < <(inotifywait -m -e close_write,moved_to --format '%f' "$dir")

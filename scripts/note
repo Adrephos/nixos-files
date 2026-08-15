@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nvim ~/workspace/obsidian/Global\ Note/ノート.md

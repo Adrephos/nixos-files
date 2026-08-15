@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+dir="/tmp/clip-dl"
+mkdir -p "$dir"
+
+prev=""
+
+while true; do
+  url=$(wl-paste --no-newline 2>/dev/null | tr -d '\0')
+  if [[ "$url" != "$prev" && "$url" =~ ^https?://.*\.mp3(\?.*)?$ ]]; then
+    filename=$(basename "${url%%\?*}")
+    filepath="$dir/$filename"
+    notify-send -r 55432 "Downloading..." "$filename"
+    if curl -sL -A "Mozilla/5.0" "$url" -o "$filepath"; then
+      echo "file://$filepath" | wl-copy --type text/uri-list
+      notify-send -r 55432 "Downloaded & copied" "$filename"
+    else
+      notify-send -r 55432 "clip-dl: download failed" "$filename"
+    fi
+  fi
+  prev="$url"
+  sleep 0.5
+done

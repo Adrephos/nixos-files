@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+THRESHOLD=95
+
+while true; do
+    used_percent=$(free | awk '/Mem/ { printf("%.0f", $3/$2 * 100) }')
+
+    if [ "$used_percent" -ge "$THRESHOLD" ]; then
+        notify-send -a "RAM Watcher" -u critical "High RAM Usage" "RAM usage is at ${used_percent}%!"
+    fi
+
+    sleep 10
+done

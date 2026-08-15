@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+TARGET_WORKSPACE=7
+COMMAND="scrcpy --stay-awake --no-key-repeat --render-driver=opengl --video-codec-options=color-range=1"
+
+while true; do
+    adb wait-for-device
+
+    if adb devices | grep -w "device" > /dev/null; then
+        # choice=$(echo -e "Yes\nNo" | rofi -dmenu -p "Launch scrcpy on workspace ${TARGET_WORKSPACE}?")
+        choice="Yes"
+
+        if [[ "$choice" == "Yes" ]]; then
+          hyprctl dispatch exec [workspace $TARGET_WORKSPACE silent] "$COMMAND"
+        fi
+
+        while adb get-state 2>/dev/null | grep -q "device"; do
+            sleep 2
+        done
+    fi
+
+    sleep 1
+done

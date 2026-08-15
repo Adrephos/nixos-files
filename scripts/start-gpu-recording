@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+PREF_DIR="/mnt/jogos/Videos/Replay/"
+FALLBACK_DIR="$HOME/Videos"
+
+if [ -d "$PREF_DIR" ]; then
+    OUTDIR="$PREF_DIR"
+else
+    OUTDIR="$FALLBACK_DIR"
+fi
+
+# Show notification
+notify-send -a "Screen Replay" "Screen Recording" "Started replay saving to $OUTDIR"
+
+# Start recording the entire screen with audio
+gpu-screen-recorder -w portal -s 1920x1080 -f 30 -o "$OUTDIR" -bm qp -k h264 -a "default_input|default_output" -r 600 -c mkv

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+use_clipboard=false
+while getopts "c" opt; do
+    case $opt in
+        c) use_clipboard=true ;;
+    esac
+done
+
+filename=$(date +%s%N).png
+img=/tmp/manga-ocr/$filename
+words=/tmp/manga-ocr/words.txt
+dicts="JMdict [2026-06-02]"
+
+mkdir -p /tmp/manga-ocr
+
+run_yomigrep() {
+    yomigrep --notify --limit 3 --dicts "$dicts" --watch "$words"
+}
+
+if $use_clipboard; then
+    if command -v wl-paste &>/dev/null && [ -n "$WAYLAND_DISPLAY" ]; then
+        is_image=$(wl-paste --list-types 2>/dev/null | grep -qi "image" && echo true || echo false)
+        paste_image() { wl-paste --type image/png > "$img"; }
+        paste_text()  { wl-paste --no-newline > "$words"; }
+    elif command -v xclip &>/dev/null && [ -n "$DISPLAY" ]; then
+        is_image=$(xclip -selection clipboard -target TARGETS -out 2>/dev/null | grep -qi "image" && echo true || echo false)
+        paste_image() { xclip -selection clipboard -target image/png -out > "$img"; }
+        paste_text()  { xclip -selection clipboard -out > "$words"; }
+    elif command -v xsel &>/dev/null && [ -n "$DISPLAY" ]; then
+        is_image=false
+        paste_text()  { xsel --clipboard --output > "$words"; }
+    else
+        echo "No clipboard tool found (wl-clipboard, xclip, or xsel)" >&2
+        exit 1
+    fi
+
+    if $is_image; then
+        paste_image || exit 1
+    else
+        paste_text || exit 1
+        run_yomigrep
+        exit 0
+    fi
+else
+    hyprshot -m region --freeze -o /tmp/manga-ocr/ -f "$filename" --silent || exit 1
+fi
+
+before=$(stat -c %Y "$words" 2>/dev/null)
+for _ in $(seq 50); do
+    after=$(stat -c %Y "$words" 2>/dev/null)
+    [ "$after" != "$before" ] && break
+    sleep 0.1
+done
+run_yomigrep
+pkill hyprpicker

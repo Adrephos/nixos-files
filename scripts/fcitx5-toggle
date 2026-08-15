@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if pgrep -c "fcitx5" > /dev/null; then
+    pkill fcitx5
+    notify-send -a "fcitx5 toggle" "fcitx5 toggle" "Stopping fcitx5"
+else
+    fcitx5 -d --replace &
+    notify-send -a "fcitx5 toggle" "fcitx5 toggle" "Starting fcitx5"
+fi

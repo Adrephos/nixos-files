@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# feh --bg-fill --randomize ~/Pictures/Wallpaper/Current
+# shuf -e -n1 ~/Pictures/Wallpaper/* | xargs feh --bg-fill --no-fehbg
+awww img --transition-type grow "$(find ~/Pictures/Wallpaper/Current/ -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)"

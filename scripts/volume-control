@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+NOTIFY_ID=1337
+
+get_volume() {
+  pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | head -n 1
+}
+
+is_muted() {
+  pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}'
+}
+
+case "$1" in
+  up)
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
+    vol=$(get_volume)
+    notify-send -a "Volume" -r $NOTIFY_ID "Volume Up" "Current level: $vol"
+    ;;
+  down)
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
+    vol=$(get_volume)
+    notify-send -a "Volume" -r $NOTIFY_ID "Volume Down" "Current level: $vol"
+    ;;
+  mute)
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    if [ "$(is_muted)" = "yes" ]; then
+      notify-send -a "Volume" -r $NOTIFY_ID "Muted"
+    else
+      vol=$(get_volume)
+      notify-send -a "Volume" -r $NOTIFY_ID "Unmuted" "Current level: $vol"
+    fi
+    ;;
+  *)
+    echo "Usage: $0 {up|down|mute}"
+    exit 1
+    ;;
+esac

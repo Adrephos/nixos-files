@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PHONE_IP=$(kdeconnect-cli --list-available 2>/dev/null | grep -oP '(?<=on )\d+\.\d+\.\d+\.\d+' | head -1 || true)
+
+if [[ -z "$PHONE_IP" ]]; then
+    echo "No reachable KDE Connect device found. Is your phone on the same network?"
+    exit 1
+fi
+
+echo "Scanning $PHONE_IP for wireless debugging port..."
+
+PORT=$(python3 -c "
+import socket, concurrent.futures
+
+def check(port):
+    try:
+        s = socket.socket()
+        s.settimeout(0.3)
+        s.connect(('$PHONE_IP', port))
+        s.close()
+        return port
+    except:
+        return None
+
+with concurrent.futures.ThreadPoolExecutor(max_workers=200) as ex:
+    results = [p for p in ex.map(check, range(30000, 50000)) if p]
+
+print(results[0] if results else '')
+")
+
+if [[ -z "$PORT" ]]; then
+    echo "Could not detect wireless debugging port. Enable Wireless debugging on your phone."
+    exit 1
+fi
+
+echo "Found port $PORT. Connecting..."
+adb connect "$PHONE_IP:$PORT" 2>&1
+
+exec scrcpy \
+    --tcpip="$PHONE_IP:$PORT" \
+    --window-title="Phone Screen" \
+    --stay-awake \
+    --turn-screen-off \
+    --no-power-on \
+    --always-on-top \
+    "$@"

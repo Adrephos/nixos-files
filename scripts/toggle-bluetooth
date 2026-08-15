@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+NOTIFY_ID=1338
+
+if bluetoothctl show | grep -q "Powered: yes"; then
+    bluetoothctl power off
+    notify-send -a "BT toggle" -r $NOTIFY_ID "BT toggle" "Bluetooth off"
+else
+    bluetoothctl power on
+    notify-send -a "BT toggle" -r $NOTIFY_ID "BT toggle" "Bluetooth on"
+fi

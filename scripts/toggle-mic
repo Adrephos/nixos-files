@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+MIC="@DEFAULT_AUDIO_SOURCE@"
+
+wpctl set-mute "$MIC" toggle
+
+if wpctl get-volume "$MIC" | grep -q MUTED; then
+    pw-play @MIC_NOTIFY_DIR@/off.oga &
+    notify-send "Microphone" "Muted" -r 69420 &
+else
+    pw-play @MIC_NOTIFY_DIR@/on.oga &
+    notify-send "Microphone" "Unmuted" -r 69420 &
+fi

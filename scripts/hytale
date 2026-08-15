@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# nix run github:andreashgk/hytale-nix#hytale-launcher
+nix run github:JPyke3/hytale-launcher-nix
