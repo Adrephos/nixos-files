@@ -12,7 +12,7 @@
     }:
     let
       inherit (self) outputs;
-      lib = nixpkgs.lib // home-manager.lib;
+      lib = nixpkgs.lib;
     in
     {
       inherit lib;
@@ -23,13 +23,7 @@
         };
       };
 
-      homeConfigurations = {
-        "gleipnir@vin" = lib.homeManagerConfiguration {
-          modules = [ ./home/gleipnir/vin.nix ];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
-      };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
 
   inputs = {
