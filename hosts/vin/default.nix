@@ -1,40 +1,16 @@
 {
   pkgs,
   inputs,
-  outputs,
-  lib,
   config,
+  lib,
   ...
 }:
-let
-  zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  sddm-theme = pkgs.fetchFromGitHub {
-    owner = "Keyitdev";
-    repo = "sddm-astronaut-theme";
-    rev = "c10bd950544036c7418e0f34cbf1b597dae2b72f";
-    sha256 = "sha256-ITufiMTnSX9cg83mlmuufNXxG1dp9OKG90VBZdDeMxw=";
-  };
-  pythonEnv = pkgs.python313.withPackages (
-    ps: with ps; [
-      torch-bin
-      torchvision-bin
-      (manga-ocr.overridePythonAttrs (old: {
-        dependencies = (builtins.filter (d: d.pname or "" != "torch") old.dependencies) ++ [ torch-bin ];
-      }))
-    ]
-  );
-in
 {
   imports = [
     ./hardware-configuration.nix
-    ./common/users/gleipnir
-    ./common/generic
-
-    inputs.home-manager.nixosModules.home-manager
-    inputs.boosteroid.nixosModules.default
+    ../../modules/nixos
+    ./packages.nix
   ];
-
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   # Hibernation
   boot.kernelParams = [ "resume=/dev/disk/by-label/swap" ];
@@ -53,176 +29,33 @@ in
     HandlePowerKeyLongPress = "poweroff";
   };
 
-  networking = {
-    firewall = {
-      enable = false;
-      allowedTCPPorts = [
-        8384
-        22000
-      ];
-      allowedUDPPorts = [
-        22000
-        21027
-      ];
-    };
-    hostName = "vin";
-    networkmanager.enable = true;
-    networkmanager.plugins = [
-      pkgs.networkmanager-openvpn
-    ];
-    # nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-wlr
-  #   ];
-  #   config.niri = {
-  #     "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-  #   };
-  # };
-
-  services = {
-    syncthing = {
-      enable = true;
-      user = "gleipnir";
-      dataDir = "/home/gleipnir/.config/syncthing";
-      configDir = "/home/gleipnir/.config/syncthing";
-      openDefaultPorts = true;
-      overrideDevices = true;
-      overrideFolders = true;
-      guiPasswordFile = "/home/gleipnir/secrets/syncthing/passwd";
-      settings = {
-        gui = {
-          user = "adrephos";
-        };
-        devices = {
-          "phone" = {
-            id = "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO";
-          };
-        };
-        folders = {
-          "Notes" = {
-            path = "/home/gleipnir/workspace/obsidian";
-            devices = [ "phone" ];
-          };
-          "Pictures" = {
-            path = "/run/media/gleipnir/IDK/Pictures";
-            devices = [ "phone" ];
-          };
+  services.syncthing = {
+    enable = true;
+    user = "gleipnir";
+    dataDir = "/home/gleipnir/.config/syncthing";
+    configDir = "/home/gleipnir/.config/syncthing";
+    openDefaultPorts = true;
+    overrideDevices = true;
+    overrideFolders = true;
+    guiPasswordFile = "/home/gleipnir/secrets/syncthing/passwd";
+    settings = {
+      gui = {
+        user = "adrephos";
+      };
+      devices = {
+        "phone" = {
+          id = "TCD5MAE-PBCM7VY-YOANEUL-CCQJBCG-2HUKBAI-JTXQING-F5H4COG-QY7IPQO";
         };
       };
-    };
-    blueman.enable = true;
-    gnome.gnome-keyring.enable = true;
-    pulseaudio.enable = false;
-    udisks2.enable = true;
-    openssh = {
-      enable = true;
-      ports = [ 22 ];
-      settings = {
-        PasswordAuthentication = true;
-      };
-    };
-    xserver = {
-      enable = true;
-      videoDrivers = [ "nvidia" ];
-    };
-    postgresql = {
-      enable = true;
-      authentication = pkgs.lib.mkOverride 10 ''
-        #type database DBuser auth-method
-        local all      all    trust
-        host  all all 127.0.0.1/32 trust
-        host  all all ::1/128      trust
-      '';
-    };
-    displayManager = {
-      # defaultSession = "hyprland";
-      defaultSession = "niri";
-      sddm = {
-        enable = true;
-        theme = "${sddm-theme}";
-        extraPackages = with pkgs.kdePackages; [ qtmultimedia ];
-      };
-    };
-    asusd = {
-      enable = true;
-    };
-    power-profiles-daemon.enable = true;
-  };
-
-  programs = {
-    boosteroid = {
-      enable = true;
-      videoDecoder = "vaapi";
-      extraEnv = {
-        LIBVA_DRIVER_NAME = "radeonsi";
-        LIBVA_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
-        LD_LIBRARY_PATH = "/run/opengl-driver/lib";
-      };
-    };
-    kdeconnect.enable = true;
-    command-not-found.enable = true;
-    # hyprland.enable = true;
-    niri.enable = true;
-    gamemode.enable = true;
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-    nix-ld.enable = true;
-  };
-
-  hardware = {
-    keyboard.zsa.enable = true;
-    xone.enable = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        libvdpau-va-gl
-        libva
-        libva-utils
-        nvidia-vaapi-driver
-      ];
-    };
-
-    opentabletdriver.enable = true;
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
+      folders = {
+        "Notes" = {
+          path = "/home/gleipnir/workspace/obsidian";
+          devices = [ "phone" ];
         };
-      };
-    };
-
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-    nvidia = {
-      open = true;
-      nvidiaSettings = true;
-
-      modesetting.enable = true;
-
-      powerManagement.enable = true;
-      powerManagement.finegrained = false;
-
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
-
-      prime = {
-        offload.enable = false;
-        sync.enable = true;
-        amdgpuBusId = "PCI:4:0:0";
-        nvidiaBusId = "PCI:1:0:0";
+        "Pictures" = {
+          path = "/run/media/gleipnir/IDK/Pictures";
+          devices = [ "phone" ];
+        };
       };
     };
   };
@@ -257,8 +90,6 @@ in
       ];
     };
   };
-  virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "dotnet-runtime-6.0.36"
@@ -270,127 +101,6 @@ in
   nixpkgs.overlays = [
     inputs.templ.overlays.default
     inputs.claude-code.overlays.default
-  ];
-
-  environment.homeBinInPath = true;
-  environment.variables = {
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
-      pkgs.stdenv.cc.cc
-      pkgs.libz
-      "/run/opengl-driver"
-    ];
-  };
-  environment.systemPackages = with pkgs; [
-    zen-browser
-
-    # Java Zzzz
-    jdk
-    jdk11
-    jdk21
-    maven
-    gradle
-
-    #zig
-    zig
-
-    # Go
-    go
-    wgo
-    air
-    templ
-    cobra-cli
-
-    #Tecladito
-    keymapp
-
-    # Droidcam
-    v4l-utils
-    droidcam
-
-    # Development
-    glab
-    neovim
-    imagemagick
-    gcc
-    cmake
-    scrcpy
-    simple-mtpfs
-    gnumake
-    linuxHeaders
-
-    # Tools
-    whisper-cpp
-    caligula # iso image
-    rclone
-    cargo
-    nil
-    rar
-    unzip
-    bruno
-    postman
-    openvpn
-    ripgrep
-    obsidian
-    tree-sitter
-    texlive.combined.scheme-full
-    ghostscript
-    python311Packages.pylatexenc
-    nixfmt
-    networkmanager-vpnc
-    wg-netmanager
-
-    # Utils
-    android-tools
-    file
-    onlyoffice-desktopeditors
-    gpu-screen-recorder
-    nautilus
-    glib
-    gsettings-desktop-schemas
-
-    # owasp
-    # zap
-    # burpsuite
-
-    # Learning
-    codecrafters-cli
-    exercism
-    pythonEnv
-    anki
-
-    foliate
-
-    # Erlang
-    # erlang
-    gleam
-    elixir
-
-    # de juguete
-    pnpm
-    nodejs
-    uv
-    python3
-    python312Packages.pip
-    python312Packages.jupytext
-    vscodium
-
-    # La vida
-    discord
-    vesktop
-    protonplus
-    sgdboop
-
-    zoom-us
-    pulseaudio
-    pavucontrol
-    prismlauncher
-    proton-vpn
-    proton-pass
-    redland-wayland
-    claude-code
-
-    ffmpeg-full
-    libva-utils
   ];
 
   system.autoUpgrade.enable = true;

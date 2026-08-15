@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   boot.loader = {
     efi = {

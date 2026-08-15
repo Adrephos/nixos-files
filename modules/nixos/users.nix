@@ -1,5 +1,12 @@
-{ pkgs, config, ... }:
 {
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   users.users.gleipnir = {
     isNormalUser = true;
     description = "ヴァイオレット・エヴァーガーデン";
@@ -16,5 +23,8 @@
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
-  home-manager.users.gleipnir = import ../../../../../home/gleipnir/${config.networking.hostName}.nix;
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users.gleipnir = import ../../home/gleipnir;
+  };
 }
