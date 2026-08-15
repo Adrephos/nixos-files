@@ -245,7 +245,7 @@ in
           dark = "catppuccin-mocha";
         };
       };
-      initLua = ./init.lua;
+      initLua = ../../../dotfiles/yazi/init.lua;
     };
   };
 }

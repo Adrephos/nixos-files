@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./git
-    ./fish
-    ./yazi
-    ./starship
-    ./tmux
-    ./kitty
-    # ./ghostty
-  ];
-
   home.packages = with pkgs; [
     eza
     zoxide
@@ -24,7 +14,6 @@
     fzf
     onefetch
     wget
-    # feh
     loupe
     feh
     timer
@@ -38,5 +27,10 @@
     lazysql
     gopls
     gcc
+
+    # Fonts
+    nerd-fonts.jetbrains-mono
+    librsvg
+    awatcher
   ];
 }
