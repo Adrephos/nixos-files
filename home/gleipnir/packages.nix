@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     eza
     zoxide
     p7zip
@@ -32,5 +32,8 @@
     nerd-fonts.jetbrains-mono
     librsvg
     awatcher
+  ])
+  ++ [
+    inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

@@ -1,0 +1,12 @@
+onboarding = false
+# herdr configuration
+# Place this file at ~/.config/herdr/config.toml
+
+[terminal]
+default_shell = "fish"
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+kitty_graphics = true

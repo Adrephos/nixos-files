@@ -42,6 +42,8 @@
 
     yazi.url = "github:sxyazi/yazi";
 
+    herdr.url = "github:herdrdev/herdr";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
