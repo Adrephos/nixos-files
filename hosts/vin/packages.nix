@@ -51,6 +51,7 @@ in
     linuxHeaders
 
     # Tools
+    appimage-run
     whisper-cpp
     caligula # iso image
     rclone
