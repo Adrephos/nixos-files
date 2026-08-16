@@ -28,6 +28,10 @@
     gopls
     gcc
 
+    # System maintenance
+    just
+    nh
+
     # Fonts
     nerd-fonts.jetbrains-mono
     librsvg
