@@ -80,7 +80,7 @@ let
     wl-clipboard
     wl-mirror
     xclip
-    xorg.xrandr
+    xrandr
     xsel
     zoxide
   ];
