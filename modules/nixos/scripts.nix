@@ -50,7 +50,6 @@ let
     cliphist
     coreutils
     curl
-    fcitx5
     file
     findutils
     gawk
