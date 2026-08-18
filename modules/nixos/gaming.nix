@@ -1,6 +1,11 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.boosteroid.nixosModules.default ];
+
+  environment.systemPackages = with pkgs; [
+    lsfg-vk
+    lsfg-vk-ui
+  ];
 
   programs = {
     steam = {
@@ -12,7 +17,7 @@
 
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
 
     boosteroid = {
