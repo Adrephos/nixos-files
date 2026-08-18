@@ -6,5 +6,6 @@
     "rofi/config.rasi".source = ../../dotfiles/rofi/config.rasi;
     "rofi/catppuccin-default.rasi".source = ../../dotfiles/rofi/catppuccin-default.rasi;
     "rofi/catppuccin-mocha.rasi".source = ../../dotfiles/rofi/catppuccin-mocha.rasi;
+    "dunst/dunstrc".source = ../../dotfiles/dunst/dunstrc;
   };
 }
