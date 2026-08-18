@@ -136,7 +136,7 @@ binds {
     Mod+P hotkey-overlay-title="Run an Application: Rofi" { spawn-sh "rofi -show drun -icon-theme Papirus -show-icons"; }
     Mod+Ctrl+S hotkey-overlay-title="Run an Application: Pear Desktop" { spawn "pear-desktop"; }
 
-    Mod+Shift+Space hotkey-overlay-title="Toggli fcitx5" { spawn-sh "pkill fcitx5 || fcitx5 -d --replace"; }
+    Mod+Shift+Space hotkey-overlay-title="Toggli fcitx5" { spawn "fcitx5-toggle"; }
     Mod+T hotkey-overlay-title="Show date and time" { spawn-sh "notify-send \"$(LC_TIME=ja_JP.UTF-8 date '+%Y年%m月%d日 (%a)')\" \"$(LC_TIME=ja_JP.UTF-8 date '+%H時%M分')\" -a \"日付と時刻\""; }
 
     Mod+Shift+V { spawn-sh "kitty --class=\"com.adrephos.floating\" -e clipse"; }
