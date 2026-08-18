@@ -7,6 +7,7 @@
     ./starship.nix
     ./tmux.nix
     ./kitty.nix
+    ./bash.nix
   ];
 
   programs = {
