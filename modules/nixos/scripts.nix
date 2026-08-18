@@ -42,7 +42,12 @@ let
     )
   );
 
-  scripts = (map mkScript scriptNames) ++ [ toggle-mic ];
+  yomigrep = pkgs.callPackage ../../pkgs/yomigrep.nix { };
+
+  scripts = (map mkScript scriptNames) ++ [
+    toggle-mic
+    yomigrep
+  ];
 
   scriptDependencies = with pkgs; [
     android-tools
