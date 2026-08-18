@@ -8,5 +8,7 @@
     "rofi/catppuccin-mocha.rasi".source = ../../dotfiles/rofi/catppuccin-mocha.rasi;
     "dunst/dunstrc".source = ../../dotfiles/dunst/dunstrc;
     "fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;
+    "mpv/mpv.conf".source = ../../dotfiles/mpv/mpv.conf;
+    "mpv/script-opts/subs2srs.conf".source = ../../dotfiles/mpv/script-opts/subs2srs.conf;
   };
 }
