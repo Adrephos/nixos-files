@@ -45,15 +45,19 @@
       package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       prime = {
-        offload.enable = false;
-        sync.enable = true;
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
+        sync.enable = false;
         amdgpuBusId = "PCI:4:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+  ];
 
   environment.variables = {
     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
