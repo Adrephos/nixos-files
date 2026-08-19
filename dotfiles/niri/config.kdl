@@ -107,6 +107,13 @@ window-rule {
 }
 
 window-rule {
+    match title=r#"(?i)^(save|open) file(s)?|.* wants to (save|open)"#
+    open-floating true
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 700; }
+}
+
+window-rule {
     // match app-id="discord"
     match app-id="vesktop"
     open-on-output "eDP-1"
