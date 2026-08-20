@@ -10,6 +10,7 @@ in
     ./niri.nix
     ./theme.nix
     ./anki.nix
+    ./default-apps.nix
   ];
 
   home.packages = with pkgs; [
