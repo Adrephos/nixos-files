@@ -10,4 +10,6 @@
     xwayland-satellite
     playerctl
   ];
+
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
 }
