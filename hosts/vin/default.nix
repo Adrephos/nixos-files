@@ -10,6 +10,8 @@
     ./packages.nix
   ];
 
+  networking.hostName = "vin";
+
   # Hibernation
   boot.kernelParams = [ "resume=/dev/disk/by-label/swap" ];
   boot.resumeDevice = "/dev/disk/by-label/swap";

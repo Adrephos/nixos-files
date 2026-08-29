@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  networking = {
-    hostName = "vin";
+  imports = [ ../shared/networking.nix ];
 
+  networking = {
     firewall = {
       enable = false;
       allowedTCPPorts = [
@@ -15,9 +15,6 @@
       ];
     };
 
-    networkmanager = {
-      enable = true;
-      plugins = [ pkgs.networkmanager-openvpn ];
-    };
+    networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
   };
 }

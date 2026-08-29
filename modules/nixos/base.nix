@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [ ../shared/base.nix ];
+
   i18n = {
-    defaultLocale = "en_US.UTF-8";
     extraLocales = [ "ja_JP.UTF-8/UTF-8" ];
 
     inputMethod = {
@@ -27,10 +28,6 @@
     trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
     ];
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
     max-jobs = "auto";
     cores = 0;
   };
@@ -41,6 +38,4 @@
     nano.enable = false;
     nix-ld.enable = true;
   };
-
-  time.timeZone = "America/Bogota";
 }

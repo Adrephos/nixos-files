@@ -21,6 +21,11 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/vin ];
         };
+
+        elend = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/elend ];
+        };
       };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
