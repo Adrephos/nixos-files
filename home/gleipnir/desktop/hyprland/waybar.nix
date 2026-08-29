@@ -39,7 +39,10 @@ in
         height = 0;
 
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" "niri/window" ];
+        modules-center = [
+          "hyprland/window"
+          "niri/window"
+        ];
         modules-right = [
           "tray"
           "clock"

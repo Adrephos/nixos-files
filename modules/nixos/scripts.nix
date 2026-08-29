@@ -1,8 +1,6 @@
 { pkgs, ... }:
 let
-  mkScript =
-    name:
-    pkgs.writeShellScriptBin name (builtins.readFile ../../scripts/${name});
+  mkScript = name: pkgs.writeShellScriptBin name (builtins.readFile ../../scripts/${name});
 
   scriptNames = [
     "change-remote"
