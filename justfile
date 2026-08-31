@@ -23,6 +23,10 @@ test host="vin":
 switch host="vin":
     nh os switch . -H {{host}}
 
+# Build locally and activate on a remote host over SSH (e.g. `just deploy elend gleipnir@192.168.1.50`).
+deploy host target:
+    nh os switch . -H {{host}} -t {{target}}
+
 # Refresh flake inputs (all, or just the given one). Review flake.lock, then run check and build.
 update input="":
     nix flake update {{ input }}
