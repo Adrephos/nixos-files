@@ -5,6 +5,7 @@
     htop
     jq
     just
+    nh
     neovim
     ripgrep
     tmux
