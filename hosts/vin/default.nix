@@ -70,10 +70,6 @@
           path = "/home/gleipnir/workspace/obsidian";
           devices = [ "phone" ];
         };
-        "Pictures" = {
-          path = "/run/media/gleipnir/IDK/Pictures";
-          devices = [ "phone" ];
-        };
       };
     };
   };
