@@ -17,4 +17,14 @@
   };
 
   users.users.transmission.extraGroups = [ "users" ];
+
+  systemd.services.transmission = {
+    after = [ "srv-media.mount" ];
+    requires = [ "srv-media.mount" ];
+  };
+
+  systemd.services.systemd-tmpfiles-setup = {
+    after = [ "srv-media.mount" ];
+    requires = [ "srv-media.mount" ];
+  };
 }

@@ -21,4 +21,9 @@
       };
     };
   };
+
+  systemd.services.samba-smbd = {
+    after = [ "srv-media.mount" ];
+    requires = [ "srv-media.mount" ];
+  };
 }
