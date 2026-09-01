@@ -1,3 +1,7 @@
 {
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "gleipnir";
+  };
 }
