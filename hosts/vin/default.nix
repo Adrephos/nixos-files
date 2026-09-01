@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }:
 {
@@ -23,6 +24,23 @@
   boot.kernelModules = [ "v4l2loopback" ];
 
   powerManagement.enable = true;
+
+  environment.systemPackages = [ pkgs.cifs-utils ];
+
+  fileSystems."/home/gleipnir/Pictures-elend" = {
+    device = "//192.168.58.110/pictures";
+    fsType = "cifs";
+    options = [
+      "credentials=/etc/nixos-secrets/smb-elend"
+      "uid=gleipnir"
+      "gid=users"
+      "iocharset=utf8"
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "_netdev"
+    ];
+  };
 
   services.logind.settings.Login = {
     HandlePowerKey = "hibernate";
