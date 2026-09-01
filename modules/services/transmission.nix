@@ -18,6 +18,8 @@
 
   users.users.transmission.extraGroups = [ "users" ];
 
+  systemd.tmpfiles.rules = [ "z /srv/media/Video/Anime 0775 gleipnir users -" ];
+
   systemd.services.transmission = {
     after = [ "srv-media.mount" ];
     requires = [ "srv-media.mount" ];
