@@ -8,6 +8,7 @@
     ../services/jellyfin.nix
     ../services/transmission.nix
     ../services/samba.nix
+    ../services/tmux.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
