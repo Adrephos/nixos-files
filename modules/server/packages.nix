@@ -12,6 +12,7 @@
     tree
     unzip
     wget
+    yazi
   ];
 
   programs = {
