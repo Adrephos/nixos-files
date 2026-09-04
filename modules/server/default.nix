@@ -6,7 +6,7 @@
     ../services/docker.nix
     ../services/openssh.nix
     ../services/jellyfin.nix
-    ../services/transmission.nix
+    ../services/qbittorrent.nix
     ../services/samba.nix
     ../services/tmux.nix
   ];
