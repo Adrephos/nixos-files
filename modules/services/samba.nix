@@ -17,7 +17,7 @@
         "guest ok" = "no";
         "valid users" = "gleipnir";
         "force user" = "gleipnir";
-        "force group" = "users";
+        "force group" = "media";
       };
     };
   };
