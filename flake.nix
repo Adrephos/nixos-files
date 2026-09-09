@@ -49,6 +49,9 @@
 
     herdr.url = "github:herdrdev/herdr";
 
+    sonora.url = "github:sonorahq/sonora";
+    sonora.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

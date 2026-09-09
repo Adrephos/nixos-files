@@ -40,5 +40,6 @@
     ])
     ++ [
       inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.sonora.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 }
