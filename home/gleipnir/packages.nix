@@ -41,6 +41,7 @@
     ++ [
       inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.sonora.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.gsm-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
       (inputs.helium2nix.helium.${pkgs.stdenv.hostPlatform.system} {
         commandLineArgs = [ "--ozone-platform=x11" ];
       })

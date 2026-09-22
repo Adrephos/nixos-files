@@ -107,7 +107,7 @@ window-rule {
 }
 
 window-rule {
-    match title=r#"(?i)^(save|open) file(s)?|.* wants to (save|open)"#
+    match title=r#"(?i)^(save|open) file(s)?|.* wants to (save|open)|^all files$"#
     open-floating true
     default-column-width { fixed 1200; }
     default-window-height { fixed 700; }

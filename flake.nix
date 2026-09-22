@@ -8,6 +8,7 @@
       home-manager,
       brave-previews,
       claude-code,
+      gsm-flake,
       ...
     }:
     let
@@ -43,6 +44,9 @@
 
     boosteroid.url = "github:Adrephos/boosteroid-flake";
 
+    gsm-flake.url = "git+ssh://git@gitlab.com/adrephos/gsm-flake.git";
+    gsm-flake.inputs.nixpkgs.follows = "nixpkgs";
+
     claude-code.url = "github:sadjow/claude-code-nix";
 
     yazi.url = "github:sxyazi/yazi";
@@ -54,6 +58,9 @@
 
     helium2nix.url = "github:FKouhai/helium2nix";
     helium2nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    arion.url = "github:hercules-ci/arion";
+    arion.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";

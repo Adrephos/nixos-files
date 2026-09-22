@@ -1,15 +1,37 @@
 {
   "nodes": {
+    "arion": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "haskell-flake": "haskell-flake",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770259557,
+        "narHash": "sha256-EvZ09k9+mzXAngPzU2K7oLLUDlKoT1numb4bDb3Gtl4=",
+        "owner": "hercules-ci",
+        "repo": "arion",
+        "rev": "9b24cf65c72cb0e9616e437d55e1ac8e5c6bc715",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "arion",
+        "type": "github"
+      }
+    },
     "boosteroid": {
       "inputs": {
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1785555805,
-        "narHash": "sha256-cggoYm2xYUwYeX8Gdl/zyVxfCn70EYTtdyRCQ8Ch51k=",
+        "lastModified": 1789682838,
+        "narHash": "sha256-nyFRedoQtRmssEHl17KnBTYEHt2XP/ja7A/yX0Se89Q=",
         "owner": "Adrephos",
         "repo": "boosteroid-flake",
-        "rev": "1bd9d5d786ce94a64d9982d728b1963dd2d08c42",
+        "rev": "c3e072dfaebdf3ff1910f06cd883265b2aea3942",
         "type": "github"
       },
       "original": {
@@ -71,6 +93,27 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "arion",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769996383,
+        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
         "type": "github"
       }
     },
@@ -164,6 +207,42 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "gsm-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789862987,
+        "narHash": "sha256-+yeyZk+VQVs5D/50SdbSSIxyAmpnNWI9HnFv13Umg4k=",
+        "ref": "refs/heads/main",
+        "rev": "b7f01397f487eca3e5acb2d5ac1a50ab31702258",
+        "revCount": 7,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/adrephos/gsm-flake.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.com/adrephos/gsm-flake.git"
+      }
+    },
+    "haskell-flake": {
+      "locked": {
+        "lastModified": 1675296942,
+        "narHash": "sha256-u1X1sblozi5qYEcLp1hxcyo8FfDHnRUVX3dJ/tW19jY=",
+        "owner": "srid",
+        "repo": "haskell-flake",
+        "rev": "c2cafce9d57bfca41794dc3b99c593155006c71e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "ref": "0.1.0",
+        "repo": "haskell-flake",
         "type": "github"
       }
     },
@@ -342,9 +421,11 @@
     },
     "root": {
       "inputs": {
+        "arion": "arion",
         "boosteroid": "boosteroid",
         "brave-previews": "brave-previews",
         "claude-code": "claude-code",
+        "gsm-flake": "gsm-flake",
         "helium2nix": "helium2nix",
         "herdr": "herdr",
         "home-manager": "home-manager",
