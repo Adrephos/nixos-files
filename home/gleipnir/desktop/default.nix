@@ -37,6 +37,7 @@ in
     psmisc
     gnumake
     transmission_4-gtk
+    godot
   ];
 
   xdg.desktopEntries = {
