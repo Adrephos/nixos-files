@@ -1,7 +1,7 @@
 { lib, ... }:
 let
-  # defaultBrowser = "brave-browser-nightly.desktop";
-  defaultBrowser = "helium.desktop";
+  defaultBrowser = "brave-browser-nightly.desktop";
+  # defaultBrowser = "helium.desktop";
   defaultImageViewer = "org.gnome.Loupe.desktop";
   defaultEditor = "nvim-kitty.desktop";
   defaultFileManager = "org.gnome.Nautilus.desktop";
