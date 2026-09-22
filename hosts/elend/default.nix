@@ -6,8 +6,6 @@
 
   networking.hostName = "elend";
 
-  # Static IP, since we can't set a DHCP reservation on the router.
-  # Matches the lease elend already had (192.168.58.114/24, gw/dns 192.168.58.1).
   networking.networkmanager.ensureProfiles.profiles."eno1-static" = {
     connection = {
       id = "eno1-static";

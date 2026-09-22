@@ -28,7 +28,7 @@
   environment.systemPackages = [ pkgs.cifs-utils ];
 
   fileSystems."/home/gleipnir/Pictures-elend" = {
-    device = "//192.168.58.110/pictures";
+    device = "//192.168.58.114/pictures";
     fsType = "cifs";
     options = [
       "credentials=/etc/nixos-secrets/smb-elend"
