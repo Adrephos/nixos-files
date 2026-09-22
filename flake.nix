@@ -53,12 +53,6 @@
 
     herdr.url = "github:herdrdev/herdr";
 
-    sonora.url = "github:sonorahq/sonora";
-    sonora.inputs.nixpkgs.follows = "nixpkgs";
-
-    helium2nix.url = "github:FKouhai/helium2nix";
-    helium2nix.inputs.nixpkgs.follows = "nixpkgs";
-
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
 
