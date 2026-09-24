@@ -64,7 +64,7 @@ layout {
         proportion 0.66667
         proportion 0.98
     }
-    default-column-width { proportion 0.98; }
+    default-column-width { proportion 1; }
     tab-indicator {
       off
     }
@@ -120,7 +120,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="com.github.th_ch.youtube_music"
+    match app-id="com.github.th-ch.youtube-music"
     open-on-output "HDMI-A-1"
 }
 
@@ -131,6 +131,7 @@ window-rule {
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
 }
 
 layer-rule {
