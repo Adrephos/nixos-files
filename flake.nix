@@ -9,6 +9,7 @@
       brave-previews,
       claude-code,
       gsm-flake,
+      veadotube-mini,
       ...
     }:
     let
@@ -52,6 +53,9 @@
     yazi.url = "github:sxyazi/yazi";
 
     herdr.url = "github:herdrdev/herdr";
+
+    veadotube-mini.url = "github:AugustoMegener/veadotube-mini-flake";
+    veadotube-mini.inputs.nixpkgs.follows = "nixpkgs";
 
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";

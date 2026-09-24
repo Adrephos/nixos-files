@@ -1,19 +1,12 @@
 { pkgs, inputs, ... }:
 let
   zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  pythonEnv = pkgs.python313.withPackages (
-    ps: with ps; [
-      torch-bin
-      torchvision-bin
-      (manga-ocr.overridePythonAttrs (old: {
-        dependencies = (builtins.filter (d: d.pname or "" != "torch") old.dependencies) ++ [ torch-bin ];
-      }))
-    ]
-  );
+  veadotube-mini = inputs.veadotube-mini.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   environment.systemPackages = with pkgs; [
     zen-browser
+    veadotube-mini
 
     # Java Zzzz
     jdk
@@ -46,7 +39,7 @@ in
     gcc
     cmake
     scrcpy
-    simple-mtpfs
+    go-mtpfs
     gnumake
     linuxHeaders
 
@@ -69,7 +62,7 @@ in
     ghostscript
     python311Packages.pylatexenc
     nixfmt
-    networkmanager-vpnc
+    networkmanager-libreswan
     wg-netmanager
 
     # Utils
@@ -88,7 +81,7 @@ in
     # Learning
     codecrafters-cli
     exercism
-    pythonEnv
+    python314Packages.manga-ocr
     anki
 
     foliate
