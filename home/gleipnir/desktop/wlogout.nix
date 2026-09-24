@@ -30,7 +30,6 @@ in
       {
         label = "logout";
         action = "loginctl kill-user $USER";
-        # action = "hyprctl dispatch exit";
         text = "Logout";
         keybind = "e";
       }

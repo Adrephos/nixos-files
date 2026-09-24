@@ -20,7 +20,6 @@ spawn-sh-at-startup "sleep 20; clipse -listen"
 spawn-sh-at-startup "vesktop"
 
 spawn-sh-at-startup "pear-desktop"
-// spawn-sh-at-startup "sleep 10; temperature"
 spawn-sh-at-startup "sleep 10; waybar"
 spawn-sh-at-startup "sleep 10; start-manga-ocr"
 spawn-sh-at-startup "sleep 10; clip-dl"
@@ -64,7 +63,7 @@ layout {
         proportion 0.66667
         proportion 0.98
     }
-    default-column-width { proportion 1; }
+    default-column-width { proportion 1.0; }
     tab-indicator {
       off
     }

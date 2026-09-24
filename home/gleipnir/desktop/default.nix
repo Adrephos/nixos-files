@@ -6,8 +6,9 @@ let
 in
 {
   imports = [
-    ./hyprland
     ./niri.nix
+    ./waybar.nix
+    ./wlogout.nix
     ./theme.nix
     ./anki.nix
     ./default-apps.nix

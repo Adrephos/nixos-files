@@ -23,7 +23,6 @@ let
     "scrcpy-prompt"
     "start-gpu-recording"
     "start-manga-ocr"
-    "temperature"
     "toggle-bluetooth"
     "volume-control"
     "watch-clip"
@@ -58,7 +57,6 @@ let
     gawk
     gnugrep
     gpu-screen-recorder
-    hyprland
     hyprshot
     imagemagick
     inotify-tools

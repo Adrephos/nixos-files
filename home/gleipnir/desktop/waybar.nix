@@ -38,26 +38,21 @@ in
         "gtk-layer-shell" = true;
         height = 0;
 
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [
-          "hyprland/window"
-          "niri/window"
-        ];
+        modules-left = [ "niri/workspaces" ];
+        modules-center = [ "niri/window" ];
         modules-right = [
           "tray"
           "clock"
         ];
 
-        "hyprland/window" = {
+        "niri/window" = {
           format = "󱄅 {}";
           separate-outputs = true;
           max-length = 60;
         };
 
-        "hyprland/workspaces" = {
-          disable-scroll = true;
+        "niri/workspaces" = {
           "all-outputs" = false;
-          "on-click" = "activate";
           format = "{icon}";
           "format-icons" = {
             "1" = "一";
