@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.anki = {
-    package = pkgs.anki;
+    package = pkgs.callPackage ../../../pkgs/anki/package.nix { };
     videoDriver = "software";
   };
 }

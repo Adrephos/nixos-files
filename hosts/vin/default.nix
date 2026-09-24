@@ -22,6 +22,9 @@
     v4l2loopback
   ];
   boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  '';
 
   powerManagement.enable = true;
 
@@ -115,6 +118,20 @@
   nixpkgs.overlays = [
     inputs.templ.overlays.default
     inputs.claude-code.overlays.default
+    (final: prev: {
+      # nixpkgs lags upstream (26.08); vendored copy bumped to 26.09.3
+      anki = final.callPackage ../../pkgs/anki/package.nix { };
+    })
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (pyFinal: pyPrev: {
+          # 3 self-tests fail on this nixpkgs rev (upstream breakage); doesn't affect runtime.
+          inline-snapshot = pyPrev.inline-snapshot.overridePythonAttrs (old: {
+            doCheck = false;
+          });
+        })
+      ];
+    })
   ];
 
   system.autoUpgrade.enable = true;
