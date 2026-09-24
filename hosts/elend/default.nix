@@ -6,6 +6,8 @@
 
   networking.hostName = "elend";
 
+  environment.variables.EDITOR = "nvim";
+
   networking.networkmanager.ensureProfiles.profiles."eno1-static" = {
     connection = {
       id = "eno1-static";
