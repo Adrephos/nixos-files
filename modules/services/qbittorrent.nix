@@ -6,5 +6,8 @@
     openFirewall = true;
   };
 
-  systemd.services.qbittorrent.serviceConfig.SupplementaryGroups = [ "media" ];
+  systemd.services.qbittorrent.serviceConfig = {
+    SupplementaryGroups = [ "media" ];
+    UMask = "0002";
+  };
 }
