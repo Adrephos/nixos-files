@@ -56,12 +56,14 @@ in
   services = {
     clipse = {
       enable = true;
-      historySize = 200;
-      imageDisplay = {
-        type = "kitty";
-        scaleX = 25;
-        scaleY = 25;
-        heightCut = 14;
+      settings = {
+        historySize = 200;
+        imageDisplay = {
+          type = "kitty";
+          scaleX = 25;
+          scaleY = 25;
+          heightCut = 14;
+        };
       };
     };
     activitywatch = {

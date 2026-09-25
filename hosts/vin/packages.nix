@@ -58,7 +58,7 @@ in
     ripgrep
     obsidian
     tree-sitter
-    texlive.combined.scheme-full
+    texliveFull
     ghostscript
     python311Packages.pylatexenc
     nixfmt
@@ -89,7 +89,7 @@ in
     # Erlang
     # erlang
     gleam
-    elixir
+    beamPackages.elixir
 
     # de juguete
     pnpm
