@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "anki-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790803895,
+        "narHash": "sha256-8nwKdNOCiQpByYCcPYFqtHh84FOByKXXdNZvPoTqjTU=",
+        "owner": "afriguez",
+        "repo": "anki-flake",
+        "rev": "9ebbface67c245a4ddc49e1f72fb4d348856aec2",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "afriguez",
+        "repo": "anki-flake",
+        "type": "gitlab"
+      }
+    },
     "arion": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -48,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790067128,
-        "narHash": "sha256-44kRpJBqFKAv/cYLbGGIPpzZiIhOB21LhZ5rzxRMZ/g=",
+        "lastModified": 1790676708,
+        "narHash": "sha256-P5g8bR66tP/aChKaxGa9WbSFyORPyOgZhyVoXISc9sk=",
         "owner": "kcalvelli",
         "repo": "brave-browser-previews",
-        "rev": "7c6d96f9c69b7792aa6fd4f8ca6ea75fc2cd50b9",
+        "rev": "a8dc0c2372c69dcc789cc44fcdabae8f9c611dca",
         "type": "github"
       },
       "original": {
@@ -299,11 +319,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1790046670,
-        "narHash": "sha256-MYiI+CzL0tuWgRPjGsKCDHqYs2T3OzMlMQWOYWG0qso=",
+        "lastModified": 1790578696,
+        "narHash": "sha256-ZoxIApko70jCdbH3l20HWXOBaT2HZd87orzd2yJ9dVE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
+        "rev": "7a0f122f5090cf4c2ade2a13a0e229d4e19ba71f",
         "type": "github"
       },
       "original": {
@@ -347,6 +367,7 @@
     },
     "root": {
       "inputs": {
+        "anki-flake": "anki-flake",
         "arion": "arion",
         "boosteroid": "boosteroid",
         "brave-previews": "brave-previews",
