@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 let
   brave-packages = inputs.brave-previews.packages.${pkgs.stdenv.hostPlatform.system};
-  brave-beta = brave-packages.brave-beta;
   brave-nightly = brave-packages.brave-nightly;
 in
 {
@@ -23,7 +22,6 @@ in
     inotify-tools
     networkmanagerapplet
     pear-desktop
-    brave-beta
     brave-nightly
     chromium
     playerctl
