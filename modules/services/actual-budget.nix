@@ -1,17 +1,4 @@
 { inputs, pkgs, ... }:
-let
-  selfSignedCert =
-    pkgs.runCommand "actual-selfsigned-cert"
-      {
-        nativeBuildInputs = [ pkgs.openssl ];
-      }
-      ''
-        mkdir -p $out
-        openssl req -x509 -nodes -newkey rsa:2048 \
-          -keyout $out/key.pem -out $out/cert.pem -days 3650 \
-          -subj "/CN=elend" -addext "subjectAltName=DNS:elend"
-      '';
-in
 {
   imports = [ inputs.arion.nixosModules.arion ];
 
@@ -31,13 +18,7 @@ in
       ports = [ "5006:5006" ];
       volumes = [
         "/var/lib/actual-budget:/data"
-        "${selfSignedCert}/cert.pem:/certs/cert.pem:ro"
-        "${selfSignedCert}/key.pem:/certs/key.pem:ro"
       ];
-      environment = {
-        ACTUAL_HTTPS_CERT = "/certs/cert.pem";
-        ACTUAL_HTTPS_KEY = "/certs/key.pem";
-      };
       restart = "unless-stopped";
     };
   };
