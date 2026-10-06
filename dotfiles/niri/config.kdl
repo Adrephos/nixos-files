@@ -20,6 +20,7 @@ spawn-sh-at-startup "sleep 20; clipse -listen"
 spawn-sh-at-startup "vesktop"
 
 spawn-sh-at-startup "pear-desktop"
+spawn-sh-at-startup "sleep 10; pear-desktop"
 spawn-sh-at-startup "sleep 10; waybar"
 spawn-sh-at-startup "sleep 10; start-manga-ocr"
 spawn-sh-at-startup "sleep 10; clip-dl"
