@@ -99,12 +99,6 @@
       "type": "separator"
     },
     {
-      "type": "media"
-    },
-    {
-      "type": "separator"
-    },
-    {
       "type": "colors",
       "symbol": "square"
     }
