@@ -11,6 +11,7 @@
     ../services/calibre-web.nix
     ../services/samba.nix
     ../services/tmux.nix
+    ../services/glances.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
