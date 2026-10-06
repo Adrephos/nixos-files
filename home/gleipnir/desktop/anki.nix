@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.anki = {
-    package = pkgs.callPackage ../../../pkgs/anki/package.nix { };
+    package = inputs.anki-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
     videoDriver = "software";
   };
 }

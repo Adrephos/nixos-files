@@ -119,8 +119,7 @@
     inputs.templ.overlays.default
     inputs.claude-code.overlays.default
     (final: prev: {
-      # nixpkgs lags upstream (26.08); vendored copy bumped to 26.09.3
-      anki = final.callPackage ../../pkgs/anki/package.nix { };
+      anki = inputs.anki-flake.packages.${final.stdenv.hostPlatform.system}.default;
     })
     (final: prev: {
       pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
