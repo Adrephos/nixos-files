@@ -36,6 +36,7 @@ in
     ];
     interactiveShellInit = ''
       set -U fish_greeting
+      set -Ux STARSHIP_LOG error
 
       fish_config theme choose Rosé\ Pine
       fish_config prompt choose astronaut
