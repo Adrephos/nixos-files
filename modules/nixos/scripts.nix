@@ -57,7 +57,7 @@ let
     gawk
     gnugrep
     gpu-screen-recorder
-    hyprshot
+    grim
     imagemagick
     inotify-tools
     kdePackages.kdeconnect-kde
@@ -73,6 +73,7 @@ let
     python3
     rofi
     scrcpy
+    slurp
     timer
     tmux
     waybar

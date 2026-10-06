@@ -43,7 +43,7 @@ if $use_clipboard; then
         exit 0
     fi
 else
-    hyprshot -m region --freeze -o /tmp/manga-ocr/ -f "$filename" --silent || exit 1
+    slurp | grim -g - "$img" || exit 1
 fi
 
 before=$(stat -c %Y "$words" 2>/dev/null)
@@ -53,4 +53,3 @@ for _ in $(seq 50); do
     sleep 0.1
 done
 run_yomigrep
-pkill hyprpicker
