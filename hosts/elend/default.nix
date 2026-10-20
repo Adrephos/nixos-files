@@ -31,5 +31,17 @@
     options = [ "nofail" ];
   };
 
+  fileSystems."/srv/media2" = {
+    device = "/dev/disk/by-label/MEDIA";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
+  fileSystems."/srv/media3" = {
+    device = "/dev/disk/by-label/MEDIA_2";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
   system.stateVersion = "23.11";
 }
