@@ -12,6 +12,7 @@
     ../services/samba.nix
     ../services/tmux.nix
     ../services/glances.nix
+    ../services/pihole.nix
   ];
 
   hardware.enableRedistributableFirmware = true;

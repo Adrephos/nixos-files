@@ -16,5 +16,6 @@
     };
 
     networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
+    networkmanager.insertNameservers = [ "192.168.58.114" ];
   };
 }
