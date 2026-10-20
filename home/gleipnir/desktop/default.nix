@@ -56,20 +56,12 @@ in
       enable = true;
       settings = {
         historySize = 200;
+        enableMouse = false;
         imageDisplay = {
           type = "kitty";
           scaleX = 25;
           scaleY = 25;
           heightCut = 14;
-        };
-      };
-    };
-    activitywatch = {
-      enable = true;
-      watchers = {
-        awatcher = {
-          package = pkgs.awatcher;
-          executable = "awatcher";
         };
       };
     };
