@@ -44,6 +44,7 @@ in
     linuxHeaders
 
     # Tools
+    audacity
     appimage-run
     whisper-cpp
     caligula # iso image
