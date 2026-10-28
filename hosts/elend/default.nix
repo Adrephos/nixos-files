@@ -43,5 +43,11 @@
     options = [ "nofail" ];
   };
 
+  systemd.tmpfiles.rules = [
+    "A+ /srv/media/Video - - - - group:media:rwx"
+    "A+ /srv/media2/Video - - - - group:media:rwx"
+    "A+ /srv/media3 - - - - group:media:rwx"
+  ];
+
   system.stateVersion = "23.11";
 }
