@@ -7,6 +7,7 @@
     ../services/openssh.nix
     ../services/jellyfin.nix
     ../services/qbittorrent.nix
+    ../services/proton-port-forwarding.nix
     ../services/actual-budget.nix
     ../services/calibre-web.nix
     ../services/samba.nix

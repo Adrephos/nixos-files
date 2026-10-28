@@ -60,6 +60,8 @@
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
 
+    vpn-confinement.url = "github:Maroka-chan/VPN-Confinement";
+
     anki-flake.url = "gitlab:afriguez/anki-flake";
     anki-flake.inputs.nixpkgs.follows = "nixpkgs";
 
