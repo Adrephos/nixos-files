@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/server
+    ./hardware.nix
   ];
 
   networking.hostName = "elend";
