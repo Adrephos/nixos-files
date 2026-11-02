@@ -14,6 +14,7 @@
     ../services/tmux.nix
     ../services/glances.nix
     ../services/pihole.nix
+    ../services/tailscale.nix
   ];
 
   hardware.enableRedistributableFirmware = true;

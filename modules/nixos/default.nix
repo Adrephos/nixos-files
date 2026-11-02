@@ -9,5 +9,6 @@
     ./scripts.nix
     ./services.nix
     ./users.nix
+    ../services/tailscale.nix
   ];
 }
