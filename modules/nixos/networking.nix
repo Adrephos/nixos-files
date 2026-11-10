@@ -2,6 +2,8 @@
 {
   imports = [ ../shared/networking.nix ];
 
+  services.resolved.enable = true;
+
   networking = {
     firewall = {
       enable = false;
@@ -16,6 +18,5 @@
     };
 
     networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
-    networkmanager.insertNameservers = [ "192.168.58.114" ];
   };
 }
