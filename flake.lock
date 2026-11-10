@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790803895,
-        "narHash": "sha256-8nwKdNOCiQpByYCcPYFqtHh84FOByKXXdNZvPoTqjTU=",
+        "lastModified": 1794020439,
+        "narHash": "sha256-gybUbnVO/IqKAzMlKuQtXnHXWgps0cLA98SC/Diq6hQ=",
         "owner": "afriguez",
         "repo": "anki-flake",
-        "rev": "9ebbface67c245a4ddc49e1f72fb4d348856aec2",
+        "rev": "203bbf6411fac6c4011d0ff0538202b5129ca50a",
         "type": "gitlab"
       },
       "original": {
@@ -47,11 +47,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789682838,
-        "narHash": "sha256-nyFRedoQtRmssEHl17KnBTYEHt2XP/ja7A/yX0Se89Q=",
+        "lastModified": 1793745951,
+        "narHash": "sha256-ryKHNgzZZ4gRVwRqNnhaPzXjdSmjnG2cZ2GdaxsIOOQ=",
         "owner": "Adrephos",
         "repo": "boosteroid-flake",
-        "rev": "c3e072dfaebdf3ff1910f06cd883265b2aea3942",
+        "rev": "3d18f1c735e17d43e298e20f256f1a116149f1b8",
         "type": "github"
       },
       "original": {
