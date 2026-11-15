@@ -12,6 +12,8 @@ in
     xserver.enable = true;
     gnome.gnome-keyring.enable = true;
 
+    dbus.packages = [ pkgs.gnome-control-center ];
+
     displayManager = {
       defaultSession = "niri";
       sddm = {
@@ -23,7 +25,25 @@ in
   };
 
   programs = {
-    niri.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri.overrideAttrs (old: rec {
+        version = "26.04-main-689c1e9";
+        src = pkgs.fetchFromGitHub {
+          owner = "niri-wm";
+          repo = "niri";
+          rev = "689c1e914a5af782a476e433b79c15554bf5a312";
+          hash = "sha256-13a2sg+XKWFg+c2jCNTnso+Qbuihy6YHK2awm54VLrc=";
+        };
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit src;
+          name = "niri-main-vendor";
+          hash = "sha256-rLVTigIUf8rxn25bVdjVyOqPPjBq8KpKINoXQ/gFYxI=";
+        };
+        doCheck = false;
+        doInstallCheck = false;
+      });
+    };
     kdeconnect.enable = true;
     command-not-found.enable = false;
   };
