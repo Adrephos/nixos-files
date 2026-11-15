@@ -15,6 +15,7 @@
     ../services/glances.nix
     ../services/pihole.nix
     ../services/tailscale.nix
+    ../services/gitlab-runner.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
