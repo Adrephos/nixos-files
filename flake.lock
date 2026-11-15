@@ -185,11 +185,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792952593,
-        "narHash": "sha256-gwHUXZEGKRe1L8HF+5H/7PNJZvBgzU/WP2/UpgvXPu8=",
+        "lastModified": 1794755956,
+        "narHash": "sha256-9aFb+bbU+OzX4zhT66pMPc3A5PaYor1eJLQG2vXgoSs=",
         "ref": "refs/heads/main",
-        "rev": "941e478225bb171cadf964729ae6c19565282183",
-        "revCount": 8,
+        "rev": "13a39e09e9e83ee1a1ed715275dd98c871e59c88",
+        "revCount": 11,
         "type": "git",
         "url": "ssh://git@gitlab.com/adrephos/gsm-flake.git"
       },
