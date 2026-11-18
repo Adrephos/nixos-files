@@ -15,7 +15,9 @@
     ../services/glances.nix
     ../services/pihole.nix
     ../services/tailscale.nix
+    ../services/tailscale-serve.nix
     ../services/gitlab-runner.nix
+    ../services/suwayomi.nix
   ];
 
   hardware.enableRedistributableFirmware = true;

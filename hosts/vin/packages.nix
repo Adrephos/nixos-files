@@ -34,6 +34,7 @@ in
 
     # Development
     glab
+    github-cli
     neovim
     imagemagick
     gcc
@@ -80,6 +81,7 @@ in
     # burpsuite
 
     # Learning
+    mokuro
     codecrafters-cli
     exercism
     python314Packages.manga-ocr
