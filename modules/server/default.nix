@@ -15,10 +15,10 @@
     ../services/glances.nix
     ../services/pihole.nix
     ../services/tailscale.nix
-    ../services/tailscale-serve.nix
+    ../services/reverse-proxy.nix
     ../services/gitlab-runner.nix
     ../services/suwayomi.nix
-  ];
+    ../services/bentopdf.nix  ];
 
   hardware.enableRedistributableFirmware = true;
 }
