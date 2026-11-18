@@ -22,8 +22,6 @@
 
   services.pihole-web = {
     enable = true;
-    ports = [ 80 ];
+    ports = [ 8081 ];
   };
-
-  networking.firewall.allowedTCPPorts = [ 80 ];
 }
