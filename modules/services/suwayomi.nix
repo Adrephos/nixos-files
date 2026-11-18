@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   services.suwayomi-server = {
     enable = true;
@@ -9,16 +9,25 @@
         hash = "sha256-r5/rIK+dfr6eMHaebG68f8erHERziNQuAoCx2l/ge/0=";
       };
     });
-    openFirewall = true;
     group = "media";
     settings.server = {
-      ip = "0.0.0.0";
+      ip = "127.0.0.1";
       port = 4567;
       downloadAsCbz = true;
       downloadsPath = "/srv/media3/Manga/downloads";
       localSourcePath = "/srv/media3/Manga/local";
+
+      basicAuthEnabled = true;
+      basicAuthUsername = "gleipnir";
+      # Put the password alone in this file, readable by root only.
+      basicAuthPasswordFile = "/etc/nixos-secrets/suwayomi";
+
+      flareSolverrEnabled = true;
+      flareSolverrUrl = "http://127.0.0.1:${toString config.services.flaresolverr.port}";
     };
   };
+
+  services.flaresolverr.enable = true;
 
   systemd.services.suwayomi-server = {
     unitConfig.RequiresMountsFor = "/srv/media3";
