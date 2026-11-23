@@ -25,6 +25,8 @@ in
   };
 
   programs = {
+    hyprlock.enable = true;
+
     niri = {
       enable = true;
       package = pkgs.niri.overrideAttrs (old: rec {

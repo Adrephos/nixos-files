@@ -8,6 +8,7 @@ in
     ./niri.nix
     ./waybar.nix
     ./wlogout.nix
+    ./hyprlock.nix
     ./theme.nix
     ./anki.nix
     ./default-apps.nix
