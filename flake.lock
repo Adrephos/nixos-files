@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790676708,
-        "narHash": "sha256-P5g8bR66tP/aChKaxGa9WbSFyORPyOgZhyVoXISc9sk=",
+        "lastModified": 1795441634,
+        "narHash": "sha256-jRexU38H4++4NN3Ljca7yjrQ1wSyH6km7hGdKRmErY8=",
         "owner": "kcalvelli",
         "repo": "brave-browser-previews",
-        "rev": "a8dc0c2372c69dcc789cc44fcdabae8f9c611dca",
+        "rev": "6a1cbd74302a8bd54e32d2e398c7215c761ff64c",
         "type": "github"
       },
       "original": {
@@ -87,11 +87,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1792645311,
-        "narHash": "sha256-yZmgxDGUbDySY/J4/4yl+eQ7PcnIOuvqDvVD4yVffcs=",
+        "lastModified": 1795471286,
+        "narHash": "sha256-eff6PLpfE8Z/keVrrenlcw25HUoELC+Jd3OI1HsQizQ=",
         "owner": "sadjow",
         "repo": "claude-code-nix",
-        "rev": "75964e6dac38d737da37c96ba87bca751f935f7d",
+        "rev": "fadaff01f0a5728ec1e2a5928bcdf68163eb2a15",
         "type": "github"
       },
       "original": {
@@ -253,6 +253,26 @@
         "type": "github"
       }
     },
+    "hytale-launcher": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795546920,
+        "narHash": "sha256-nudRmZ8RqT67xGQqjjw5/pK7GijqmeokS8ELTirXMcM=",
+        "owner": "JPyke3",
+        "repo": "hytale-launcher-nix",
+        "rev": "84f95fb9c9e949e1b55223916ee182a82d7ed1b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JPyke3",
+        "repo": "hytale-launcher-nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1778443072,
@@ -287,11 +307,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792506237,
-        "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
+        "lastModified": 1795371335,
+        "narHash": "sha256-oa2P5WZer1A4wuhatl92JyHHEjrrOdIyuvTuI5LUi9Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5adc50831c259f87faeb09ddf930d43597197473",
+        "rev": "619c39f6eac5d1ed6b8f073a9414baf7034b2356",
         "type": "github"
       },
       "original": {
@@ -375,6 +395,7 @@
         "gsm-flake": "gsm-flake",
         "herdr": "herdr",
         "home-manager": "home-manager",
+        "hytale-launcher": "hytale-launcher",
         "nixpkgs": "nixpkgs_4",
         "templ": "templ",
         "veadotube-mini": "veadotube-mini",

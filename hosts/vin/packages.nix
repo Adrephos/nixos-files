@@ -2,11 +2,13 @@
 let
   zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
   veadotube-mini = inputs.veadotube-mini.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  hytale-launcher = inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   environment.systemPackages = with pkgs; [
     zen-browser
     veadotube-mini
+    hytale-launcher
 
     # Java Zzzz
     jdk

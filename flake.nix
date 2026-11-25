@@ -45,6 +45,9 @@
 
     boosteroid.url = "github:Adrephos/boosteroid-flake";
 
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+    hytale-launcher.inputs.nixpkgs.follows = "nixpkgs";
+
     gsm-flake.url = "git+ssh://git@gitlab.com/adrephos/gsm-flake.git";
     gsm-flake.inputs.nixpkgs.follows = "nixpkgs";
 
