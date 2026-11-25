@@ -10,7 +10,6 @@
     ../services/proton-port-forwarding.nix
     ../services/actual-budget.nix
     ../services/calibre-web.nix
-    ../services/samba.nix
     ../services/tmux.nix
     ../services/glances.nix
     ../services/pihole.nix
@@ -18,7 +17,9 @@
     ../services/reverse-proxy.nix
     ../services/gitlab-runner.nix
     ../services/suwayomi.nix
-    ../services/bentopdf.nix  ];
+    ../services/bentopdf.nix
+    ../services/syncthing.nix
+  ];
 
   hardware.enableRedistributableFirmware = true;
 }
