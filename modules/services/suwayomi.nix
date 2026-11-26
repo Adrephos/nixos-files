@@ -16,6 +16,7 @@
       downloadAsCbz = true;
       downloadsPath = "/srv/media3/Manga/downloads";
       localSourcePath = "/srv/media3/Manga/local";
+      extensionStores = [ "https://github.com/keiyoushi/extensions/raw/repo/index.pb" ];
 
       basicAuthEnabled = true;
       basicAuthUsername = "gleipnir";
